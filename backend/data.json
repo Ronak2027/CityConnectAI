@@ -190,7 +190,7 @@
       "createdAt": "2026-09-12T04:25:13.998Z",
       "assignedWorkerId": "WRK-203",
       "resolvedAt": "2026-09-12T05:33:33.684Z",
-      "rejectionReason": "D"
+      "rejectionReason": "JJ\n"
     },
     {
       "_id": "CMP-2026-6023",
@@ -228,7 +228,7 @@
       "status": "VERIFICATION",
       "createdAt": "2026-09-12T03:57:55.918Z",
       "assignedWorkerId": "WRK-202",
-      "rejectionReason": "J"
+      "rejectionReason": "G"
     },
     {
       "_id": "CMP-2026-3534",
@@ -645,6 +645,162 @@
   "activeStormWarning": true,
   "verifications": [
     {
+      "_id": "VER-1789200710041",
+      "verificationId": "VER-2026-0041",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789200710021-932569510.jpg",
+      "afterImage": "/uploads/afterImage-1789200710018-788129138.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Road pothole cavity / crack still present in resolution photo",
+          "Surface defect detected (70.0% road damage clutter)",
+          "Zero asphalt leveling or cavity filling verified"
+        ],
+        "reason": "REJECTED: AI vision model detected road pothole hazard still present in the worker resolution photo (70.0% defect clutter). The road surface has not been repaired.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:11:56.229Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284920732840874,
+        "longitude": 74.8444589441113,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "captureTimestamp": "2026-09-12T08:11:50.041Z",
+      "cameraVerification": true,
+      "status": "PENDING",
+      "createdAt": "2026-09-12T08:11:50.041Z"
+    },
+    {
+      "_id": "VER-1789200654301",
+      "verificationId": "VER-2026-4301",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789200519039-50724857.jpg",
+      "afterImage": "/uploads/afterImage-1789200654285-659549647.jpg",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284910777189502,
+        "longitude": 74.8444539541531,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "captureTimestamp": "2026-09-12T08:10:54.301Z",
+      "cameraVerification": true,
+      "status": "PENDING",
+      "createdAt": "2026-09-12T08:10:54.301Z"
+    },
+    {
+      "_id": "VER-1789200519065",
+      "verificationId": "VER-2026-9065",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789200519039-50724857.jpg",
+      "afterImage": "/uploads/afterImage-1789200519035-984185221.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 50,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Road pothole cavity / crack detected in resolution photo",
+          "Active road defect detected by YOLOv8 (37% confidence)",
+          "Zero cavity filling or road paving verified"
+        ],
+        "reason": "REJECTED: YOLOv8 model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:12:02.359Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28490300019148,
+        "longitude": 74.84445626204622,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "captureTimestamp": "2026-09-12T08:08:39.065Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T08:08:39.065Z",
+      "rejectionReason": "JJ\n",
+      "adminDecisionAt": "2026-09-12T08:10:02.879Z"
+    },
+    {
       "_id": "VER-1789200182421",
       "verificationId": "VER-2026-2421",
       "taskId": "TSK-CMP-2026-5917",
@@ -664,19 +820,19 @@
       "afterImage": "/uploads/afterImage-1789200182404-819569862.jpg",
       "imageVerification": {
         "verifiedByModel": true,
-        "status": "PASSED",
-        "confidence": 96,
-        "ssimScore": 0.76,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
         "detectedChanges": [
-          "Pothole cavity filled and leveled",
-          "Fresh bitumen / asphalt patch applied",
-          "Smooth road surface restored for traffic"
+          "Road pothole cavity / crack still present in resolution photo",
+          "Surface defect detected (45.0% road damage clutter)",
+          "Zero asphalt leveling or cavity filling verified"
         ],
-        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
-        "recommendation": "APPROVE",
+        "reason": "REJECTED: AI vision model detected road pothole hazard still present in the worker resolution photo (45.0% defect clutter). The road surface has not been repaired.",
+        "recommendation": "REJECT",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
-        "analyzedAt": "2026-09-12T08:03:26.301Z"
+        "analyzedAt": "2026-09-12T08:11:04.355Z"
       },
       "gpsVerification": {
         "passed": true,
@@ -695,8 +851,10 @@
       },
       "captureTimestamp": "2026-09-12T08:03:02.421Z",
       "cameraVerification": true,
-      "status": "PENDING",
-      "createdAt": "2026-09-12T08:03:02.422Z"
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T08:03:02.422Z",
+      "rejectionReason": "G",
+      "adminDecisionAt": "2026-09-12T08:11:18.477Z"
     },
     {
       "_id": "VER-1789200027654",
@@ -730,7 +888,7 @@
         "recommendation": "REJECT",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
-        "analyzedAt": "2026-09-12T08:05:46.665Z"
+        "analyzedAt": "2026-09-12T08:07:53.622Z"
       },
       "gpsVerification": {
         "passed": true,
@@ -749,8 +907,10 @@
       },
       "captureTimestamp": "2026-09-12T08:00:27.654Z",
       "cameraVerification": true,
-      "status": "PENDING",
-      "createdAt": "2026-09-12T08:00:27.654Z"
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T08:00:27.654Z",
+      "rejectionReason": "VV",
+      "adminDecisionAt": "2026-09-12T08:07:59.322Z"
     },
     {
       "_id": "VER-1789199993149",
@@ -3198,11 +3358,11 @@
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
       "createdAt": "2026-09-12T04:28:13.778Z",
-      "beforeImage": "/uploads/beforeImage-1789199902445-331489840.jpg",
-      "afterImage": "/uploads/afterImage-1789200027650-224342916.jpg",
-      "verificationId": "VER-1789200027654",
+      "beforeImage": "/uploads/beforeImage-1789200519039-50724857.jpg",
+      "afterImage": "/uploads/afterImage-1789200654285-659549647.jpg",
+      "verificationId": "VER-1789200654301",
       "completedAt": "2026-09-12T05:33:33.679Z",
-      "rejectionReason": "D"
+      "rejectionReason": "JJ\n"
     },
     {
       "_id": "TSK-CMP-2026-6023",
@@ -3291,10 +3451,10 @@
         "address": "Lat: 21.3557, Lng: 74.8884"
       },
       "createdAt": "2026-09-12T04:11:30.114Z",
-      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
-      "afterImage": "/uploads/afterImage-1789200182404-819569862.jpg",
-      "verificationId": "VER-1789200182421",
-      "rejectionReason": "J"
+      "beforeImage": "/uploads/beforeImage-1789200710021-932569510.jpg",
+      "afterImage": "/uploads/afterImage-1789200710018-788129138.jpg",
+      "verificationId": "VER-1789200710041",
+      "rejectionReason": "G"
     },
     {
       "_id": "TSK-CMP-2026-3534",

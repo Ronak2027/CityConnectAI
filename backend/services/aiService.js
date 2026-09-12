@@ -112,9 +112,10 @@ export function normalizeCategory(category = '') {
 /**
  * Generates category-specific visual inspection changes, summary reason, and recommendation
  */
-export function getCategoryFeedback(category = '', status = 'PASSED', isFraud = false) {
+export function getCategoryFeedback(category = '', status = 'PASSED', isFraud = false, options = {}) {
   const normCat = normalizeCategory(category);
   const isPassed = status === 'PASSED';
+  const clutterPct = options.clutterPct || '45.0';
 
   // CASE 1: FRAUD / DUPLICATE PHOTO
   if (isFraud) {
@@ -133,7 +134,7 @@ export function getCategoryFeedback(category = '', status = 'PASSED', isFraud = 
         return {
           detectedChanges: [
             'Duplicate photo submitted',
-            'Road cavity still present on site',
+            'Road cavity / pothole still present on site',
             'Zero asphalt patching verified'
           ],
           reason: 'REJECTED: Worker submitted identical defect photo. Road surface remains unpaved.',
@@ -189,42 +190,42 @@ export function getCategoryFeedback(category = '', status = 'PASSED', isFraud = 
       case 'pothole':
         return {
           detectedChanges: [
-            'Pothole cavity still visible in resolution photo',
-            'Insufficient asphalt fill delta',
-            'Road hazard persists'
+            'Road pothole cavity / crack still present in resolution photo',
+            `Surface defect detected (${clutterPct}% road damage clutter)`,
+            'Zero asphalt leveling or cavity filling verified'
           ],
-          reason: 'REJECTED: AI vision model detected that the road cavity has not been filled or paved.',
+          reason: `REJECTED: AI vision model detected road pothole hazard still present in the worker resolution photo (${clutterPct}% defect clutter). The road surface has not been repaired.`,
           recommendation: 'REJECT'
         };
       case 'drainage':
         return {
           detectedChanges: [
-            'Drain blockage still present',
-            'Stagnant water remains ponded',
-            'Debris obstruction visible'
+            'Drainage blockage or stagnant water still present in resolution photo',
+            `Waterlogging and channel obstruction detected (${clutterPct}% blockage)`,
+            'Zero drain desilting or water clearance verified'
           ],
-          reason: 'REJECTED: AI vision model detected continuing water blockage or obstruction in the drainage channel.',
+          reason: `REJECTED: AI vision model detected continuing water blockage or obstruction in the drainage channel (${clutterPct}% obstruction). The drain has not been cleared.`,
           recommendation: 'REJECT'
         };
       case 'manhole':
         return {
           detectedChanges: [
             'Manhole cavity remains uncovered or loose',
-            'Fall hazard persists',
-            'Cover missing from frame'
+            'Fall hazard persists at opening',
+            'Cover missing from road frame'
           ],
-          reason: 'REJECTED: AI vision model detected that the manhole is still open or improperly covered.',
+          reason: 'REJECTED: AI vision model detected that the manhole pit is still open or improperly covered. Severe hazard persists.',
           recommendation: 'REJECT'
         };
       case 'garbage':
       default:
         return {
           detectedChanges: [
-            'Defect still visible in resolution photo',
-            'Insufficient visual change',
-            'Garbage / defect residue remains'
+            'Garbage & waste debris still present in resolution photo',
+            `Dense waste clutter detected (${clutterPct}% surface clutter)`,
+            'Zero site cleanup or waste removal verified'
           ],
-          reason: 'REJECTED: AI vision model detected that the civic defect is still present in the resolution photo.',
+          reason: `REJECTED: AI vision model detected heavy garbage and waste debris still present in the worker resolution photo (${clutterPct}% clutter). The reported defect has not been cleared.`,
           recommendation: 'REJECT'
         };
     }
@@ -430,16 +431,45 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
 
     let category = options.category || options.complaintId?.category || options.complaintRef?.category || '';
 
-    // Automatically inspect visual content to correct mistaken user categories (e.g. Garbage filed as Road)
-    const visualCatBefore = await detectVisualCategory(beforeBuf, category);
-    const visualCatAfter = await detectVisualCategory(afterBuf, category);
-
-    if (visualCatBefore === 'garbage') {
-      category = 'Garbage';
-    } else if (visualCatBefore === 'streetlight') {
-      category = 'Streetlight';
+    // Respect explicit complaint category; only infer visually if missing or generic
+    let normCat = normalizeCategory(category);
+    if (!normCat || normCat === 'general') {
+      const visualCatBefore = await detectVisualCategory(beforeBuf, category);
+      if (visualCatBefore && visualCatBefore !== 'general') {
+        category = visualCatBefore;
+        normCat = normalizeCategory(category);
+      }
     }
-    const normCat = normalizeCategory(category);
+
+    // -------------------------------------------------------------
+    // FEATURE EXTRACTION & RESOLUTION VERIFICATION
+    // -------------------------------------------------------------
+    const beforeFeat = await extractImageFeatures(beforeBuf);
+    const afterFeat = await extractImageFeatures(afterBuf);
+
+    // 1. Overall pixel difference
+    let totalDiff = 0;
+    for (let i = 0; i < beforeFeat.raw.length; i++) {
+      totalDiff += Math.abs(beforeFeat.raw[i] - afterFeat.raw[i]);
+    }
+    const avgDiff = totalDiff / beforeFeat.raw.length;
+
+    // 2. Background landscape difference (top 40%)
+    let bgDiff = 0;
+    for (let i = 0; i < beforeFeat.bgRaw.length; i++) {
+      bgDiff += Math.abs(beforeFeat.bgRaw[i] - afterFeat.bgRaw[i]);
+    }
+    const avgBgDiff = bgDiff / beforeFeat.bgRaw.length;
+
+    // Dedicated illumination check for streetlights
+    let slCheck = { isLit: false };
+    if (normCat === 'streetlight') {
+      slCheck = await analyzeStreetlightIllumination(beforeBuf, afterBuf);
+    }
+
+    const clutterPct = (afterFeat.fgEdgeDensity * 100).toFixed(1);
+    const isAfterDefectPresent = (afterFeat.fgEdgeDensity > 0.36 && afterFeat.fgMeanLap > 28) ||
+      (afterFeat.fgEdgeDensity >= beforeFeat.fgEdgeDensity * 0.80 && afterFeat.fgEdgeDensity > 0.30);
 
     // If Python CityConnectAI server is running, query it first
     if (beforeBuf && afterBuf) {
@@ -458,19 +488,42 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         }, { timeout: 2500 });
 
         const data = response.data;
-        const status = data.verification_status === 'RESOLVED' || data.verification_status === 'VERIFIED' ? 'PASSED' : 'FAILED';
-        const feedback = getCategoryFeedback(category, status, false);
+        let status = (data.verification_status === 'RESOLVED' || data.verification_status === 'VERIFIED') ? 'PASSED' : 'FAILED';
+
+        // Critical safety validation: If after photo still contains heavy defect clutter or active defect was detected
+        if (data.after_detection?.detected || (isAfterDefectPresent && normCat !== 'streetlight')) {
+          status = 'FAILED';
+        }
+
+        const feedback = getCategoryFeedback(category, status, false, { clutterPct });
+        let detectedChanges = feedback.detectedChanges;
+        let reason = feedback.reason;
+
+        // If after photo has active defect detected by YOLOv8 model
+        if (data.after_detection?.detected) {
+          if (normCat === 'pothole') {
+            detectedChanges = [
+              'Road pothole cavity / crack detected in resolution photo',
+              `Active road defect detected by YOLOv8 (${Math.round((data.after_detection.confidence || 0.37) * 100)}% confidence)`,
+              'Zero cavity filling or road paving verified'
+            ];
+            reason = 'REJECTED: YOLOv8 model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.';
+          } else if (normCat === 'garbage') {
+            detectedChanges = [
+              'Garbage & waste debris detected in resolution photo',
+              `Active waste detected by YOLOv8 (${Math.round((data.after_detection.confidence || 0.45) * 100)}% confidence)`,
+              'Zero site cleanup or waste removal verified'
+            ];
+            reason = 'REJECTED: YOLOv8 model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.';
+          }
+        }
 
         return {
           status,
-          confidence: Math.round((data.confidence_score || data.verification_confidence || (status === 'PASSED' ? 0.92 : 0.25)) * 100),
-          ssimScore: data.ssim_similarity || (status === 'PASSED' ? 0.88 : 0.98),
-          detectedChanges: (data.detected_changes && !data.detected_changes.join('').toLowerCase().includes('garbage'))
-            ? data.detected_changes 
-            : feedback.detectedChanges,
-          reason: (data.work_summary && !data.work_summary.toLowerCase().includes('garbage') && normCat !== 'garbage') 
-            ? data.work_summary 
-            : feedback.reason,
+          confidence: Math.round((data.confidence_score || data.verification_confidence || (status === 'PASSED' ? 0.92 : 0.18)) * 100),
+          ssimScore: data.ssim_similarity || (status === 'PASSED' ? 0.88 : 0.60),
+          detectedChanges,
+          reason,
           recommendation: status === 'PASSED' ? 'APPROVE' : 'REJECT',
           rawResult: data
         };
@@ -480,31 +533,9 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
     }
 
     // -------------------------------------------------------------
-    // NODE.JS COMPUTER VISION VERIFICATION (Sharp Engine)
+    // NODE.JS COMPUTER VISION VERIFICATION (Sharp Engine Fallback)
     // -------------------------------------------------------------
     if (beforeBuf && afterBuf) {
-      const beforeFeat = await extractImageFeatures(beforeBuf);
-      const afterFeat = await extractImageFeatures(afterBuf);
-
-      // 1. Overall pixel difference
-      let totalDiff = 0;
-      for (let i = 0; i < beforeFeat.raw.length; i++) {
-        totalDiff += Math.abs(beforeFeat.raw[i] - afterFeat.raw[i]);
-      }
-      const avgDiff = totalDiff / beforeFeat.raw.length;
-
-      // 2. Background landscape difference (top 40%)
-      let bgDiff = 0;
-      for (let i = 0; i < beforeFeat.bgRaw.length; i++) {
-        bgDiff += Math.abs(beforeFeat.bgRaw[i] - afterFeat.bgRaw[i]);
-      }
-      const avgBgDiff = bgDiff / beforeFeat.bgRaw.length;
-
-      // Dedicated illumination check for streetlights
-      let slCheck = { isLit: false };
-      if (normCat === 'streetlight') {
-        slCheck = await analyzeStreetlightIllumination(beforeBuf, afterBuf);
-      }
 
       console.log(`[AI Vision Engine] Analysis (${normCat}): avgDiff=${avgDiff.toFixed(1)}, avgBgDiff=${avgBgDiff.toFixed(1)}, bClutter=${(beforeFeat.fgEdgeDensity * 100).toFixed(1)}%, aClutter=${(afterFeat.fgEdgeDensity * 100).toFixed(1)}%, isLit=${slCheck.isLit}`);
 
@@ -550,7 +581,7 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         }
       }
 
-      // CHECK 3: DEFECT STILL PRESENT IN AFTER PHOTO (GARBAGE / RUBBLE / CHAOTIC CLUTTER)
+      // CHECK 3: DEFECT STILL PRESENT IN AFTER PHOTO (POTHOLE, GARBAGE, WATERLOGGING)
       // If the after photo still contains dense clutter (>36% edge density and meanLap > 28)
       // or if clutter did not decrease and remains high (>30%)
       const isAfterDefectPresent = (afterFeat.fgEdgeDensity > 0.36 && afterFeat.fgMeanLap > 28) ||
@@ -558,16 +589,13 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
 
       if (isAfterDefectPresent) {
         const clutterPct = (afterFeat.fgEdgeDensity * 100).toFixed(1);
+        const feedback = getCategoryFeedback(category, 'FAILED', false, { clutterPct });
         return {
           status: 'FAILED',
           confidence: 18,
           ssimScore: parseFloat(Math.max(0.20, Math.min(0.60, 1.0 - (avgDiff / 255))).toFixed(2)),
-          detectedChanges: [
-            'Heavy garbage & waste debris still present in resolution photo',
-            `Dense defect clutter detected (${clutterPct}% surface clutter)`,
-            'Zero site cleanup or waste removal verified'
-          ],
-          reason: `REJECTED: AI vision model detected heavy garbage and waste debris still present in the worker resolution photo (${clutterPct}% clutter). The reported defect has not been cleared.`,
+          detectedChanges: feedback.detectedChanges,
+          reason: feedback.reason,
           recommendation: 'REJECT',
           isFraud: false
         };
@@ -576,6 +604,7 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
       // CHECK 4: DIFFERENT LOCATION / SCENE MISMATCH
       // Worker took a photo of an unrelated site
       if (avgBgDiff > 45.0 && afterFeat.fgEdgeDensity > 0.28) {
+        const catLabel = normCat === 'pothole' ? 'road / pothole' : (normCat === 'streetlight' ? 'streetlight' : (normCat === 'drainage' ? 'drain' : (normCat === 'manhole' ? 'manhole' : 'defect')));
         return {
           status: 'FAILED',
           confidence: 22,
@@ -583,9 +612,9 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
           detectedChanges: [
             'Unmatched location / scene detected',
             `Background landscape mismatch (${avgBgDiff.toFixed(1)} delta)`,
-            'Closure photo taken at wrong site'
+            `Closure photo taken at wrong site; reported ${catLabel} remains unverified`
           ],
-          reason: 'REJECTED: AI vision model detected a site mismatch. Worker resolution photo was taken at a different location.',
+          reason: `REJECTED: AI vision model detected a site mismatch. Worker resolution photo was taken at a different location than the reported ${catLabel} site.`,
           recommendation: 'REJECT',
           isFraud: false
         };
