@@ -129,7 +129,21 @@ router.post('/:id/verify-model', authenticate, authorize('admin'), async (req, r
     const beforeImg = verif.beforeImage || verif.complaintId?.photoUrl;
     const afterImg = verif.afterImage;
 
+    // Resolve accurate complaint category for specialized vision inspection
+    let category = verif.complaintId?.category || verif.category || '';
+    if (!category && verif.complaintId) {
+      const compId = typeof verif.complaintId === 'object' 
+        ? (verif.complaintId._id || verif.complaintId.complaintId) 
+        : verif.complaintId;
+      const allComplaints = jsonDB.getComplaints();
+      const matchComp = allComplaints.find(c => c._id === compId || c.complaintId === compId);
+      if (matchComp) {
+        category = matchComp.category;
+      }
+    }
+
     const aiResult = await verifyWorkWithAI(beforeImg, afterImg, {
+      category,
       workerLat: verif.workerLocation?.latitude || 19.0760,
       workerLng: verif.workerLocation?.longitude || 72.8777,
       complaintLat: verif.complaintLocation?.latitude || 19.0760,

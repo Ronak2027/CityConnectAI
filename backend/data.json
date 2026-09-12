@@ -1,6 +1,44 @@
 {
   "complaints": [
     {
+      "_id": "CMP-2026-5014",
+      "complaintId": "CMP-2026-5014",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Streetlight",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789196405007-222122254.jpeg",
+      "location": {
+        "latitude": 21.284892990205005,
+        "longitude": 74.8444456507982,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "priority": "Medium",
+      "department": "Electrical Operations",
+      "status": "VERIFICATION",
+      "createdAt": "2026-09-12T07:00:05.016Z",
+      "assignedWorkerId": "WRK-201"
+    },
+    {
+      "_id": "CMP-2026-7650",
+      "complaintId": "CMP-2026-7650",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789195947625-259874071.png",
+      "location": {
+        "latitude": 21.284857352258765,
+        "longitude": 74.84444912589774,
+        "address": "Coordinates: 21.28486, 74.84445"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T06:52:27.652Z",
+      "assignedWorkerId": "WRK-201",
+      "rejectionReason": "DIFFERENT PHOTO",
+      "resolvedAt": "2026-09-12T06:59:32.901Z"
+    },
+    {
       "_id": "CMP-2026-1683",
       "complaintId": "CMP-2026-1683",
       "citizenId": "66e1bf7289f1a23c4d5e6f7a",
@@ -568,6 +606,171 @@
   "activeStormWarning": true,
   "verifications": [
     {
+      "_id": "VER-1789196450419",
+      "verificationId": "VER-2026-0419",
+      "taskId": "TSK-CMP-2026-5014",
+      "complaintId": {
+        "_id": "CMP-2026-5014",
+        "complaintId": "CMP-2026-5014",
+        "category": "Streetlight",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789196405007-222122254.jpeg",
+      "afterImage": "/uploads/afterImage-1789196450405-743881857.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 92,
+        "ssimScore": 0.9,
+        "detectedChanges": [
+          "Streetlight luminaire illuminated & functional",
+          "Nighttime roadway illuminance restored",
+          "Active electrical glow verified on pole fixture"
+        ],
+        "reason": "VERIFIED: AI vision model confirmed streetlight illumination delta. Electrical fixture is operational and lighting roadway.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:00:57.321Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28489273551933,
+        "longitude": 74.8444456507982,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.284892990205005,
+        "longitude": 74.8444456507982,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "captureTimestamp": "2026-09-12T07:00:50.419Z",
+      "cameraVerification": true,
+      "status": "PENDING",
+      "createdAt": "2026-09-12T07:00:50.419Z"
+    },
+    {
+      "_id": "VER-1789196313239",
+      "verificationId": "VER-2026-3239",
+      "taskId": "TSK-CMP-2026-7650",
+      "complaintId": {
+        "_id": "CMP-2026-7650",
+        "complaintId": "CMP-2026-7650",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789195947625-259874071.png",
+      "afterImage": "/uploads/afterImage-1789196313190-802860491.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.86,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported waste has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T06:58:41.567Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.1,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284894167267062,
+        "longitude": 74.84445201826317,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.284857352258765,
+        "longitude": 74.84444912589774,
+        "address": "Coordinates: 21.28486, 74.84445"
+      },
+      "captureTimestamp": "2026-09-12T06:58:33.240Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T06:58:33.241Z",
+      "adminDecisionAt": "2026-09-12T06:59:32.891Z"
+    },
+    {
+      "_id": "VER-1789195993224",
+      "verificationId": "VER-2026-3224",
+      "taskId": "TSK-CMP-2026-7650",
+      "complaintId": {
+        "_id": "CMP-2026-7650",
+        "complaintId": "CMP-2026-7650",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789195947625-259874071.png",
+      "afterImage": "/uploads/afterImage-1789195993214-445225157.jpeg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.73,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported waste has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T06:53:35.526Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284908058102435,
+        "longitude": 74.84445656860855,
+        "address": "21.28491, 74.84446"
+      },
+      "complaintLocation": {
+        "latitude": 21.284857352258765,
+        "longitude": 74.84444912589774,
+        "address": "Coordinates: 21.28486, 74.84445"
+      },
+      "captureTimestamp": "2026-09-12T06:53:13.224Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T06:53:13.224Z",
+      "rejectionReason": "DIFFERENT PHOTO",
+      "adminDecisionAt": "2026-09-12T06:53:49.722Z"
+    },
+    {
       "_id": "VER-1789192879207",
       "verificationId": "VER-2026-9207",
       "taskId": "TSK-CMP-2026-1683",
@@ -591,11 +794,11 @@
         "confidence": 96,
         "ssimScore": 0.79,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Streetlight luminaire illuminated & functional",
+          "Nighttime roadway illuminance restored",
+          "Active electrical glow verified on pole fixture"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model confirmed streetlight illumination delta. Electrical fixture is operational and lighting roadway.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -644,11 +847,11 @@
         "confidence": 96,
         "ssimScore": 0.8,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
           "Significant visual cleanup verified"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported waste has been successfully cleared.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -697,11 +900,11 @@
         "confidence": 96,
         "ssimScore": 0.77,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -750,11 +953,11 @@
         "confidence": 96,
         "ssimScore": 0.79,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -805,10 +1008,10 @@
         "ssimScore": 0.99,
         "detectedChanges": [
           "Duplicate photo submitted",
-          "Defect still present on site",
-          "Zero cleanup or repair verified"
+          "Road cavity still present on site",
+          "Zero asphalt patching verified"
         ],
-        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "reason": "REJECTED: Worker submitted identical defect photo. Road surface remains unpaved.",
         "recommendation": "REJECT",
         "isFraud": true,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -858,11 +1061,11 @@
         "confidence": 94,
         "ssimScore": 0.85,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
           "Significant visual cleanup verified"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported waste has been successfully cleared.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -957,10 +1160,10 @@
         "ssimScore": 0.99,
         "detectedChanges": [
           "Duplicate photo submitted",
-          "Defect still present on site",
-          "Zero cleanup or repair verified"
+          "Streetlight luminaire remains unlit / unchanged",
+          "Zero illumination delta verified"
         ],
-        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "reason": "REJECTED: Worker submitted an identical complaint photo. Streetlight illumination cannot be verified.",
         "recommendation": "REJECT",
         "isFraud": true,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -1009,11 +1212,11 @@
         "confidence": 92,
         "ssimScore": 0.9,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Streetlight luminaire illuminated & functional",
+          "Nighttime roadway illuminance restored",
+          "Active electrical glow verified on pole fixture"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model confirmed streetlight illumination delta. Electrical fixture is operational and lighting roadway.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -1062,11 +1265,11 @@
         "confidence": 94,
         "ssimScore": 0.86,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -1116,10 +1319,10 @@
         "ssimScore": 0.99,
         "detectedChanges": [
           "Duplicate photo submitted",
-          "Defect still present on site",
-          "Zero cleanup or repair verified"
+          "Road cavity still present on site",
+          "Zero asphalt patching verified"
         ],
-        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "reason": "REJECTED: Worker submitted identical defect photo. Road surface remains unpaved.",
         "recommendation": "REJECT",
         "isFraud": true,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -1275,11 +1478,11 @@
         "confidence": 96,
         "ssimScore": 0.69,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
           "Significant visual cleanup verified"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported waste has been successfully cleared.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -1604,11 +1807,11 @@
         "confidence": 94,
         "ssimScore": 0.86,
         "detectedChanges": [
-          "Garbage and debris cleared from site",
-          "Surface restored and swept",
-          "Significant visual cleanup verified"
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
         ],
-        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
@@ -2001,6 +2204,98 @@
     }
   ],
   "tasks": [
+    {
+      "_id": "TSK-CMP-2026-5014",
+      "taskId": "TSK-CMP-2026-5014",
+      "complaintId": {
+        "_id": "CMP-2026-5014",
+        "complaintId": "CMP-2026-5014",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Streetlight",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789196405007-222122254.jpeg",
+        "location": {
+          "latitude": 21.284892990205005,
+          "longitude": 74.8444456507982,
+          "address": "Academic Building, Aamoda, Shirpur Taluka"
+        },
+        "priority": "Medium",
+        "department": "Electrical Operations",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T07:00:05.016Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "VERIFICATION",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.284892990205005,
+        "longitude": 74.8444456507982,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "createdAt": "2026-09-12T07:00:31.230Z",
+      "beforeImage": "/uploads/photo-1789196405007-222122254.jpeg",
+      "afterImage": "/uploads/afterImage-1789196450405-743881857.jpg",
+      "verificationId": "VER-1789196450419"
+    },
+    {
+      "_id": "TSK-CMP-2026-7650",
+      "taskId": "TSK-CMP-2026-7650",
+      "complaintId": {
+        "_id": "CMP-2026-7650",
+        "complaintId": "CMP-2026-7650",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789195947625-259874071.png",
+        "location": {
+          "latitude": 21.284857352258765,
+          "longitude": 74.84444912589774,
+          "address": "Coordinates: 21.28486, 74.84445"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T06:52:27.652Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.284857352258765,
+        "longitude": 74.84444912589774,
+        "address": "Coordinates: 21.28486, 74.84445"
+      },
+      "createdAt": "2026-09-12T06:52:42.876Z",
+      "beforeImage": "/uploads/photo-1789195947625-259874071.png",
+      "afterImage": "/uploads/afterImage-1789196313190-802860491.jpg",
+      "verificationId": "VER-1789196313239",
+      "rejectionReason": "DIFFERENT PHOTO",
+      "completedAt": "2026-09-12T06:59:32.895Z"
+    },
     {
       "_id": "TSK-CMP-2026-1683",
       "taskId": "TSK-CMP-2026-1683",

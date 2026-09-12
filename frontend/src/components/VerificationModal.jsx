@@ -68,7 +68,35 @@ export default function VerificationModal({ verification: initialVerification, o
   const aiStatus = verification.imageVerification?.status ?? 'AWAITING_MODEL';
   const confidence = verification.imageVerification?.confidence ?? (isModelVerified ? 94 : null);
   const ssimScore = verification.imageVerification?.ssimScore ?? 0.89;
-  const detectedChanges = verification.imageVerification?.detectedChanges || ['Defect resolved', 'Site cleaned & restored'];
+  const getCategoryPassedText = () => {
+    const cat = (verification.complaintId?.category || '').toLowerCase();
+    if (cat.includes('light') || cat.includes('electrical')) return 'Streetlight fixture operational & illuminated';
+    if (cat.includes('pothole') || cat.includes('road')) return 'Pothole cavity filled & leveled';
+    if (cat.includes('drain') || cat.includes('water')) return 'Drainage blockage cleared & flow restored';
+    if (cat.includes('manhole')) return 'Manhole cover securely installed';
+    return 'Site defect has been verified cleared';
+  };
+
+  const getDefaultChanges = () => {
+    const cat = (verification.complaintId?.category || '').toLowerCase();
+    if (cat.includes('light') || cat.includes('electrical')) {
+      return ['Streetlight luminaire illuminated & functional', 'Nighttime roadway illuminance restored'];
+    }
+    if (cat.includes('pothole') || cat.includes('road')) {
+      return ['Pothole cavity filled and leveled', 'Smooth road surface restored'];
+    }
+    if (cat.includes('drain') || cat.includes('water')) {
+      return ['Drain blockage cleared and desilted', 'Free water flow restored'];
+    }
+    if (cat.includes('manhole')) {
+      return ['Heavy-duty cover installed', 'Fall hazard neutralized'];
+    }
+    return ['Defect resolved', 'Site cleaned & restored'];
+  };
+
+  const detectedChanges = (verification.imageVerification?.detectedChanges && verification.imageVerification.detectedChanges.length > 0)
+    ? verification.imageVerification.detectedChanges 
+    : getDefaultChanges();
 
   return (
     <AnimatePresence>
@@ -234,7 +262,7 @@ export default function VerificationModal({ verification: initialVerification, o
                         {aiStatus === 'PASSED' ? (
                           <>
                             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                            <span>AI Recommendation: APPROVE (Site defect has been verified cleared)</span>
+                            <span>AI Recommendation: APPROVE ({getCategoryPassedText()})</span>
                           </>
                         ) : (
                           <>
