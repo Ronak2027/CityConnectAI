@@ -328,6 +328,98 @@ async function analyzeStreetlightIllumination(buf1, buf2) {
 }
 
 /**
+ * Visually detects whether image contains Garbage, Streetlight, or Road based on color & texture
+ */
+export async function detectVisualCategory(buf, nominalCategory = '') {
+  if (!buf) return normalizeCategory(nominalCategory);
+  try {
+    const size = 128;
+    const raw = await sharp(buf).resize(size, size, { fit: 'fill' }).grayscale().raw().toBuffer();
+    const rgb = await sharp(buf).resize(64, 64, { fit: 'fill' }).raw().toBuffer();
+
+    let totalLum = 0;
+    for (let i = 0; i < raw.length; i++) totalLum += raw[i];
+    const avgLum = totalLum / raw.length;
+
+    let colorDiff = 0;
+    for (let i = 0; i < rgb.length; i += 3) {
+      colorDiff += Math.max(rgb[i], rgb[i + 1], rgb[i + 2]) - Math.min(rgb[i], rgb[i + 1], rgb[i + 2]);
+    }
+    const avgColor = colorDiff / (rgb.length / 3);
+
+    let edgeCount = 0;
+    let lapSum = 0;
+    for (let y = 1; y < size - 1; y++) {
+      for (let x = 1; x < size - 1; x++) {
+        const idx = y * size + x;
+        const lap = Math.abs(raw[idx - size] + raw[idx + size] + raw[idx - 1] + raw[idx + 1] - 4 * raw[idx]);
+        lapSum += lap;
+        if (lap > 25) edgeCount++;
+      }
+    }
+    const edgeDensity = edgeCount / ((size - 2) * (size - 2));
+
+    // If image is taken at night (dark), it's a Streetlight
+    if (avgLum < 65) return 'streetlight';
+
+    // If image has high colorful plastic/waste scatter and high edge clutter, it's Garbage!
+    if (edgeDensity > 0.35 && avgColor > 14) return 'garbage';
+
+    const normNominal = normalizeCategory(nominalCategory);
+    if (normNominal && normNominal !== 'general') return normNominal;
+
+    if (edgeDensity > 0.20) return 'pothole';
+    return 'garbage';
+  } catch (err) {
+    return normalizeCategory(nominalCategory);
+  }
+}
+
+/**
+ * Extracts background scene and foreground defect clutter from an image buffer
+ */
+async function extractImageFeatures(buf) {
+  const size = 128;
+  const raw = await sharp(buf).resize(size, size, { fit: 'fill' }).grayscale().raw().toBuffer();
+  const rgb = await sharp(buf).resize(64, 64, { fit: 'fill' }).raw().toBuffer();
+
+  // Average brightness
+  let totalLum = 0;
+  for (let i = 0; i < raw.length; i++) totalLum += raw[i];
+  const avgLum = totalLum / raw.length;
+
+  // Colorfulness & plastic scatter
+  let colorDiff = 0;
+  for (let i = 0; i < rgb.length; i += 3) {
+    colorDiff += Math.max(rgb[i], rgb[i + 1], rgb[i + 2]) - Math.min(rgb[i], rgb[i + 1], rgb[i + 2]);
+  }
+  const avgColor = colorDiff / (rgb.length / 3);
+
+  // Background scene (top 40% rows 0 to 51)
+  const bgLen = 51 * size;
+  const bgRaw = raw.slice(0, bgLen);
+
+  // Foreground defect area (bottom 60% rows 52 to 127)
+  let fgEdges = 0;
+  let fgLapSum = 0;
+  let fgCount = 0;
+  for (let y = 52; y < size - 1; y++) {
+    for (let x = 1; x < size - 1; x++) {
+      const idx = y * size + x;
+      const lap = Math.abs(raw[idx - size] + raw[idx + size] + raw[idx - 1] + raw[idx + 1] - 4 * raw[idx]);
+      fgLapSum += lap;
+      if (lap > 25) fgEdges++;
+      fgCount++;
+    }
+  }
+
+  const fgMeanLap = fgLapSum / fgCount;
+  const fgEdgeDensity = fgEdges / fgCount;
+
+  return { raw, bgRaw, avgLum, avgColor, fgMeanLap, fgEdgeDensity };
+}
+
+/**
  * Real AI Resolution Verification Service
  * Evaluates Worker BEFORE vs AFTER images using real computer vision.
  */
@@ -336,7 +428,17 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
     const beforeBuf = await getImageBuffer(beforeImagePath);
     const afterBuf = await getImageBuffer(afterImagePath);
 
-    const category = options.category || options.complaintId?.category || options.complaintRef?.category || '';
+    let category = options.category || options.complaintId?.category || options.complaintRef?.category || '';
+
+    // Automatically inspect visual content to correct mistaken user categories (e.g. Garbage filed as Road)
+    const visualCatBefore = await detectVisualCategory(beforeBuf, category);
+    const visualCatAfter = await detectVisualCategory(afterBuf, category);
+
+    if (visualCatBefore === 'garbage') {
+      category = 'Garbage';
+    } else if (visualCatBefore === 'streetlight') {
+      category = 'Streetlight';
+    }
     const normCat = normalizeCategory(category);
 
     // If Python CityConnectAI server is running, query it first
@@ -381,9 +483,22 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
     // NODE.JS COMPUTER VISION VERIFICATION (Sharp Engine)
     // -------------------------------------------------------------
     if (beforeBuf && afterBuf) {
-      const { avgDiff } = await computeImageDifference(beforeBuf, afterBuf);
-      const beforeClutter = await computeTextureClutter(beforeBuf);
-      const afterClutter = await computeTextureClutter(afterBuf);
+      const beforeFeat = await extractImageFeatures(beforeBuf);
+      const afterFeat = await extractImageFeatures(afterBuf);
+
+      // 1. Overall pixel difference
+      let totalDiff = 0;
+      for (let i = 0; i < beforeFeat.raw.length; i++) {
+        totalDiff += Math.abs(beforeFeat.raw[i] - afterFeat.raw[i]);
+      }
+      const avgDiff = totalDiff / beforeFeat.raw.length;
+
+      // 2. Background landscape difference (top 40%)
+      let bgDiff = 0;
+      for (let i = 0; i < beforeFeat.bgRaw.length; i++) {
+        bgDiff += Math.abs(beforeFeat.bgRaw[i] - afterFeat.bgRaw[i]);
+      }
+      const avgBgDiff = bgDiff / beforeFeat.bgRaw.length;
 
       // Dedicated illumination check for streetlights
       let slCheck = { isLit: false };
@@ -391,9 +506,9 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         slCheck = await analyzeStreetlightIllumination(beforeBuf, afterBuf);
       }
 
-      console.log(`[AI Vision Engine] Visual Delta Analysis (${normCat}): avgDiff=${avgDiff.toFixed(2)}, isLit=${slCheck.isLit}`);
+      console.log(`[AI Vision Engine] Analysis (${normCat}): avgDiff=${avgDiff.toFixed(1)}, avgBgDiff=${avgBgDiff.toFixed(1)}, bClutter=${(beforeFeat.fgEdgeDensity * 100).toFixed(1)}%, aClutter=${(afterFeat.fgEdgeDensity * 100).toFixed(1)}%, isLit=${slCheck.isLit}`);
 
-      // CASE 1: FRAUD / DUPLICATE PHOTO
+      // CHECK 1: FRAUD / DUPLICATE PHOTO
       // The worker uploaded the EXACT SAME photo or cropped identical defect photo!
       if (avgDiff < 5.0 && !slCheck.isLit) {
         const feedback = getCategoryFeedback(category, 'FAILED', true);
@@ -408,13 +523,76 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         };
       }
 
-      // CASE 2: DEFECT REMAINS UNCLEARED
-      // For general issues: avgDiff < 18
-      // For streetlights: avgDiff < 10 and no light detected
-      const isStreetlightPassed = normCat === 'streetlight' && (slCheck.isLit || avgDiff >= 15.0);
-      const isGeneralPassed = avgDiff >= 18.0;
+      // CHECK 2: STREETLIGHT INSPECTION
+      if (normCat === 'streetlight') {
+        if (slCheck.isLit || (avgDiff >= 20.0 && afterFeat.avgLum > beforeFeat.avgLum + 10)) {
+          const feedback = getCategoryFeedback('Streetlight', 'PASSED', false);
+          return {
+            status: 'PASSED',
+            confidence: 94,
+            ssimScore: 0.90,
+            detectedChanges: feedback.detectedChanges,
+            reason: feedback.reason,
+            recommendation: 'APPROVE',
+            isFraud: false
+          };
+        } else {
+          const feedback = getCategoryFeedback('Streetlight', 'FAILED', false);
+          return {
+            status: 'FAILED',
+            confidence: 24,
+            ssimScore: 0.92,
+            detectedChanges: feedback.detectedChanges,
+            reason: feedback.reason,
+            recommendation: 'REJECT',
+            isFraud: false
+          };
+        }
+      }
 
-      if (!isStreetlightPassed && !isGeneralPassed) {
+      // CHECK 3: DEFECT STILL PRESENT IN AFTER PHOTO (GARBAGE / RUBBLE / CHAOTIC CLUTTER)
+      // If the after photo still contains dense clutter (>36% edge density and meanLap > 28)
+      // or if clutter did not decrease and remains high (>30%)
+      const isAfterDefectPresent = (afterFeat.fgEdgeDensity > 0.36 && afterFeat.fgMeanLap > 28) ||
+        (afterFeat.fgEdgeDensity >= beforeFeat.fgEdgeDensity * 0.80 && afterFeat.fgEdgeDensity > 0.30);
+
+      if (isAfterDefectPresent) {
+        const clutterPct = (afterFeat.fgEdgeDensity * 100).toFixed(1);
+        return {
+          status: 'FAILED',
+          confidence: 18,
+          ssimScore: parseFloat(Math.max(0.20, Math.min(0.60, 1.0 - (avgDiff / 255))).toFixed(2)),
+          detectedChanges: [
+            'Heavy garbage & waste debris still present in resolution photo',
+            `Dense defect clutter detected (${clutterPct}% surface clutter)`,
+            'Zero site cleanup or waste removal verified'
+          ],
+          reason: `REJECTED: AI vision model detected heavy garbage and waste debris still present in the worker resolution photo (${clutterPct}% clutter). The reported defect has not been cleared.`,
+          recommendation: 'REJECT',
+          isFraud: false
+        };
+      }
+
+      // CHECK 4: DIFFERENT LOCATION / SCENE MISMATCH
+      // Worker took a photo of an unrelated site
+      if (avgBgDiff > 45.0 && afterFeat.fgEdgeDensity > 0.28) {
+        return {
+          status: 'FAILED',
+          confidence: 22,
+          ssimScore: parseFloat(Math.max(0.15, Math.min(0.45, 1.0 - (avgBgDiff / 255))).toFixed(2)),
+          detectedChanges: [
+            'Unmatched location / scene detected',
+            `Background landscape mismatch (${avgBgDiff.toFixed(1)} delta)`,
+            'Closure photo taken at wrong site'
+          ],
+          reason: 'REJECTED: AI vision model detected a site mismatch. Worker resolution photo was taken at a different location.',
+          recommendation: 'REJECT',
+          isFraud: false
+        };
+      }
+
+      // CHECK 5: DEFECT HAS MINIMAL CHANGE (NOT CLEARED)
+      if (avgDiff < 18.0) {
         const feedback = getCategoryFeedback(category, 'FAILED', false);
         return {
           status: 'FAILED',
@@ -427,8 +605,9 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         };
       }
 
-      // CASE 3: GENUINE RESOLUTION PASSED!
-      const similarityScore = Math.max(0.65, Math.min(0.92, 1.0 - (avgDiff / 255)));
+      // CHECK 6: GENUINE RESOLUTION PASSED!
+      // Clutter is low, site is cleaned/swept, background is consistent
+      const similarityScore = Math.max(0.70, Math.min(0.95, 1.0 - (avgDiff / 255)));
       const confidence = Math.min(96, Math.max(88, Math.round(85 + (avgDiff / 4))));
       const feedback = getCategoryFeedback(category, 'PASSED', false);
 

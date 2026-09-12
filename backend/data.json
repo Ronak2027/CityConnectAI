@@ -1,6 +1,44 @@
 {
   "complaints": [
     {
+      "_id": "CMP-2026-5596",
+      "complaintId": "CMP-2026-5596",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Streetlight",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789197065583-977388330.jpeg",
+      "location": {
+        "latitude": 21.284905948110392,
+        "longitude": 74.8444589551913,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "priority": "Medium",
+      "department": "Electrical Operations",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T07:11:05.596Z",
+      "assignedWorkerId": "WRK-203",
+      "resolvedAt": "2026-09-12T07:11:56.503Z"
+    },
+    {
+      "_id": "CMP-2026-1103",
+      "complaintId": "CMP-2026-1103",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789196981092-421008842.png",
+      "location": {
+        "latitude": 21.28489299672546,
+        "longitude": 74.8444612653544,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T07:09:41.103Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T07:10:36.409Z"
+    },
+    {
       "_id": "CMP-2026-5014",
       "complaintId": "CMP-2026-5014",
       "citizenId": "66e1bf7289f1a23c4d5e6f7a",
@@ -14,9 +52,10 @@
       },
       "priority": "Medium",
       "department": "Electrical Operations",
-      "status": "VERIFICATION",
+      "status": "RESOLVED",
       "createdAt": "2026-09-12T07:00:05.016Z",
-      "assignedWorkerId": "WRK-201"
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T07:09:19.643Z"
     },
     {
       "_id": "CMP-2026-7650",
@@ -147,11 +186,11 @@
       },
       "priority": "Medium",
       "department": "Roads & Infrastructure",
-      "status": "IN_PROGRESS",
+      "status": "VERIFICATION",
       "createdAt": "2026-09-12T04:25:13.998Z",
       "assignedWorkerId": "WRK-203",
       "resolvedAt": "2026-09-12T05:33:33.684Z",
-      "rejectionReason": "same  photo no work is doen"
+      "rejectionReason": "D"
     },
     {
       "_id": "CMP-2026-6023",
@@ -186,10 +225,10 @@
       },
       "priority": "Medium",
       "department": "Roads & Infrastructure",
-      "status": "IN_PROGRESS",
+      "status": "VERIFICATION",
       "createdAt": "2026-09-12T03:57:55.918Z",
       "assignedWorkerId": "WRK-202",
-      "rejectionReason": "different photos\n"
+      "rejectionReason": "J"
     },
     {
       "_id": "CMP-2026-3534",
@@ -606,6 +645,504 @@
   "activeStormWarning": true,
   "verifications": [
     {
+      "_id": "VER-1789200182421",
+      "verificationId": "VER-2026-2421",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789200182404-819569862.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.76,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:03:26.301Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28492565774759,
+        "longitude": 74.84445665724859,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "captureTimestamp": "2026-09-12T08:03:02.421Z",
+      "cameraVerification": true,
+      "status": "PENDING",
+      "createdAt": "2026-09-12T08:03:02.422Z"
+    },
+    {
+      "_id": "VER-1789200027654",
+      "verificationId": "VER-2026-7654",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789199902445-331489840.jpg",
+      "afterImage": "/uploads/afterImage-1789200027650-224342916.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Heavy garbage & waste debris still present in resolution photo",
+          "Dense defect clutter detected (70.0% surface clutter)",
+          "Zero site cleanup or waste removal verified"
+        ],
+        "reason": "REJECTED: AI vision model detected heavy garbage and waste debris still present in the worker resolution photo (70.0% clutter). The reported defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:05:46.665Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284892626177815,
+        "longitude": 74.84444707332302,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "captureTimestamp": "2026-09-12T08:00:27.654Z",
+      "cameraVerification": true,
+      "status": "PENDING",
+      "createdAt": "2026-09-12T08:00:27.654Z"
+    },
+    {
+      "_id": "VER-1789199993149",
+      "verificationId": "VER-2026-3149",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789199902445-331489840.jpg",
+      "afterImage": "/uploads/afterImage-1789199993142-174873343.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.73,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:59:58.466Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5.1,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284892902886543,
+        "longitude": 74.84444707332302,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "captureTimestamp": "2026-09-12T07:59:53.149Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T07:59:53.149Z",
+      "rejectionReason": "D",
+      "adminDecisionAt": "2026-09-12T08:00:11.369Z"
+    },
+    {
+      "_id": "VER-1789199902456",
+      "verificationId": "VER-2026-2456",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789199902445-331489840.jpg",
+      "afterImage": "/uploads/afterImage-1789199902441-882735254.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Road cavity still present on site",
+          "Zero asphalt patching verified"
+        ],
+        "reason": "REJECTED: Worker submitted identical defect photo. Road surface remains unpaved.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:59:24.638Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.6,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284908281158327,
+        "longitude": 74.84445703780418,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "captureTimestamp": "2026-09-12T07:58:22.457Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T07:58:22.458Z",
+      "rejectionReason": "H",
+      "adminDecisionAt": "2026-09-12T07:59:30.901Z"
+    },
+    {
+      "_id": "VER-1789197685292",
+      "verificationId": "VER-2026-5292",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789197685249-21749333.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.86,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:02:29.062Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5.3,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284923436682433,
+        "longitude": 74.84445619531054,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "captureTimestamp": "2026-09-12T07:21:25.292Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T07:21:25.292Z",
+      "rejectionReason": "J",
+      "adminDecisionAt": "2026-09-12T08:02:34.851Z"
+    },
+    {
+      "_id": "VER-1789197261694",
+      "verificationId": "VER-2026-1694",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789197261687-878922997.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.73,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:14:27.726Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284893663129296,
+        "longitude": 74.84445639867555,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "captureTimestamp": "2026-09-12T07:14:21.694Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T07:14:21.694Z",
+      "rejectionReason": "DIFFERENT PHOTOS\n",
+      "adminDecisionAt": "2026-09-12T07:15:23.719Z"
+    },
+    {
+      "_id": "VER-1789197204080",
+      "verificationId": "VER-2026-4080",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789197204071-845201482.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.79,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:13:33.702Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 20.0367,
+        "longitude": 73.7847,
+        "address": "Makhamalabad, Nashik, 422001"
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "captureTimestamp": "2026-09-12T07:13:24.080Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T07:13:24.080Z",
+      "rejectionReason": "NO WORK DONE",
+      "adminDecisionAt": "2026-09-12T07:13:48.028Z"
+    },
+    {
+      "_id": "VER-1789197092260",
+      "verificationId": "VER-2026-2260",
+      "taskId": "TSK-CMP-2026-5596",
+      "complaintId": {
+        "_id": "CMP-2026-5596",
+        "complaintId": "CMP-2026-5596",
+        "category": "Streetlight",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/photo-1789197065583-977388330.jpeg",
+      "afterImage": "/uploads/afterImage-1789197092253-782865429.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 92,
+        "ssimScore": 0.9,
+        "detectedChanges": [
+          "Streetlight luminaire illuminated & functional",
+          "Nighttime roadway illuminance restored",
+          "Active electrical glow verified on pole fixture"
+        ],
+        "reason": "VERIFIED: AI vision model confirmed streetlight illumination delta. Electrical fixture is operational and lighting roadway.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:11:39.077Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0.4,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28490577613901,
+        "longitude": 74.8444551647341,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.284905948110392,
+        "longitude": 74.8444589551913,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "captureTimestamp": "2026-09-12T07:11:32.260Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T07:11:32.260Z",
+      "adminDecisionAt": "2026-09-12T07:11:56.492Z"
+    },
+    {
+      "_id": "VER-1789197017446",
+      "verificationId": "VER-2026-7446",
+      "taskId": "TSK-CMP-2026-1103",
+      "complaintId": {
+        "_id": "CMP-2026-1103",
+        "complaintId": "CMP-2026-1103",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789196981092-421008842.png",
+      "afterImage": "/uploads/afterImage-1789197017437-5558629.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.86,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "VERIFIED: AI vision model detected road surface leveling and asphalt patching. Pothole defect resolved.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T07:10:25.919Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 1.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284909899355416,
+        "longitude": 74.84446196316816,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.28489299672546,
+        "longitude": 74.8444612653544,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "captureTimestamp": "2026-09-12T07:10:17.446Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T07:10:17.446Z",
+      "adminDecisionAt": "2026-09-12T07:10:36.398Z"
+    },
+    {
       "_id": "VER-1789196450419",
       "verificationId": "VER-2026-0419",
       "taskId": "TSK-CMP-2026-5014",
@@ -656,8 +1193,9 @@
       },
       "captureTimestamp": "2026-09-12T07:00:50.419Z",
       "cameraVerification": true,
-      "status": "PENDING",
-      "createdAt": "2026-09-12T07:00:50.419Z"
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T07:00:50.419Z",
+      "adminDecisionAt": "2026-09-12T07:09:19.633Z"
     },
     {
       "_id": "VER-1789196313239",
@@ -2205,6 +2743,98 @@
   ],
   "tasks": [
     {
+      "_id": "TSK-CMP-2026-5596",
+      "taskId": "TSK-CMP-2026-5596",
+      "complaintId": {
+        "_id": "CMP-2026-5596",
+        "complaintId": "CMP-2026-5596",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Streetlight",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789197065583-977388330.jpeg",
+        "location": {
+          "latitude": 21.284905948110392,
+          "longitude": 74.8444589551913,
+          "address": "Academic Building, Aamoda, Shirpur Taluka"
+        },
+        "priority": "Medium",
+        "department": "Electrical Operations",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T07:11:05.596Z",
+        "assignedWorkerId": "WRK-203"
+      },
+      "workerId": "WRK-203",
+      "worker": {
+        "_id": "WRK-203",
+        "id": "WRK-203",
+        "name": "Amit Patel",
+        "phone": "+91 98203 34567",
+        "department": "Electrical & Streetlights",
+        "domain": "Electrical & Streetlights",
+        "zone": "Ward 3 - Prabhadevi",
+        "status": "ON_DUTY",
+        "rating": 4.7
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.284905948110392,
+        "longitude": 74.8444589551913,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "createdAt": "2026-09-12T07:11:18.318Z",
+      "beforeImage": "/uploads/photo-1789197065583-977388330.jpeg",
+      "afterImage": "/uploads/afterImage-1789197092253-782865429.jpg",
+      "verificationId": "VER-1789197092260",
+      "completedAt": "2026-09-12T07:11:56.498Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-1103",
+      "taskId": "TSK-CMP-2026-1103",
+      "complaintId": {
+        "_id": "CMP-2026-1103",
+        "complaintId": "CMP-2026-1103",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789196981092-421008842.png",
+        "location": {
+          "latitude": 21.28489299672546,
+          "longitude": 74.8444612653544,
+          "address": "Academic Building, Aamoda, Shirpur Taluka"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T07:09:41.103Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.28489299672546,
+        "longitude": 74.8444612653544,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "createdAt": "2026-09-12T07:09:59.448Z",
+      "beforeImage": "/uploads/photo-1789196981092-421008842.png",
+      "afterImage": "/uploads/afterImage-1789197017437-5558629.jpg",
+      "verificationId": "VER-1789197017446",
+      "completedAt": "2026-09-12T07:10:36.403Z"
+    },
+    {
       "_id": "TSK-CMP-2026-5014",
       "taskId": "TSK-CMP-2026-5014",
       "complaintId": {
@@ -2237,7 +2867,7 @@
         "status": "ON_DUTY",
         "rating": 4.8
       },
-      "status": "VERIFICATION",
+      "status": "COMPLETED",
       "priority": "Medium",
       "location": {
         "latitude": 21.284892990205005,
@@ -2247,7 +2877,8 @@
       "createdAt": "2026-09-12T07:00:31.230Z",
       "beforeImage": "/uploads/photo-1789196405007-222122254.jpeg",
       "afterImage": "/uploads/afterImage-1789196450405-743881857.jpg",
-      "verificationId": "VER-1789196450419"
+      "verificationId": "VER-1789196450419",
+      "completedAt": "2026-09-12T07:09:19.639Z"
     },
     {
       "_id": "TSK-CMP-2026-7650",
@@ -2559,7 +3190,7 @@
         "status": "ON_DUTY",
         "rating": 4.7
       },
-      "status": "IN_PROGRESS",
+      "status": "VERIFICATION",
       "priority": "Medium",
       "location": {
         "latitude": 21.35587025943557,
@@ -2567,11 +3198,11 @@
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
       "createdAt": "2026-09-12T04:28:13.778Z",
-      "beforeImage": "/uploads/photo-1789187113982-881220895.png",
-      "afterImage": "/uploads/afterImage-1789192500688-33753678.png",
-      "verificationId": "VER-1789192500711",
+      "beforeImage": "/uploads/beforeImage-1789199902445-331489840.jpg",
+      "afterImage": "/uploads/afterImage-1789200027650-224342916.jpg",
+      "verificationId": "VER-1789200027654",
       "completedAt": "2026-09-12T05:33:33.679Z",
-      "rejectionReason": "same  photo no work is doen"
+      "rejectionReason": "D"
     },
     {
       "_id": "TSK-CMP-2026-6023",
@@ -2652,7 +3283,7 @@
         "status": "ON_DUTY",
         "rating": 4.9
       },
-      "status": "IN_PROGRESS",
+      "status": "VERIFICATION",
       "priority": "Medium",
       "location": {
         "latitude": 21.355713,
@@ -2661,9 +3292,9 @@
       },
       "createdAt": "2026-09-12T04:11:30.114Z",
       "beforeImage": "/uploads/photo-1789185475904-107026803.png",
-      "afterImage": "/uploads/afterImage-1789192521338-786032483.jpg",
-      "verificationId": "VER-1789192521341",
-      "rejectionReason": "different photos\n"
+      "afterImage": "/uploads/afterImage-1789200182404-819569862.jpg",
+      "verificationId": "VER-1789200182421",
+      "rejectionReason": "J"
     },
     {
       "_id": "TSK-CMP-2026-3534",
