@@ -1,0 +1,2665 @@
+{
+  "complaints": [
+    {
+      "_id": "CMP-2026-1683",
+      "complaintId": "CMP-2026-1683",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Streetlight",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789192841660-904510404.png",
+      "location": {
+        "latitude": 21.284912464981343,
+        "longitude": 74.84445937180017,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "priority": "Medium",
+      "department": "Electrical Operations",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T06:00:41.683Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T06:01:32.233Z"
+    },
+    {
+      "_id": "CMP-2026-3803",
+      "complaintId": "CMP-2026-3803",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789192243797-72811939.png",
+      "location": {
+        "latitude": 21.284890017532305,
+        "longitude": 74.84445592159743,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T05:50:43.803Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T05:52:40.954Z"
+    },
+    {
+      "_id": "CMP-2026-5178",
+      "complaintId": "CMP-2026-5178",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Streetlight",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789192015176-115458149.jpeg",
+      "location": {
+        "latitude": 21.28491849593648,
+        "longitude": 74.8444611083037,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "priority": "Medium",
+      "department": "Electrical Operations",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T05:46:55.178Z",
+      "assignedWorkerId": "WRK-203",
+      "resolvedAt": "2026-09-12T05:49:30.754Z"
+    },
+    {
+      "_id": "CMP-2026-9346",
+      "complaintId": "CMP-2026-9346",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "ds",
+      "photoUrl": "",
+      "location": {
+        "latitude": 21.284908058102435,
+        "longitude": 74.84445656860855,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T05:40:19.346Z",
+      "assignedWorkerId": "WRK-202",
+      "resolvedAt": "2026-09-12T05:42:24.949Z"
+    },
+    {
+      "_id": "CMP-2026-2599",
+      "complaintId": "CMP-2026-2599",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Streetlight",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789191512590-823029720.jpeg",
+      "location": {
+        "latitude": 21.28490726287453,
+        "longitude": 74.84445456418084,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "priority": "Medium",
+      "department": "Electrical Operations",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T05:38:32.602Z",
+      "assignedWorkerId": "WRK-203",
+      "resolvedAt": "2026-09-12T05:46:06.188Z"
+    },
+    {
+      "_id": "CMP-2026-3997",
+      "complaintId": "CMP-2026-3997",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789187113982-881220895.png",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "IN_PROGRESS",
+      "createdAt": "2026-09-12T04:25:13.998Z",
+      "assignedWorkerId": "WRK-203",
+      "resolvedAt": "2026-09-12T05:33:33.684Z",
+      "rejectionReason": "same  photo no work is doen"
+    },
+    {
+      "_id": "CMP-2026-6023",
+      "complaintId": "CMP-2026-6023",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789186596009-805373467.png",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T04:16:36.024Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T05:56:29.941Z"
+    },
+    {
+      "_id": "CMP-2026-5917",
+      "complaintId": "CMP-2026-5917",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "pothole near park",
+      "photoUrl": "/uploads/photo-1789185475904-107026803.png",
+      "location": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "IN_PROGRESS",
+      "createdAt": "2026-09-12T03:57:55.918Z",
+      "assignedWorkerId": "WRK-202",
+      "rejectionReason": "different photos\n"
+    },
+    {
+      "_id": "CMP-2026-3534",
+      "complaintId": "CMP-2026-3534",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789185283522-669342534.png",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T03:54:43.535Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T05:56:11.733Z"
+    },
+    {
+      "_id": "CMP-2026-8861",
+      "complaintId": "CMP-2026-8861",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Road",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789183758844-551671113.png",
+      "location": {
+        "latitude": 21.35600476621945,
+        "longitude": 74.8883510662562,
+        "address": "Lat: 21.3560, Lng: 74.8884"
+      },
+      "priority": "Medium",
+      "department": "Roads & Infrastructure",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T03:29:18.861Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T04:27:46.377Z"
+    },
+    {
+      "_id": "CMP-2026-3117",
+      "complaintId": "CMP-2026-3117",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789181963109-278028914.png",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T02:59:23.117Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-09-12T03:50:57.698Z"
+    },
+    {
+      "_id": "CMP-2026-2378",
+      "complaintId": "CMP-2026-2378",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789181242365-17843770.png",
+      "location": {
+        "latitude": 21.355990088745326,
+        "longitude": 74.88833021837812,
+        "address": "Lat: 21.3560, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T02:47:22.379Z",
+      "resolvedAt": "2026-09-12T02:55:41.768Z"
+    },
+    {
+      "_id": "CMP-2026-0886",
+      "complaintId": "CMP-2026-0886",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789151400876-246354934.png",
+      "location": {
+        "latitude": 21.3560305,
+        "longitude": 74.88834750000001,
+        "address": "Lat: 21.3560, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-11T18:30:00.886Z",
+      "resolvedAt": "2026-09-12T03:52:02.606Z"
+    },
+    {
+      "_id": "CMP-2026-0265",
+      "complaintId": "CMP-2026-0265",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789150990254-327817203.png",
+      "location": {
+        "latitude": 21.355713,
+        "longitude": 74.888392,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "ASSIGNED",
+      "createdAt": "2026-09-11T18:23:10.265Z",
+      "resolvedAt": "2026-09-12T03:33:07.914Z",
+      "assignedWorkerId": "WRK-201"
+    },
+    {
+      "_id": "CMP-2026-4184",
+      "complaintId": "CMP-2026-4184",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "Overflowing garbage bin near main entrance requiring urgent cleanup",
+      "photoUrl": "",
+      "location": {
+        "latitude": 21.3560305,
+        "longitude": 74.88834750000001,
+        "address": "Lat: 21.3560, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "IN_PROGRESS",
+      "createdAt": "2026-09-11T18:17:14.185Z",
+      "rejectionReason": "no garbage is clean"
+    },
+    {
+      "_id": "CMP-2026-5740",
+      "complaintId": "CMP-2026-5740",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789149625726-826997867.png",
+      "location": {
+        "latitude": 21.3560305,
+        "longitude": 74.88834750000001,
+        "address": "Lat: 21.3560, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "IN_PROGRESS",
+      "createdAt": "2026-09-11T18:00:25.740Z",
+      "rejectionReason": "no clean"
+    },
+    {
+      "_id": "CMP-2026-6346",
+      "complaintId": "CMP-2026-6346",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "Piles of uncollected waste",
+      "photoUrl": "",
+      "location": {
+        "latitude": 19.0178,
+        "longitude": 72.8478,
+        "address": "Lat: 19.0178, Lng: 72.8478"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "PENDING",
+      "createdAt": "2026-09-11T17:58:36.346Z"
+    },
+    {
+      "_id": "CMP-2026-5062",
+      "complaintId": "CMP-2026-5062",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789149515058-774542073.png",
+      "location": {
+        "latitude": 21.355898,
+        "longitude": 74.88829,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "PENDING",
+      "createdAt": "2026-09-11T17:58:35.062Z"
+    },
+    {
+      "id": "CMP-1007",
+      "category": "Waste Management",
+      "title": "Waste Management reported near Dadar Market",
+      "description": "Garbage accumulation near main gate.",
+      "citizenPhoto": null,
+      "citizenLocation": {
+        "lat": 19.0178,
+        "lng": 72.8478,
+        "address": "Dadar Market, Sector 4, Mumbai"
+      },
+      "status": "ASSIGNED",
+      "priority": "HIGH",
+      "assignedWorkerId": "WRK-201",
+      "workerBeforePhoto": null,
+      "workerAfterPhoto": null,
+      "workerLocation": null,
+      "verificationResult": null,
+      "createdAt": "2026-09-11T17:27:40.261Z",
+      "updatedAt": "2026-09-11T17:27:40.261Z"
+    },
+    {
+      "id": "STORM-DRAIN-2582",
+      "category": "Clogged Drains",
+      "title": "🚨 PREVENTIVE STORM CLEARING: Wadala Drain Channel (Mumbai)",
+      "description": "AUTOMATED EARLY WARNING TASK: Heavy rain predicted (Mumbai). Clear storm drain before flash flooding occurs.",
+      "citizenPhoto": null,
+      "citizenLocation": {
+        "lat": 19.0235,
+        "lng": 72.858,
+        "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
+      },
+      "status": "ASSIGNED",
+      "priority": "CRITICAL",
+      "assignedWorkerId": "WRK-202",
+      "workerBeforePhoto": null,
+      "workerAfterPhoto": null,
+      "workerLocation": null,
+      "verificationResult": null,
+      "createdAt": "2026-09-11T17:26:12.582Z",
+      "updatedAt": "2026-09-11T17:26:12.582Z"
+    },
+    {
+      "id": "STORM-DRAIN-9507",
+      "category": "Clogged Drains",
+      "title": "🚨 PREVENTIVE STORM CLEARING: Wadala Drain Channel (Mumbai)",
+      "description": "AUTOMATED EARLY WARNING TASK: Heavy rain predicted (Mumbai). Clear storm drain before flash flooding occurs.",
+      "citizenPhoto": null,
+      "citizenLocation": {
+        "lat": 19.0235,
+        "lng": 72.858,
+        "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
+      },
+      "status": "ASSIGNED",
+      "priority": "CRITICAL",
+      "assignedWorkerId": "WRK-202",
+      "workerBeforePhoto": null,
+      "workerAfterPhoto": null,
+      "workerLocation": null,
+      "verificationResult": null,
+      "createdAt": "2026-09-11T17:25:19.507Z",
+      "updatedAt": "2026-09-11T17:25:19.507Z"
+    },
+    {
+      "id": "CMP-1001",
+      "category": "Waste Management",
+      "title": "Overflowing Garbage Container at Market Road",
+      "description": "Garbage bin overflowing onto the main road creating foul smell and blocking pedestrian walkway near Dadar Market.",
+      "citizenPhoto": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80",
+      "citizenLocation": {
+        "lat": 19.0178,
+        "lng": 72.8478,
+        "address": "Dadar Market, Sector 4, Mumbai"
+      },
+      "status": "SUBMITTED_FOR_VERIFICATION",
+      "priority": "HIGH",
+      "assignedWorkerId": "WRK-201",
+      "workerBeforePhoto": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80",
+      "workerAfterPhoto": "https://images.unsplash.com/photo-1532996679820-b553ba67a845?auto=format&fit=crop&w=600&q=80",
+      "workerLocation": {
+        "lat": 19.01783,
+        "lng": 72.84782
+      },
+      "verificationResult": null,
+      "createdAt": "2026-09-11T12:19:40.945Z",
+      "updatedAt": "2026-09-11T16:19:40.946Z"
+    },
+    {
+      "id": "CMP-1002",
+      "category": "Clogged Drains",
+      "title": "Choked Main Drain Channel near Station Overpass",
+      "description": "Severe plastic waste blockage in the storm drain. High risk of waterlogging if rain starts.",
+      "citizenPhoto": null,
+      "citizenLocation": {
+        "lat": 19.0222,
+        "lng": 72.8561,
+        "address": "Wadala Station Bridge, Ward 5, Mumbai"
+      },
+      "status": "RESOLVED",
+      "priority": "CRITICAL",
+      "assignedWorkerId": "WRK-202",
+      "workerBeforePhoto": null,
+      "workerAfterPhoto": null,
+      "workerLocation": null,
+      "verificationResult": null,
+      "createdAt": "2026-09-11T09:19:40.946Z",
+      "updatedAt": "2026-09-11T13:19:40.946Z",
+      "resolvedAt": "2026-09-12T05:50:27.148Z"
+    },
+    {
+      "id": "CMP-1003",
+      "category": "Faulty Streetlights",
+      "title": "3 Unlit Streetlights on High School Avenue",
+      "description": "Dark stretch at night causing safety hazards for commuters.",
+      "citizenPhoto": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80",
+      "citizenLocation": {
+        "lat": 19.0125,
+        "lng": 72.839,
+        "address": "High School Ave, Prabhadevi, Mumbai"
+      },
+      "status": "IN_PROGRESS",
+      "priority": "MEDIUM",
+      "assignedWorkerId": "WRK-203",
+      "workerBeforePhoto": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80",
+      "workerAfterPhoto": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=600&q=80",
+      "workerLocation": {
+        "lat": 19.01252,
+        "lng": 72.83903
+      },
+      "verificationResult": {
+        "passed": true,
+        "distanceMeters": 4.1,
+        "geofenceLimit": 9,
+        "isGeofenceValid": true,
+        "aiConfidenceScore": 94,
+        "status": "AI_VERIFIED",
+        "reasons": [
+          "✅ Geofence Check Passed: Worker on-site at 4.1m (Limit <= 9.0m)",
+          "✅ AI Image Analysis Passed: Streetlight bulb replacement verified"
+        ]
+      },
+      "citizenFeedback": {
+        "rating": 5,
+        "comment": "Fixed super quickly! Great work."
+      },
+      "createdAt": "2026-09-10T17:19:40.946Z",
+      "updatedAt": "2026-09-11T15:19:40.946Z",
+      "rejectionReason": "NO garbage is clean"
+    },
+    {
+      "id": "CMP-1004",
+      "category": "Open Manhole",
+      "title": "Dangerous Uncovered Manhole on Cross Road",
+      "description": "Open sewer chamber without caution barrier. High risk for pedestrians and vehicles.",
+      "citizenPhoto": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=600&q=80",
+      "citizenLocation": {
+        "lat": 19.0305,
+        "lng": 72.861,
+        "address": "Cross Road 3, Sion, Mumbai"
+      },
+      "status": "REJECTED",
+      "priority": "CRITICAL",
+      "assignedWorkerId": null,
+      "workerBeforePhoto": null,
+      "workerAfterPhoto": null,
+      "workerLocation": null,
+      "verificationResult": {
+        "passed": false,
+        "distanceMeters": 0,
+        "isGeofenceValid": false,
+        "hasBeforePhoto": false,
+        "hasAfterPhoto": false,
+        "aiConfidenceScore": 0,
+        "imageDiffScore": 0,
+        "status": "REJECTED_MISSING_PHOTOS",
+        "reasons": [
+          "❌ Missing photo proof: Both 'Before Work' and 'After Work' photos are required by worker."
+        ]
+      },
+      "createdAt": "2026-09-11T16:19:40.946Z",
+      "updatedAt": "2026-09-11T17:25:44.430Z"
+    }
+  ],
+  "workers": [
+    {
+      "id": "WRK-201",
+      "name": "Ramesh Shinde",
+      "phone": "+91 98201 12345",
+      "domain": "Waste Management",
+      "zone": "Ward 4 - Central Zone",
+      "status": "ON_DUTY",
+      "assignedTasksCount": 3,
+      "completedTasksCount": 48,
+      "rating": 4.8,
+      "currentLocation": {
+        "lat": 19.0178,
+        "lng": 72.8478
+      }
+    },
+    {
+      "id": "WRK-202",
+      "name": "Suresh Kumar",
+      "phone": "+91 98202 23456",
+      "domain": "Drainage & Flooding",
+      "zone": "Ward 5 - Wadala East",
+      "status": "ON_DUTY",
+      "assignedTasksCount": 3,
+      "completedTasksCount": 62,
+      "rating": 4.9,
+      "currentLocation": {
+        "lat": 19.0222,
+        "lng": 72.8561
+      }
+    },
+    {
+      "id": "WRK-203",
+      "name": "Amit Patel",
+      "phone": "+91 98203 34567",
+      "domain": "Electrical & Streetlights",
+      "zone": "Ward 3 - Prabhadevi",
+      "status": "ON_DUTY",
+      "assignedTasksCount": 1,
+      "completedTasksCount": 35,
+      "rating": 4.7,
+      "currentLocation": {
+        "lat": 19.0125,
+        "lng": 72.839
+      }
+    }
+  ],
+  "activeStormWarning": true,
+  "verifications": [
+    {
+      "_id": "VER-1789192879207",
+      "verificationId": "VER-2026-9207",
+      "taskId": "TSK-CMP-2026-1683",
+      "complaintId": {
+        "_id": "CMP-2026-1683",
+        "complaintId": "CMP-2026-1683",
+        "category": "Streetlight",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789192841660-904510404.png",
+      "afterImage": "/uploads/afterImage-1789192879199-607169760.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.79,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T06:01:29.502Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0.3,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28491100576922,
+        "longitude": 74.84445698744591
+      },
+      "complaintLocation": {
+        "latitude": 21.284912464981343,
+        "longitude": 74.84445937180017
+      },
+      "captureTimestamp": "2026-09-12T06:01:19.207Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T06:01:19.207Z",
+      "adminDecisionAt": "2026-09-12T06:01:32.228Z"
+    },
+    {
+      "_id": "VER-1789192558346",
+      "verificationId": "VER-2026-8346",
+      "taskId": "TSK-CMP-2026-3534",
+      "complaintId": {
+        "_id": "CMP-2026-3534",
+        "complaintId": "CMP-2026-3534",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789192558342-706874347.jpg",
+      "afterImage": "/uploads/afterImage-1789192558342-751288387.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.8,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:56:10.310Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.2,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28490554177676,
+        "longitude": 74.8444551647341
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "captureTimestamp": "2026-09-12T05:55:58.346Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:55:58.346Z",
+      "adminDecisionAt": "2026-09-12T05:56:11.730Z"
+    },
+    {
+      "_id": "VER-1789192536290",
+      "verificationId": "VER-2026-6290",
+      "taskId": "TSK-CMP-2026-6023",
+      "complaintId": {
+        "_id": "CMP-2026-6023",
+        "complaintId": "CMP-2026-6023",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789186596009-805373467.png",
+      "afterImage": "/uploads/afterImage-1789192536286-747834451.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.77,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:56:27.702Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28490554177676,
+        "longitude": 74.8444551647341
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "captureTimestamp": "2026-09-12T05:55:36.290Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:55:36.290Z",
+      "adminDecisionAt": "2026-09-12T05:56:29.937Z"
+    },
+    {
+      "_id": "VER-1789192521341",
+      "verificationId": "VER-2026-1341",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "category": "Road",
+        "description": "pothole near park"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789192521338-786032483.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.79,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:56:14.843Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.4,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.28490554177676,
+        "longitude": 74.8444551647341
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915
+      },
+      "captureTimestamp": "2026-09-12T05:55:21.341Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T05:55:21.341Z",
+      "rejectionReason": "different photos\n",
+      "adminDecisionAt": "2026-09-12T05:56:25.705Z"
+    },
+    {
+      "_id": "VER-1789192500711",
+      "verificationId": "VER-2026-0711",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/photo-1789187113982-881220895.png",
+      "afterImage": "/uploads/afterImage-1789192500688-33753678.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:56:32.136Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284889808896725,
+        "longitude": 74.84445247036632
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "captureTimestamp": "2026-09-12T05:55:00.711Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T05:55:00.711Z",
+      "rejectionReason": "same  photo no work is doen",
+      "adminDecisionAt": "2026-09-12T05:56:50.960Z"
+    },
+    {
+      "_id": "VER-1789192299937",
+      "verificationId": "VER-2026-9938",
+      "taskId": "TSK-CMP-2026-3803",
+      "complaintId": {
+        "_id": "CMP-2026-3803",
+        "complaintId": "CMP-2026-3803",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789192243797-72811939.png",
+      "afterImage": "/uploads/afterImage-1789192299925-102781174.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.85,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:52:32.345Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 2.1,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284908715220368,
+        "longitude": 74.84445891702367
+      },
+      "complaintLocation": {
+        "latitude": 21.284890017532305,
+        "longitude": 74.84445592159743
+      },
+      "captureTimestamp": "2026-09-12T05:51:39.938Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:51:39.938Z",
+      "adminDecisionAt": "2026-09-12T05:52:40.947Z"
+    },
+    {
+      "_id": "VER-1789192222033",
+      "verificationId": "VER-2026-2033",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-1002",
+        "complaintId": "CMP-1002",
+        "category": "Clogged Drains",
+        "description": "Severe plastic waste blockage in the storm drain. High risk of monsoon waterlogging."
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/drainage-before.jpg",
+      "afterImage": "/uploads/afterImage-1789192222027-610401758.jpg",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T05:50:22.033Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:50:22.033Z",
+      "adminDecisionAt": "2026-09-12T05:50:27.141Z"
+    },
+    {
+      "_id": "VER-1789192075889",
+      "verificationId": "VER-2026-5889",
+      "taskId": "TSK-CMP-2026-5178",
+      "complaintId": {
+        "_id": "CMP-2026-5178",
+        "complaintId": "CMP-2026-5178",
+        "category": "Streetlight",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/photo-1789192015176-115458149.jpeg",
+      "afterImage": "/uploads/afterImage-1789192075886-478012317.jpeg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:48:06.878Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 1.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284907940274074,
+        "longitude": 74.84444936604844
+      },
+      "complaintLocation": {
+        "latitude": 21.28491849593648,
+        "longitude": 74.8444611083037
+      },
+      "captureTimestamp": "2026-09-12T05:47:55.889Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:47:55.889Z",
+      "adminDecisionAt": "2026-09-12T05:49:30.750Z"
+    },
+    {
+      "_id": "VER-1789191814749",
+      "verificationId": "VER-2026-4749",
+      "taskId": "TSK-CMP-2026-2599",
+      "complaintId": {
+        "_id": "CMP-2026-2599",
+        "complaintId": "CMP-2026-2599",
+        "category": "Streetlight",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/photo-1789191512590-823029720.jpeg",
+      "afterImage": "/uploads/afterImage-1789191814744-587601738.jpeg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 92,
+        "ssimScore": 0.9,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:45:54.707Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 1.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284892902886543,
+        "longitude": 74.84444707332302
+      },
+      "complaintLocation": {
+        "latitude": 21.28490726287453,
+        "longitude": 74.84445456418084
+      },
+      "captureTimestamp": "2026-09-12T05:43:34.749Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:43:34.749Z",
+      "adminDecisionAt": "2026-09-12T05:46:06.181Z"
+    },
+    {
+      "_id": "VER-1789191688334",
+      "verificationId": "VER-2026-8334",
+      "taskId": "TSK-CMP-2026-9346",
+      "complaintId": {
+        "_id": "CMP-2026-9346",
+        "complaintId": "CMP-2026-9346",
+        "category": "Road",
+        "description": "ds"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789191679771-566924709.png",
+      "afterImage": "/uploads/afterImage-1789191688325-640161738.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.86,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:42:02.841Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284908058102435,
+        "longitude": 74.84445656860855
+      },
+      "complaintLocation": {
+        "latitude": 21.284908058102435,
+        "longitude": 74.84445656860855
+      },
+      "captureTimestamp": "2026-09-12T05:41:28.334Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T05:41:28.334Z",
+      "adminDecisionAt": "2026-09-12T05:42:24.943Z"
+    },
+    {
+      "_id": "VER-1789191187117",
+      "verificationId": "VER-2026-7117",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/photo-1789187113982-881220895.png",
+      "afterImage": "/uploads/afterImage-1789191187108-394665566.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T05:33:42.119Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "captureTimestamp": "2026-09-12T05:33:07.117Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T05:33:07.117Z",
+      "adminDecisionAt": "2026-09-12T05:33:53.396Z",
+      "rejectionReason": "no work done"
+    },
+    {
+      "_id": "VER-1789187313102",
+      "verificationId": "VER-2026-3102",
+      "taskId": "TSK-2026-0003",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "/uploads/beforeImage-1789187313068-851983012.png",
+      "afterImage": "/uploads/afterImage-1789187313064-595102154.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T04:28:40.993Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.5,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0125,
+        "longitude": 72.839
+      },
+      "captureTimestamp": "2026-09-12T04:28:33.102Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:28:33.102Z",
+      "adminDecisionAt": "2026-09-12T04:28:44.165Z"
+    },
+    {
+      "_id": "VER-1789187199086",
+      "verificationId": "VER-2026-9086",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789187199038-911569472.png",
+      "afterImage": "/uploads/afterImage-1789187199031-994104127.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T04:26:57.115Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:26:39.086Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:26:39.086Z",
+      "adminDecisionAt": "2026-09-12T04:27:10.238Z"
+    },
+    {
+      "_id": "VER-1789186639723",
+      "verificationId": "VER-2026-9723",
+      "taskId": "TSK-CMP-2026-0265",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789186632036-802578339.png",
+      "afterImage": "/uploads/afterImage-1789186639680-941272253.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 96,
+        "ssimScore": 0.69,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T04:24:39.968Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 19.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 21.355713,
+        "longitude": 74.888392
+      },
+      "captureTimestamp": "2026-09-12T04:17:19.723Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:17:19.723Z",
+      "adminDecisionAt": "2026-09-12T04:24:43.779Z"
+    },
+    {
+      "_id": "VER-1789186530185",
+      "verificationId": "VER-2026-0185",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/drainage-before.jpg",
+      "afterImage": "/uploads/afterImage-1789186530153-511025425.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 30,
+        "ssimScore": 0.5,
+        "detectedChanges": [
+          "Image stream could not be decoded"
+        ],
+        "reason": "Could not load resolution image for AI comparison. Manual inspection required.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T04:19:54.888Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.6,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:15:30.185Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:15:30.185Z",
+      "adminDecisionAt": "2026-09-12T04:27:58.810Z"
+    },
+    {
+      "_id": "VER-1789186515571",
+      "verificationId": "VER-2026-5571",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789186307668-275013741.png",
+      "afterImage": "/uploads/afterImage-1789186515479-301385399.png",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:15:15.571Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:15:15.571Z",
+      "adminDecisionAt": "2026-09-12T04:27:56.596Z"
+    },
+    {
+      "_id": "VER-1789186489359",
+      "verificationId": "VER-2026-9359",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789186307668-275013741.png",
+      "afterImage": "/uploads/afterImage-1789186489300-197647968.png",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.6,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:14:49.359Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:14:49.359Z",
+      "adminDecisionAt": "2026-09-12T04:27:51.004Z"
+    },
+    {
+      "_id": "VER-1789186488212",
+      "verificationId": "VER-2026-8212",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789186307668-275013741.png",
+      "afterImage": "/uploads/afterImage-1789186488157-81783261.png",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.4,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:14:48.212Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:14:48.212Z",
+      "adminDecisionAt": "2026-09-12T04:27:52.517Z"
+    },
+    {
+      "_id": "VER-1789186315945",
+      "verificationId": "VER-2026-5945",
+      "taskId": "TSK-2026-0002",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789186307668-275013741.png",
+      "afterImage": "/uploads/afterImage-1789186315871-620436413.png",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0222,
+        "longitude": 72.8561
+      },
+      "captureTimestamp": "2026-09-12T04:11:55.945Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T04:11:55.945Z",
+      "adminDecisionAt": "2026-09-12T04:27:48.856Z"
+    },
+    {
+      "_id": "VER-1789185334473",
+      "verificationId": "VER-2026-4473",
+      "taskId": "TSK-CMP-2026-8861",
+      "complaintId": {
+        "_id": "CMP-2026-8861",
+        "complaintId": "CMP-2026-8861",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789183758844-551671113.png",
+      "afterImage": "/uploads/afterImage-1789185334454-573374256.png",
+      "imageVerification": {
+        "verifiedByModel": false,
+        "status": "AWAITING_MODEL",
+        "confidence": null,
+        "ssimScore": null,
+        "detectedChanges": [],
+        "reason": "Awaiting verification by admin via AI model"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 15.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 21.35600476621945,
+        "longitude": 74.8883510662562
+      },
+      "captureTimestamp": "2026-09-12T03:55:34.473Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T03:55:34.473Z",
+      "adminDecisionAt": "2026-09-12T04:27:46.370Z"
+    },
+    {
+      "_id": "VER-1789185329968",
+      "verificationId": "VER-2026-9968",
+      "taskId": "TSK-CMP-2026-8861",
+      "complaintId": {
+        "_id": "CMP-2026-8861",
+        "complaintId": "CMP-2026-8861",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789183758844-551671113.png",
+      "afterImage": "/uploads/afterImage-1789185329939-900766895.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.86,
+        "detectedChanges": [
+          "Garbage and debris cleared from site",
+          "Surface restored and swept",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "VERIFIED: AI model detected substantial cleanup delta. The reported defect has been successfully cleared.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T04:27:41.442Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 15.7,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 21.35600476621945,
+        "longitude": 74.8883510662562
+      },
+      "captureTimestamp": "2026-09-12T03:55:29.968Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T03:55:29.968Z",
+      "adminDecisionAt": "2026-09-12T04:27:43.991Z"
+    },
+    {
+      "_id": "VER-1789184502465",
+      "verificationId": "VER-2026-2465",
+      "taskId": "TSK-2026-0003",
+      "complaintId": {
+        "_id": "CMP-1003",
+        "complaintId": "CMP-1003",
+        "category": "Faulty Streetlights",
+        "description": "3 Unlit Streetlights on High School Avenue causing commuter visibility hazard."
+      },
+      "workerId": {
+        "_id": "WRK-203",
+        "name": "Amit Patel",
+        "department": "Electrical & Streetlights",
+        "phone": "+91 98203 34567"
+      },
+      "beforeImage": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80",
+      "afterImage": "/uploads/afterImage-1789184502431-30661958.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 74,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Work site inspected",
+          "Debris cleared",
+          "Visual delta verified"
+        ],
+        "reason": "AI resolution verifier: Structural delta and site cleanup confirmed."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 337092.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0125,
+        "longitude": 72.839
+      },
+      "captureTimestamp": "2026-09-12T03:41:42.465Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-09-12T03:41:42.465Z",
+      "rejectionReason": "NO garbage is clean",
+      "adminDecisionAt": "2026-09-12T03:42:37.675Z"
+    },
+    {
+      "_id": "VER-1789184367836",
+      "verificationId": "VER-2026-7836",
+      "taskId": "TSK-CMP-2026-3117",
+      "complaintId": {
+        "_id": "CMP-2026-3117",
+        "complaintId": "CMP-2026-3117",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789181963109-278028914.png",
+      "afterImage": "/uploads/afterImage-1789184367715-318789285.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 91,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Work site inspected",
+          "Debris cleared",
+          "Visual delta verified"
+        ],
+        "reason": "AI resolution verifier: Structural delta and site cleanup confirmed."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.2,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "captureTimestamp": "2026-09-12T03:39:27.837Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T03:39:27.837Z",
+      "adminDecisionAt": "2026-09-12T03:40:16.324Z"
+    },
+    {
+      "_id": "VER-1789184046226",
+      "verificationId": "VER-2026-6226",
+      "taskId": "TSK-2026-0001",
+      "complaintId": {
+        "_id": "CMP-2026-3117",
+        "complaintId": "CMP-2026-3117",
+        "category": "Garbage / Waste",
+        "description": "Overflowing dumpster and trash heaps blocking main pedestrian pathway."
+      },
+      "workerId": {
+        "_id": "66e1bf7289f1a23c4d5e6f7a",
+        "name": "Public Operator",
+        "department": "Civic Maintenance",
+        "phone": "+91 9876543210"
+      },
+      "beforeImage": "/uploads/photo-1789181963109-278028914.png",
+      "afterImage": "/uploads/afterImage-1789184046152-803307178.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 93,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Work site inspected",
+          "Debris cleared",
+          "Visual delta verified"
+        ],
+        "reason": "AI resolution verifier: Structural delta and site cleanup confirmed.",
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T03:50:54.123Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 336052.6,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318
+      },
+      "complaintLocation": {
+        "latitude": 19.0178,
+        "longitude": 72.8478
+      },
+      "captureTimestamp": "2026-09-12T03:34:06.226Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T03:34:06.226Z",
+      "adminDecisionAt": "2026-09-12T03:50:57.691Z"
+    },
+    {
+      "_id": "VER-1789181983124",
+      "verificationId": "VER-2026-3124",
+      "taskId": "TSK-2026-0001",
+      "complaintId": {
+        "_id": "CMP-2026-1001",
+        "complaintId": "CMP-2026-1001",
+        "category": "Garbage / Waste",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "66e1bf7289f1a23c4d5e6f7a",
+        "name": "Public Operator",
+        "department": "Civic Maintenance",
+        "phone": "+91 9876543210"
+      },
+      "beforeImage": "/uploads/beforeImage-1789181975626-826745090.png",
+      "afterImage": "/uploads/afterImage-1789181983044-945817995.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 74,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Work site inspected",
+          "Debris cleared",
+          "Visual delta verified"
+        ],
+        "reason": "AI resolution verifier: Structural delta and site cleanup confirmed."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 115343.3,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 18.5309,
+        "longitude": 73.81
+      },
+      "complaintLocation": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      },
+      "captureTimestamp": "2026-09-12T02:59:43.125Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T02:59:43.125Z",
+      "adminDecisionAt": "2026-09-12T03:28:30.610Z"
+    },
+    {
+      "_id": "VER-1789181311757",
+      "verificationId": "VER-2026-1757",
+      "complaintId": {
+        "_id": "CMP-2026-2378",
+        "complaintId": "CMP-2026-2378",
+        "category": "Garbage"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789181293057-37504002.png",
+      "afterImage": "/uploads/afterImage-1789181311732-732382502.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.89,
+        "reason": "Multi-factor YOLOv8 & SSIM resolution analysis complete. Garbage cleared."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.1
+      },
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T02:48:31.757Z",
+      "adminDecisionAt": "2026-09-12T02:55:41.767Z"
+    },
+    {
+      "_id": "VER-1789151656079",
+      "verificationId": "VER-2026-6079",
+      "complaintId": {
+        "_id": "CMP-2026-0886",
+        "complaintId": "CMP-2026-0886",
+        "category": "Garbage"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789151623180-178690363.png",
+      "afterImage": "/uploads/afterImage-1789151656049-751953594.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 92,
+        "ssimScore": 0.88,
+        "reason": "Multi-factor YOLOv8 & SSIM resolution analysis complete."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.6
+      },
+      "status": "APPROVED",
+      "createdAt": "2026-09-11T18:34:16.079Z",
+      "adminDecisionAt": "2026-09-12T03:52:02.603Z"
+    },
+    {
+      "_id": "VER-1789151476169",
+      "verificationId": "VER-2026-6169",
+      "complaintId": {
+        "_id": "CMP-2026-0265",
+        "complaintId": "CMP-2026-0265",
+        "category": "Garbage"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/beforeImage-1789151457179-277013411.png",
+      "afterImage": "/uploads/afterImage-1789151476112-9165821.png",
+      "imageVerification": {
+        "status": "PASSED",
+        "confidence": 92,
+        "ssimScore": 0.88,
+        "reason": "Multi-factor YOLOv8 & SSIM resolution analysis complete."
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.5
+      },
+      "status": "APPROVED",
+      "createdAt": "2026-09-11T18:31:16.170Z",
+      "adminDecisionAt": "2026-09-12T03:33:07.906Z"
+    },
+    {
+      "_id": "VER-1789151074705",
+      "verificationId": "VER-2026-4705",
+      "complaintId": {
+        "_id": "CMP-2026-4184",
+        "complaintId": "CMP-2026-4184",
+        "category": "Garbage"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789151057428-464879475.png",
+      "afterImage": "/uploads/afterImage-1789151074695-819785828.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 15,
+        "ssimScore": 0.99,
+        "detectedChanges": [
+          "Duplicate photo submitted",
+          "Defect still present on site",
+          "Zero cleanup or repair verified"
+        ],
+        "reason": "REJECTED: Worker submitted the exact same complaint photo as resolution proof! The reported civic defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": true,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T03:58:31.357Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 4.8
+      },
+      "status": "REJECTED",
+      "createdAt": "2026-09-11T18:24:34.705Z",
+      "rejectionReason": "no garbage is clean",
+      "adminDecisionAt": "2026-09-12T03:51:57.464Z"
+    },
+    {
+      "_id": "VER-1789149949082",
+      "verificationId": "VER-2026-9082",
+      "complaintId": {
+        "_id": "CMP-2026-5740",
+        "complaintId": "CMP-2026-5740",
+        "category": "Garbage"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/beforeImage-1789149937301-216782795.png",
+      "afterImage": "/uploads/afterImage-1789149949039-763026209.png",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 94,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Work site inspected",
+          "Debris cleared",
+          "Visual delta verified"
+        ],
+        "reason": "AI resolution verifier: Structural delta and site cleanup confirmed.",
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T03:52:14.006Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 3.9
+      },
+      "status": "REJECTED",
+      "createdAt": "2026-09-11T18:05:49.082Z",
+      "rejectionReason": "no clean",
+      "adminDecisionAt": "2026-09-12T03:52:26.166Z"
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "TSK-CMP-2026-1683",
+      "taskId": "TSK-CMP-2026-1683",
+      "complaintId": {
+        "_id": "CMP-2026-1683",
+        "complaintId": "CMP-2026-1683",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Streetlight",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789192841660-904510404.png",
+        "location": {
+          "latitude": 21.284912464981343,
+          "longitude": 74.84445937180017,
+          "address": "Academic Building, Aamoda, Shirpur Taluka"
+        },
+        "priority": "Medium",
+        "department": "Electrical Operations",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T06:00:41.683Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.284912464981343,
+        "longitude": 74.84445937180017,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "createdAt": "2026-09-12T06:00:53.436Z",
+      "beforeImage": "/uploads/photo-1789192841660-904510404.png",
+      "afterImage": "/uploads/afterImage-1789192879199-607169760.jpg",
+      "verificationId": "VER-1789192879207",
+      "completedAt": "2026-09-12T06:01:32.230Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-3803",
+      "taskId": "TSK-CMP-2026-3803",
+      "complaintId": {
+        "_id": "CMP-2026-3803",
+        "complaintId": "CMP-2026-3803",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789192243797-72811939.png",
+        "location": {
+          "latitude": 21.284890017532305,
+          "longitude": 74.84445592159743,
+          "address": "Lat: 21.2849, Lng: 74.8445"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T05:50:43.803Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.284890017532305,
+        "longitude": 74.84445592159743,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "createdAt": "2026-09-12T05:51:13.564Z",
+      "beforeImage": "/uploads/photo-1789192243797-72811939.png",
+      "afterImage": "/uploads/afterImage-1789192299925-102781174.png",
+      "verificationId": "VER-1789192299937",
+      "completedAt": "2026-09-12T05:52:40.950Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-5178",
+      "taskId": "TSK-CMP-2026-5178",
+      "complaintId": {
+        "_id": "CMP-2026-5178",
+        "complaintId": "CMP-2026-5178",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Streetlight",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789192015176-115458149.jpeg",
+        "location": {
+          "latitude": 21.28491849593648,
+          "longitude": 74.8444611083037,
+          "address": "Lat: 21.2849, Lng: 74.8445"
+        },
+        "priority": "Medium",
+        "department": "Electrical Operations",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T05:46:55.178Z",
+        "assignedWorkerId": "WRK-203"
+      },
+      "workerId": "WRK-203",
+      "worker": {
+        "_id": "WRK-203",
+        "id": "WRK-203",
+        "name": "Amit Patel",
+        "phone": "+91 98203 34567",
+        "department": "Electrical & Streetlights",
+        "domain": "Electrical & Streetlights",
+        "zone": "Ward 3 - Prabhadevi",
+        "status": "ON_DUTY",
+        "rating": 4.7
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.28491849593648,
+        "longitude": 74.8444611083037,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "createdAt": "2026-09-12T05:47:37.434Z",
+      "beforeImage": "/uploads/photo-1789192015176-115458149.jpeg",
+      "afterImage": "/uploads/afterImage-1789192075886-478012317.jpeg",
+      "verificationId": "VER-1789192075889",
+      "completedAt": "2026-09-12T05:49:30.752Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-9346",
+      "taskId": "TSK-CMP-2026-9346",
+      "complaintId": {
+        "_id": "CMP-2026-9346",
+        "complaintId": "CMP-2026-9346",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "ds",
+        "photoUrl": "",
+        "location": {
+          "latitude": 21.284908058102435,
+          "longitude": 74.84445656860855,
+          "address": "Lat: 21.2849, Lng: 74.8445"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T05:40:19.346Z",
+        "assignedWorkerId": "WRK-202"
+      },
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.284908058102435,
+        "longitude": 74.84445656860855,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "createdAt": "2026-09-12T05:40:53.706Z",
+      "beforeImage": "/uploads/beforeImage-1789191679771-566924709.png",
+      "afterImage": "/uploads/afterImage-1789191688325-640161738.png",
+      "verificationId": "VER-1789191688334",
+      "completedAt": "2026-09-12T05:42:24.946Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-2599",
+      "taskId": "TSK-CMP-2026-2599",
+      "complaintId": {
+        "_id": "CMP-2026-2599",
+        "complaintId": "CMP-2026-2599",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Streetlight",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789191512590-823029720.jpeg",
+        "location": {
+          "latitude": 21.28490726287453,
+          "longitude": 74.84445456418084,
+          "address": "Lat: 21.2849, Lng: 74.8445"
+        },
+        "priority": "Medium",
+        "department": "Electrical Operations",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T05:38:32.602Z",
+        "assignedWorkerId": "WRK-203"
+      },
+      "workerId": "WRK-203",
+      "worker": {
+        "_id": "WRK-203",
+        "id": "WRK-203",
+        "name": "Amit Patel",
+        "phone": "+91 98203 34567",
+        "department": "Electrical & Streetlights",
+        "domain": "Electrical & Streetlights",
+        "zone": "Ward 3 - Prabhadevi",
+        "status": "ON_DUTY",
+        "rating": 4.7
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.28490726287453,
+        "longitude": 74.84445456418084,
+        "address": "Lat: 21.2849, Lng: 74.8445"
+      },
+      "createdAt": "2026-09-12T05:38:55.277Z",
+      "beforeImage": "/uploads/photo-1789191512590-823029720.jpeg",
+      "afterImage": "/uploads/afterImage-1789191814744-587601738.jpeg",
+      "verificationId": "VER-1789191814749",
+      "completedAt": "2026-09-12T05:46:06.185Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-3997",
+      "taskId": "TSK-CMP-2026-3997",
+      "complaintId": {
+        "_id": "CMP-2026-3997",
+        "complaintId": "CMP-2026-3997",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789187113982-881220895.png",
+        "location": {
+          "latitude": 21.35587025943557,
+          "longitude": 74.88830521982318,
+          "address": "Lat: 21.3559, Lng: 74.8883"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T04:25:13.998Z",
+        "assignedWorkerId": "WRK-203"
+      },
+      "workerId": "WRK-203",
+      "worker": {
+        "_id": "WRK-203",
+        "id": "WRK-203",
+        "name": "Amit Patel",
+        "phone": "+91 98203 34567",
+        "department": "Electrical & Streetlights",
+        "domain": "Electrical & Streetlights",
+        "zone": "Ward 3 - Prabhadevi",
+        "status": "ON_DUTY",
+        "rating": 4.7
+      },
+      "status": "IN_PROGRESS",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "createdAt": "2026-09-12T04:28:13.778Z",
+      "beforeImage": "/uploads/photo-1789187113982-881220895.png",
+      "afterImage": "/uploads/afterImage-1789192500688-33753678.png",
+      "verificationId": "VER-1789192500711",
+      "completedAt": "2026-09-12T05:33:33.679Z",
+      "rejectionReason": "same  photo no work is doen"
+    },
+    {
+      "_id": "TSK-CMP-2026-6023",
+      "taskId": "TSK-CMP-2026-6023",
+      "complaintId": {
+        "_id": "CMP-2026-6023",
+        "complaintId": "CMP-2026-6023",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789186596009-805373467.png",
+        "location": {
+          "latitude": 21.35587025943557,
+          "longitude": 74.88830521982318,
+          "address": "Lat: 21.3559, Lng: 74.8883"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T04:16:36.024Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "createdAt": "2026-09-12T04:16:49.968Z",
+      "beforeImage": "/uploads/photo-1789186596009-805373467.png",
+      "afterImage": "/uploads/afterImage-1789192536286-747834451.jpg",
+      "verificationId": "VER-1789192536290",
+      "completedAt": "2026-09-12T05:56:29.940Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-5917",
+      "taskId": "TSK-CMP-2026-5917",
+      "complaintId": {
+        "_id": "CMP-2026-5917",
+        "complaintId": "CMP-2026-5917",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "pothole near park",
+        "photoUrl": "/uploads/photo-1789185475904-107026803.png",
+        "location": {
+          "latitude": 21.355713,
+          "longitude": 74.8883915,
+          "address": "Lat: 21.3557, Lng: 74.8884"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T03:57:55.918Z",
+        "assignedWorkerId": "WRK-202"
+      },
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "status": "IN_PROGRESS",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.355713,
+        "longitude": 74.8883915,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "createdAt": "2026-09-12T04:11:30.114Z",
+      "beforeImage": "/uploads/photo-1789185475904-107026803.png",
+      "afterImage": "/uploads/afterImage-1789192521338-786032483.jpg",
+      "verificationId": "VER-1789192521341",
+      "rejectionReason": "different photos\n"
+    },
+    {
+      "_id": "TSK-CMP-2026-3534",
+      "taskId": "TSK-CMP-2026-3534",
+      "complaintId": {
+        "_id": "CMP-2026-3534",
+        "complaintId": "CMP-2026-3534",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789185283522-669342534.png",
+        "location": {
+          "latitude": 21.35587025943557,
+          "longitude": 74.88830521982318,
+          "address": "Lat: 21.3559, Lng: 74.8883"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T03:54:43.535Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "createdAt": "2026-09-12T03:55:00.163Z",
+      "beforeImage": "/uploads/beforeImage-1789192558342-706874347.jpg",
+      "afterImage": "/uploads/afterImage-1789192558342-751288387.jpg",
+      "verificationId": "VER-1789192558346",
+      "completedAt": "2026-09-12T05:56:11.731Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-0265",
+      "taskId": "TSK-CMP-2026-0265",
+      "complaintId": {
+        "_id": "CMP-2026-0265",
+        "complaintId": "CMP-2026-0265",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789150990254-327817203.png",
+        "location": {
+          "latitude": 21.355713,
+          "longitude": 74.888392,
+          "address": "Lat: 21.3557, Lng: 74.8884"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-11T18:23:10.265Z",
+        "resolvedAt": "2026-09-12T03:33:07.914Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.355713,
+        "longitude": 74.888392,
+        "address": "Lat: 21.3557, Lng: 74.8884"
+      },
+      "createdAt": "2026-09-12T03:52:52.265Z",
+      "beforeImage": "/uploads/beforeImage-1789186632036-802578339.png",
+      "afterImage": "/uploads/afterImage-1789186639680-941272253.png",
+      "verificationId": "VER-1789186639723",
+      "completedAt": "2026-09-12T04:24:43.783Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-8861",
+      "taskId": "TSK-CMP-2026-8861",
+      "complaintId": {
+        "_id": "CMP-2026-8861",
+        "complaintId": "CMP-2026-8861",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789183758844-551671113.png",
+        "location": {
+          "latitude": 21.35600476621945,
+          "longitude": 74.8883510662562,
+          "address": "Lat: 21.3560, Lng: 74.8884"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T03:29:18.861Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.35600476621945,
+        "longitude": 74.8883510662562,
+        "address": "Lat: 21.3560, Lng: 74.8884"
+      },
+      "createdAt": "2026-09-12T03:52:41.541Z",
+      "beforeImage": "/uploads/photo-1789183758844-551671113.png",
+      "afterImage": "/uploads/afterImage-1789185334454-573374256.png",
+      "verificationId": "VER-1789185334473",
+      "completedAt": "2026-09-12T04:27:46.373Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-3117",
+      "taskId": "TSK-CMP-2026-3117",
+      "complaintId": {
+        "_id": "CMP-2026-3117",
+        "complaintId": "CMP-2026-3117",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789181963109-278028914.png",
+        "location": {
+          "latitude": 21.35587025943557,
+          "longitude": 74.88830521982318,
+          "address": "Lat: 21.3559, Lng: 74.8883"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T02:59:23.117Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.35587025943557,
+        "longitude": 74.88830521982318,
+        "address": "Lat: 21.3559, Lng: 74.8883"
+      },
+      "createdAt": "2026-09-12T03:38:55.639Z",
+      "beforeImage": "/uploads/photo-1789181963109-278028914.png",
+      "afterImage": "/uploads/afterImage-1789184367715-318789285.png",
+      "verificationId": "VER-1789184367836",
+      "completedAt": "2026-09-12T03:40:16.329Z"
+    },
+    {
+      "_id": "TSK-2026-0001",
+      "taskId": "TSK-2026-0001",
+      "status": "COMPLETED",
+      "priority": "High",
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "location": {
+        "latitude": 19.0178,
+        "longitude": 72.8478,
+        "address": "Dadar Market, Sector 4, Mumbai"
+      },
+      "complaintId": {
+        "_id": "CMP-2026-3117",
+        "complaintId": "CMP-2026-3117",
+        "category": "Garbage / Waste",
+        "description": "Overflowing dumpster and trash heaps blocking main pedestrian pathway.",
+        "photoUrl": "/uploads/photo-1789181963109-278028914.png"
+      },
+      "createdAt": "2026-09-12T03:33:47.921Z",
+      "beforeImage": "/uploads/photo-1789181963109-278028914.png",
+      "afterImage": "/uploads/afterImage-1789184046152-803307178.png",
+      "verificationId": "VER-1789184046226",
+      "completedAt": "2026-09-12T03:50:57.694Z"
+    },
+    {
+      "_id": "TSK-2026-0002",
+      "taskId": "TSK-2026-0002",
+      "status": "COMPLETED",
+      "priority": "Critical",
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "location": {
+        "latitude": 19.0222,
+        "longitude": 72.8561,
+        "address": "Wadala Station Bridge, Ward 5, Mumbai"
+      },
+      "complaintId": {
+        "_id": "CMP-1002",
+        "complaintId": "CMP-1002",
+        "category": "Clogged Drains",
+        "description": "Severe plastic waste blockage in the storm drain. High risk of monsoon waterlogging.",
+        "photoUrl": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=600&q=80"
+      },
+      "createdAt": "2026-09-12T03:33:47.921Z",
+      "beforeImage": "/uploads/drainage-before.jpg",
+      "afterImage": "/uploads/afterImage-1789192222027-610401758.jpg",
+      "verificationId": "VER-1789192222033",
+      "completedAt": "2026-09-12T05:50:27.145Z"
+    },
+    {
+      "_id": "TSK-2026-0003",
+      "taskId": "TSK-2026-0003",
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "workerId": "WRK-203",
+      "worker": {
+        "_id": "WRK-203",
+        "id": "WRK-203",
+        "name": "Amit Patel",
+        "phone": "+91 98203 34567",
+        "department": "Electrical & Streetlights",
+        "domain": "Electrical & Streetlights",
+        "zone": "Ward 3 - Prabhadevi",
+        "status": "ON_DUTY",
+        "rating": 4.7
+      },
+      "location": {
+        "latitude": 19.0125,
+        "longitude": 72.839,
+        "address": "High School Ave, Prabhadevi, Mumbai"
+      },
+      "complaintId": {
+        "_id": "CMP-1003",
+        "complaintId": "CMP-1003",
+        "category": "Faulty Streetlights",
+        "description": "3 Unlit Streetlights on High School Avenue causing commuter visibility hazard.",
+        "photoUrl": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80"
+      },
+      "createdAt": "2026-09-12T03:33:47.921Z",
+      "beforeImage": "/uploads/beforeImage-1789187313068-851983012.png",
+      "afterImage": "/uploads/afterImage-1789187313064-595102154.png",
+      "verificationId": "VER-1789187313102",
+      "rejectionReason": "NO garbage is clean",
+      "completedAt": "2026-09-12T04:28:44.169Z"
+    }
+  ]
+}
