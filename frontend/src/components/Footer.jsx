@@ -5,7 +5,7 @@ import { Building2, ShieldCheck, Heart } from 'lucide-react';
 export default function Footer() {
   const location = useLocation();
 
-  if (location.pathname === '/worker' || location.pathname === '/citizen') {
+  if (location.pathname === '/worker' || location.pathname === '/citizen' || location.pathname === '/admin') {
     return null;
   }
   return (
