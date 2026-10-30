@@ -14,6 +14,7 @@ import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import { reverseGeocode } from '../utils/geocoding';
 import LeafletMap from '../components/LeafletMap';
+import CityConnectLogo from '../components/CityConnectLogo';
 
 // Predefined official municipal field workers fallback (if /api/auth/workers fails)
 const FALLBACK_WORKERS = [
@@ -420,9 +421,7 @@ export default function WorkerPortal() {
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between shadow-xs">
         {/* Brand Left */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#059669] flex items-center justify-center text-white shadow-sm">
-            <Building2 className="w-6 h-6" />
-          </div>
+          <CityConnectLogo className="w-9 h-9 sm:w-10 sm:h-10" />
           <div>
             <div className="font-extrabold text-base tracking-tight text-slate-900 leading-none">
               CityConnectAI

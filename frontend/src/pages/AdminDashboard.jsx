@@ -20,6 +20,7 @@ import VerificationModal from '../components/VerificationModal';
 import EmptyState from '../components/EmptyState';
 import { TableSkeleton } from '../components/LoadingSkeleton';
 import { useSocket } from '../context/SocketContext';
+import CityConnectLogo from '../components/CityConnectLogo';
 
 // Curated modern color tokens for charts
 const CATEGORY_COLORS = [
@@ -349,9 +350,7 @@ export default function AdminDashboard() {
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-xs">
         {/* Brand Left */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#059669] flex items-center justify-center text-white shadow-sm">
-            <Building2 className="w-6 h-6" />
-          </div>
+          <CityConnectLogo className="w-9 h-9 sm:w-10 sm:h-10" />
           <div>
             <div className="font-extrabold text-base tracking-tight text-slate-900 leading-none">
               CityConnectAI

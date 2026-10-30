@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 52" fill="none">
+  <!-- Rounded Terracotta Emblem Badge Background -->
+  <path d="M6 14C6 8.47715 10.4772 4 16 4H32C37.5228 4 42 8.47715 42 14V34C42 42.8366 34.8366 50 26 50H22C13.1634 50 6 42.8366 6 34V14Z" fill="#A34B24"/>
+  
+  <!-- Subtle Inner Ring Highlight -->
+  <path d="M8 15C8 10.5817 11.5817 7 16 7H32C36.4183 7 40 10.5817 40 15V34C40 41.732 33.732 48 26 48H22C14.268 48 8 41.732 8 34V15Z" stroke="#B85D33" stroke-width="1.5"/>
+
+  <!-- Left Urban Building Silhouette -->
+  <rect x="10" y="24" width="6" height="18" rx="1.5" fill="#873815" opacity="0.9"/>
+  <circle cx="13" cy="28" r="0.8" fill="#FDF2E9"/>
+  <circle cx="13" cy="32" r="0.8" fill="#FDF2E9"/>
+  <circle cx="13" cy="36" r="0.8" fill="#FDF2E9"/>
+
+  <!-- Right Urban Building Silhouette -->
+  <rect x="32" y="26" width="6" height="16" rx="1.5" fill="#873815" opacity="0.9"/>
+  <rect x="34" y="21" width="2" height="5" fill="#873815"/>
+  <circle cx="35" cy="30" r="0.8" fill="#FDF2E9"/>
+  <circle cx="35" cy="34" r="0.8" fill="#FDF2E9"/>
+
+  <!-- Center Prominent Green Spire / Environmental Leaf Tower -->
+  <path d="M24 10L30 18V42C30 43.1046 29.1046 44 28 44H20C18.8954 44 18 43.1046 18 42V18L24 10Z" fill="#087F5B"/>
+  
+  <!-- Right Leaf Green Accent (half-tone leaf gradient) -->
+  <path d="M24 10L30 18V44H24V10Z" fill="#0A9B6F"/>
+
+  <!-- White Central Beacon Line / Spire Stem -->
+  <line x1="24" y1="12" x2="24" y2="44" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Center Spire Light Glow Dot -->
+  <circle cx="24" cy="18" r="1.2" fill="#FFFFFF"/>
+  <circle cx="24" cy="24" r="1.2" fill="#FFFFFF"/>
+  <circle cx="24" cy="30" r="1.2" fill="#FFFFFF"/>
+</svg>
