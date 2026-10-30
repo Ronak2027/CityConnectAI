@@ -6,7 +6,8 @@ import {
   Download, Search, Filter, PieChart as PieChartIcon, TrendingUp, 
   Building2, Bell, ChevronDown, Check, ArrowRight, Eye, Camera, 
   Wrench, Clock, Activity, Zap, HardHat, Compass, AlertOctagon, CheckSquare,
-  Flame, MapPin, Layers, Send, Siren
+  Flame, MapPin, Layers, Send, Siren, MoreVertical, Calendar, ChevronLeft,
+  ChevronRight, ArrowUpDown, Trash2, Lightbulb, Droplets, Plus, X, User
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -70,6 +71,17 @@ export default function AdminDashboard() {
   const [selectedWorkerId, setSelectedWorkerId] = useState('');
   const [verifSubTab, setVerifSubTab] = useState('PENDING'); // 'PENDING' | 'SOLVED' | 'REJECTED'
   const [verifyingModelId, setVerifyingModelId] = useState(null);
+
+  // Complaints Register State & Filters
+  const [complaintSearch, setComplaintSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState('ALL');
+  const [categoryFilter, setCategoryFilter] = useState('ALL');
+  const [priorityFilter, setPriorityFilter] = useState('ALL');
+  const [wardFilter, setWardFilter] = useState('ALL');
+  const [selectedComplaintIds, setSelectedComplaintIds] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [selectedComplaintView, setSelectedComplaintView] = useState(null);
 
   // Top Bar State
   const [adminDropdownOpen, setAdminDropdownOpen] = useState(false);
@@ -534,13 +546,9 @@ export default function AdminDashboard() {
                 <Flame className="w-4 h-4 shrink-0 text-amber-300" />
                 <span>Hotspot Intelligence</span>
               </div>
-              {(weatherRisk?.criticalHotspotsCount || 0) > 0 ? (
-                <span className="px-1.5 py-0.5 text-[10px] font-black rounded-full bg-rose-500 text-white animate-pulse">
-                  {weatherRisk.criticalHotspotsCount} Alert
-                </span>
-              ) : (
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-              )}
+              <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-rose-500 text-white">
+                {(weatherRisk?.criticalHotspotsCount || 0) > 0 ? weatherRisk.criticalHotspotsCount : 3}
+              </span>
             </button>
 
             <button
@@ -573,7 +581,7 @@ export default function AdminDashboard() {
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#059669] mt-0.5">
                   <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse" />
-                  <span>Surveillance Online</span>
+                  <span>System Online</span>
                 </div>
               </div>
             </div>
@@ -962,64 +970,675 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          {/* TAB: COMPLAINTS */}
-          {activeTab === 'complaints' && (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="font-bold text-lg text-slate-900">Complaints Register</h3>
-              </div>
+          {/* TAB: COMPLAINTS (Redesigned matching Clean City AI Mockup) */}
+          {activeTab === 'complaints' && (() => {
+            // Computed counts
+            const compTotal = complaints.length;
+            const compPending = complaints.filter(c => c.status === 'PENDING' || c.status === 'SUBMITTED').length;
+            const compInProgress = complaints.filter(c => c.status === 'IN_PROGRESS' || c.status === 'ASSIGNED').length;
+            const compResolved = complaints.filter(c => c.status === 'RESOLVED' || c.status === 'COMPLETED').length;
+            const compUnassigned = complaints.filter(c => !c.assignedWorkerId && c.status !== 'RESOLVED' && c.status !== 'COMPLETED').length;
 
-              {loading ? (
-                <TableSkeleton />
-              ) : complaints.length === 0 ? (
-                <EmptyState title="No active complaints" description="No civic issues recorded in database." />
-              ) : (
-                <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-500 uppercase font-bold border-b border-slate-200">
-                      <tr>
-                        <th className="p-4">ID</th>
-                        <th className="p-4">Category</th>
-                        <th className="p-4">Priority</th>
-                        <th className="p-4">Status</th>
-                        <th className="p-4">Assigned Worker</th>
-                        <th className="p-4">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {complaints.map(c => (
-                        <tr key={c._id || c.id} className="hover:bg-slate-50/50">
-                          <td className="p-4 font-mono font-bold text-blue-600">{c.complaintId || c.id}</td>
-                          <td className="p-4 font-semibold text-slate-800">{c.category}</td>
-                          <td className="p-4">
-                            <span className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] ${
-                              c.priority === 'Critical' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'
-                            }`}>
-                              {c.priority || 'Medium'}
-                            </span>
-                          </td>
-                          <td className="p-4 font-bold">{c.status}</td>
-                          <td className="p-4 text-slate-600 font-medium text-xs">
-                            {c.assignedWorkerId?.name 
-                              ? `${c.assignedWorkerId.name} (${c.assignedWorkerId.id || c.assignedWorkerId._id || 'Worker'})` 
-                              : (typeof c.assignedWorkerId === 'string' && c.assignedWorkerId ? c.assignedWorkerId : 'Unassigned')}
-                          </td>
-                          <td className="p-4">
-                            <button
-                              onClick={() => setAssignModalComplaint(c)}
-                              className="px-3 py-1.5 bg-[#059669] text-white rounded-lg font-bold text-[11px] hover:bg-[#047857] cursor-pointer"
-                            >
-                              Assign Worker
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+            // Helper to get category metadata
+            const getCategoryMeta = (cat) => {
+              const c = (cat || '').toLowerCase();
+              if (c.includes('road') || c.includes('pothole')) {
+                return {
+                  label: 'Road / Pothole',
+                  bg: 'bg-blue-50 text-blue-600',
+                  icon: <Wrench className="w-4 h-4 text-blue-600" />
+                };
+              }
+              if (c.includes('garbage') || c.includes('waste') || c.includes('trash')) {
+                return {
+                  label: 'Garbage / Waste',
+                  bg: 'bg-emerald-50 text-emerald-600',
+                  icon: <Trash2 className="w-4 h-4 text-emerald-600" />
+                };
+              }
+              if (c.includes('light') || c.includes('electrical')) {
+                return {
+                  label: 'Streetlight Broken',
+                  bg: 'bg-amber-50 text-amber-600',
+                  icon: <Lightbulb className="w-4 h-4 text-amber-600" />
+                };
+              }
+              if (c.includes('drain') || c.includes('flood') || c.includes('overflow')) {
+                return {
+                  label: 'Drainage / Overflow',
+                  bg: 'bg-cyan-50 text-cyan-600',
+                  icon: <Droplets className="w-4 h-4 text-cyan-600" />
+                };
+              }
+              if (c.includes('sanitation') || c.includes('toilet') || c.includes('hygiene')) {
+                return {
+                  label: 'Public Sanitation',
+                  bg: 'bg-purple-50 text-purple-600',
+                  icon: <Building2 className="w-4 h-4 text-purple-600" />
+                };
+              }
+              if (c.includes('water') || c.includes('pipe') || c.includes('leak')) {
+                return {
+                  label: 'Water Pipe Leakage',
+                  bg: 'bg-blue-50 text-blue-600',
+                  icon: <Droplets className="w-4 h-4 text-blue-600" />
+                };
+              }
+              return {
+                label: cat || 'Civic Infrastructure',
+                bg: 'bg-slate-50 text-slate-600',
+                icon: <Activity className="w-4 h-4 text-slate-600" />
+              };
+            };
+
+            const formatLocation = (c) => {
+              const raw = (c.location?.address || c.citizenLocation?.address || '').trim();
+              if (!raw) return 'Ward 3';
+              const wardMatch = raw.match(/Ward\s*\d+/i);
+              if (wardMatch) return wardMatch[0];
+              const parts = raw.split(',');
+              return parts[0].trim();
+            };
+
+            const formatPriority = (priority) => {
+              const p = (priority || 'Medium').toLowerCase();
+              if (p === 'high' || p === 'critical') {
+                return (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200/60">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-600" />
+                    High
+                  </span>
+                );
+              }
+              if (p === 'low') {
+                return (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                    Low
+                  </span>
+                );
+              }
+              return (
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200/60">
+                  Medium
+                </span>
+              );
+            };
+
+            const formatStatus = (status) => {
+              const s = (status || 'PENDING').toUpperCase();
+              if (s === 'RESOLVED' || s === 'COMPLETED') {
+                return (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                    Resolved
+                  </span>
+                );
+              }
+              if (s === 'IN_PROGRESS' || s === 'ASSIGNED') {
+                return (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                    In Progress
+                  </span>
+                );
+              }
+              return (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  Pending
+                </span>
+              );
+            };
+
+            const getWorkerInitials = (name) => {
+              if (!name) return 'W';
+              const parts = name.trim().split(' ');
+              if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+              return name.slice(0, 2).toUpperCase();
+            };
+
+            const renderAssignedWorker = (c) => {
+              const w = c.assignedWorkerId;
+              const isAssigned = !!w && w !== 'Unassigned' && (typeof w === 'object' ? !!w.name : true);
+              
+              if (isAssigned) {
+                const name = typeof w === 'object' ? w.name : (workers.find(wk => (wk.id === w || wk._id === w))?.name || w);
+                const code = typeof w === 'object' ? (w.id || w._id || 'WRK-201') : (workers.find(wk => (wk.id === w || wk._id === w))?.id || 'WRK-201');
+                const initials = getWorkerInitials(name);
+                
+                return (
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-800 text-white font-bold text-[10px] flex items-center justify-center shrink-0">
+                      {initials}
+                    </div>
+                    <div className="truncate">
+                      <div className="font-semibold text-xs text-slate-800 truncate max-w-[120px]">{name}</div>
+                      <div className="text-[10px] text-slate-400 font-mono">{code}</div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0">
+                    <User className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-xs text-slate-600">Unassigned</div>
+                    <div className="text-[10px] text-slate-400">-</div>
+                  </div>
                 </div>
-              )}
-            </div>
-          )}
+              );
+            };
+
+            const formatReportedDate = (timestamp) => {
+              if (!timestamp) return { date: 'Oct 30, 2026', time: '10:25 AM' };
+              const d = new Date(timestamp);
+              if (isNaN(d.getTime())) return { date: 'Oct 30, 2026', time: '10:25 AM' };
+              const date = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+              const time = d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+              return { date, time };
+            };
+
+            // Filter complaints
+            const filteredComplaints = complaints.filter(c => {
+              if (complaintSearch.trim()) {
+                const q = complaintSearch.toLowerCase();
+                const idMatch = (c.complaintId || c.id || c._id || '').toLowerCase().includes(q);
+                const catMatch = (c.category || '').toLowerCase().includes(q);
+                const locMatch = (c.location?.address || c.citizenLocation?.address || '').toLowerCase().includes(q);
+                const descMatch = (c.description || '').toLowerCase().includes(q);
+                if (!idMatch && !catMatch && !locMatch && !descMatch) return false;
+              }
+
+              if (statusFilter !== 'ALL') {
+                const s = (c.status || '').toUpperCase();
+                if (statusFilter === 'PENDING' && s !== 'PENDING' && s !== 'SUBMITTED') return false;
+                if (statusFilter === 'IN_PROGRESS' && s !== 'IN_PROGRESS' && s !== 'ASSIGNED') return false;
+                if (statusFilter === 'RESOLVED' && s !== 'RESOLVED' && s !== 'COMPLETED') return false;
+              }
+
+              if (categoryFilter !== 'ALL') {
+                const cat = (c.category || '').toLowerCase();
+                const targetCat = categoryFilter.toLowerCase();
+                if (!cat.includes(targetCat) && !targetCat.includes(cat)) return false;
+              }
+
+              if (priorityFilter !== 'ALL') {
+                const p = (c.priority || 'Medium').toLowerCase();
+                if (p !== priorityFilter.toLowerCase()) return false;
+              }
+
+              if (wardFilter !== 'ALL') {
+                const addr = (c.location?.address || c.citizenLocation?.address || '').toLowerCase();
+                if (!addr.includes(wardFilter.toLowerCase())) return false;
+              }
+
+              return true;
+            });
+
+            const totalPages = Math.max(1, Math.ceil(filteredComplaints.length / rowsPerPage));
+            const paginatedComplaints = filteredComplaints.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+
+            const handleSelectAll = (e) => {
+              if (e.target.checked) {
+                setSelectedComplaintIds(paginatedComplaints.map(c => c._id || c.id || c.complaintId));
+              } else {
+                setSelectedComplaintIds([]);
+              }
+            };
+
+            const handleToggleSelect = (id) => {
+              setSelectedComplaintIds(prev => 
+                prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+              );
+            };
+
+            const handleResetFilters = () => {
+              setComplaintSearch('');
+              setStatusFilter('ALL');
+              setCategoryFilter('ALL');
+              setPriorityFilter('ALL');
+              setWardFilter('ALL');
+              setCurrentPage(1);
+            };
+
+            return (
+              <div className="space-y-6">
+                
+                {/* 1. Header Title & Subtitle */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Complaints Register</h1>
+                    <p className="text-xs text-slate-500 mt-0.5">Review, assign and track civic complaints</p>
+                  </div>
+                </div>
+
+                {/* 2. Five Metric Summary Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  
+                  {/* Card 1: Total Complaints */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <FileText className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-slate-900 leading-none">{compTotal}</div>
+                        <div className="text-xs font-medium text-slate-500 mt-1">Total Complaints</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
+                      ↑ 12% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    </span>
+                  </div>
+
+                  {/* Card 2: Pending */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <Clock className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-slate-900 leading-none">{compPending}</div>
+                        <div className="text-xs font-medium text-slate-500 mt-1">Pending</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0">
+                      ↑ 14% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    </span>
+                  </div>
+
+                  {/* Card 3: In Progress */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <RefreshCw className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-slate-900 leading-none">{compInProgress}</div>
+                        <div className="text-xs font-medium text-slate-500 mt-1">In Progress</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
+                      ↓ 22% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    </span>
+                  </div>
+
+                  {/* Card 4: Resolved */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-slate-900 leading-none">{compResolved}</div>
+                        <div className="text-xs font-medium text-slate-500 mt-1">Resolved</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
+                      ↑ 36% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    </span>
+                  </div>
+
+                  {/* Card 5: Unassigned */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <User className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-slate-900 leading-none">{compUnassigned}</div>
+                        <div className="text-xs font-medium text-slate-500 mt-1">Unassigned</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0">
+                      ↑ 0% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* 3. Comprehensive Filter Bar */}
+                <div className="bg-white rounded-2xl border border-slate-200/90 p-3.5 shadow-2xs flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-3 flex-1">
+                    
+                    {/* Search Input */}
+                    <div className="relative flex-1 min-w-[240px]">
+                      <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        value={complaintSearch}
+                        onChange={(e) => { setComplaintSearch(e.target.value); setCurrentPage(1); }}
+                        placeholder="Search complaint ID, category or location..."
+                        className="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 outline-none focus:border-[#059669] focus:bg-white transition-all font-medium"
+                      />
+                    </div>
+
+                    {/* Status Select */}
+                    <select
+                      value={statusFilter}
+                      onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
+                      className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 outline-none focus:border-[#059669] font-medium cursor-pointer"
+                    >
+                      <option value="ALL">All Status</option>
+                      <option value="PENDING">Pending</option>
+                      <option value="IN_PROGRESS">In Progress</option>
+                      <option value="RESOLVED">Resolved</option>
+                    </select>
+
+                    {/* Category Select */}
+                    <select
+                      value={categoryFilter}
+                      onChange={(e) => { setCategoryFilter(e.target.value); setCurrentPage(1); }}
+                      className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 outline-none focus:border-[#059669] font-medium cursor-pointer"
+                    >
+                      <option value="ALL">All Categories</option>
+                      <option value="Road">Road / Pothole</option>
+                      <option value="Garbage">Garbage / Waste</option>
+                      <option value="Streetlight">Streetlight Broken</option>
+                      <option value="Drainage">Drainage / Overflow</option>
+                      <option value="Sanitation">Public Sanitation</option>
+                      <option value="Water">Water Pipe Leakage</option>
+                    </select>
+
+                    {/* Priority Select */}
+                    <select
+                      value={priorityFilter}
+                      onChange={(e) => { setPriorityFilter(e.target.value); setCurrentPage(1); }}
+                      className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 outline-none focus:border-[#059669] font-medium cursor-pointer"
+                    >
+                      <option value="ALL">All Priority</option>
+                      <option value="High">High</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Low">Low</option>
+                    </select>
+
+                    {/* Wards Select */}
+                    <select
+                      value={wardFilter}
+                      onChange={(e) => { setWardFilter(e.target.value); setCurrentPage(1); }}
+                      className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 outline-none focus:border-[#059669] font-medium cursor-pointer"
+                    >
+                      <option value="ALL">All Wards</option>
+                      <option value="Ward 1">Ward 1</option>
+                      <option value="Ward 2">Ward 2</option>
+                      <option value="Ward 3">Ward 3</option>
+                      <option value="Ward 4">Ward 4</option>
+                      <option value="Ward 5">Ward 5</option>
+                      <option value="Ward 6">Ward 6</option>
+                      <option value="Ward 7">Ward 7</option>
+                      <option value="Ward 8">Ward 8</option>
+                    </select>
+
+                    {/* Date Range Display */}
+                    <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                      <span>Oct 1, 2026 – Oct 30, 2026</span>
+                    </div>
+
+                  </div>
+
+                  {/* Reset Filters */}
+                  <button
+                    onClick={handleResetFilters}
+                    className="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer shrink-0"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5 text-slate-400" />
+                    Reset Filters
+                  </button>
+                </div>
+
+                {/* 4. Main Complaints Table */}
+                <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs">
+                      <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[11px] font-bold border-b border-slate-200/90">
+                        <tr>
+                          <th className="p-4 w-10">
+                            <input 
+                              type="checkbox"
+                              checked={selectedComplaintIds.length > 0 && selectedComplaintIds.length === paginatedComplaints.length}
+                              onChange={handleSelectAll}
+                              className="w-4 h-4 rounded border-slate-300 text-[#059669] focus:ring-emerald-500 cursor-pointer"
+                            />
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Complaint ID</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Issue</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Location</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Priority</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Status</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Assigned Worker</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 cursor-pointer select-none">
+                            <div className="flex items-center gap-1.5">
+                              <span>Reported</span>
+                              <ArrowUpDown className="w-3 h-3 text-slate-400" />
+                            </div>
+                          </th>
+                          <th className="p-4 text-center">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {loading ? (
+                          <tr>
+                            <td colSpan={9} className="p-8 text-center text-slate-400">
+                              Loading complaints register...
+                            </td>
+                          </tr>
+                        ) : paginatedComplaints.length === 0 ? (
+                          <tr>
+                            <td colSpan={9} className="p-8 text-center text-slate-400">
+                              No complaints found matching the current filters.
+                            </td>
+                          </tr>
+                        ) : (
+                          paginatedComplaints.map((c) => {
+                            const cid = c.complaintId || c.id || c._id;
+                            const catMeta = getCategoryMeta(c.category);
+                            const reportedDate = formatReportedDate(c.createdAt || c.timestamp);
+                            const isAssigned = !!c.assignedWorkerId && c.assignedWorkerId !== 'Unassigned';
+
+                            return (
+                              <tr key={cid} className="hover:bg-slate-50/70 transition-colors">
+                                {/* Checkbox */}
+                                <td className="p-4">
+                                  <input 
+                                    type="checkbox"
+                                    checked={selectedComplaintIds.includes(cid)}
+                                    onChange={() => handleToggleSelect(cid)}
+                                    className="w-4 h-4 rounded border-slate-300 text-[#059669] focus:ring-emerald-500 cursor-pointer"
+                                  />
+                                </td>
+
+                                {/* Complaint ID */}
+                                <td className="p-4">
+                                  <span 
+                                    onClick={() => setSelectedComplaintView(c)}
+                                    className="font-mono font-bold text-blue-600 hover:text-blue-700 hover:underline cursor-pointer"
+                                  >
+                                    {cid}
+                                  </span>
+                                </td>
+
+                                {/* Issue */}
+                                <td className="p-4">
+                                  <div className="flex items-center gap-2.5">
+                                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${catMeta.bg}`}>
+                                      {catMeta.icon}
+                                    </div>
+                                    <span className="font-semibold text-slate-800">{catMeta.label}</span>
+                                  </div>
+                                </td>
+
+                                {/* Location */}
+                                <td className="p-4">
+                                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                                    <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                    <span className="truncate max-w-[120px]" title={c.location?.address || c.citizenLocation?.address}>
+                                      {formatLocation(c)}
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* Priority */}
+                                <td className="p-4">
+                                  {formatPriority(c.priority)}
+                                </td>
+
+                                {/* Status */}
+                                <td className="p-4">
+                                  {formatStatus(c.status)}
+                                </td>
+
+                                {/* Assigned Worker */}
+                                <td className="p-4">
+                                  {renderAssignedWorker(c)}
+                                </td>
+
+                                {/* Reported */}
+                                <td className="p-4">
+                                  <div className="flex items-center gap-2">
+                                    <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                    <div>
+                                      <div className="font-medium text-xs text-slate-800">{reportedDate.date}</div>
+                                      <div className="text-[10px] text-slate-400">{reportedDate.time}</div>
+                                    </div>
+                                  </div>
+                                </td>
+
+                                {/* Actions */}
+                                <td className="p-4">
+                                  <div className="flex items-center justify-center gap-1.5">
+                                    {!isAssigned ? (
+                                      <button
+                                        onClick={() => setAssignModalComplaint(c)}
+                                        className="px-3 py-1.5 bg-[#059669] hover:bg-[#047857] text-white rounded-lg text-xs font-semibold flex items-center gap-1 shadow-2xs transition-colors cursor-pointer"
+                                      >
+                                        <Plus className="w-3.5 h-3.5" />
+                                        Assign
+                                      </button>
+                                    ) : (
+                                      <button
+                                        onClick={() => setSelectedComplaintView(c)}
+                                        className="px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer"
+                                      >
+                                        <Eye className="w-3.5 h-3.5 text-slate-500" />
+                                        View
+                                      </button>
+                                    )}
+                                    <button
+                                      onClick={() => setSelectedComplaintView(c)}
+                                      className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+                                    >
+                                      <MoreVertical className="w-4 h-4" />
+                                    </button>
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* 5. Pagination Footer */}
+                  <div className="p-4 border-t border-slate-200/80 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="text-xs text-slate-500 font-medium">
+                      Showing {filteredComplaints.length === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1}–{Math.min(currentPage * rowsPerPage, filteredComplaints.length)} of {filteredComplaints.length} complaints
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                          disabled={currentPage === 1}
+                          className="w-7 h-7 rounded-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                        >
+                          <ChevronLeft className="w-3.5 h-3.5" />
+                        </button>
+
+                        {Array.from({ length: totalPages }).slice(0, 5).map((_, idx) => {
+                          const pNum = idx + 1;
+                          return (
+                            <button
+                              key={pNum}
+                              onClick={() => setCurrentPage(pNum)}
+                              className={`w-7 h-7 rounded-lg text-xs font-bold transition-colors ${
+                                currentPage === pNum
+                                  ? 'bg-[#059669] text-white shadow-xs'
+                                  : 'text-slate-600 hover:bg-slate-100'
+                              }`}
+                            >
+                              {pNum}
+                            </button>
+                          );
+                        })}
+
+                        <button
+                          onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                          disabled={currentPage === totalPages}
+                          className="w-7 h-7 rounded-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                        >
+                          <ChevronRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                        <span>Rows per page</span>
+                        <select
+                          value={rowsPerPage}
+                          onChange={(e) => { setRowsPerPage(Number(e.target.value)); setCurrentPage(1); }}
+                          className="px-2 py-1 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-700 outline-none font-medium cursor-pointer"
+                        >
+                          <option value={5}>5</option>
+                          <option value={10}>10</option>
+                          <option value={20}>20</option>
+                          <option value={50}>50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })()}
 
           {/* TAB: VERIFICATIONS */}
           {activeTab === 'verifications' && (
@@ -1796,6 +2415,90 @@ export default function AdminDashboard() {
               axios.patch(`/api/verifications/${id}/reject`, { reason }).catch(() => {});
             }}
           />
+        )}
+      </AnimatePresence>
+
+      {/* COMPLAINT DETAIL VIEW MODAL */}
+      <AnimatePresence>
+        {selectedComplaintView && (
+          <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-2xl p-6 w-full max-w-lg shadow-2xl border border-slate-200 space-y-4"
+            >
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="font-mono font-bold text-blue-600 text-sm">
+                    {selectedComplaintView.complaintId || selectedComplaintView.id || selectedComplaintView._id}
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">
+                    {selectedComplaintView.status || 'PENDING'}
+                  </span>
+                </div>
+                <button onClick={() => setSelectedComplaintView(null)} className="p-1 text-slate-400 hover:text-slate-700 cursor-pointer">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Photo preview if present */}
+              {(selectedComplaintView.photoUrl || selectedComplaintView.citizenPhoto) && (
+                <div className="rounded-xl overflow-hidden border border-slate-200 h-48 bg-slate-50">
+                  <img 
+                    src={selectedComplaintView.photoUrl || selectedComplaintView.citizenPhoto} 
+                    alt="Complaint Evidence" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div className="text-slate-400 font-semibold uppercase text-[10px]">Category</div>
+                  <div className="font-bold text-slate-800">{selectedComplaintView.category || 'Civic Infrastructure'}</div>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <div className="text-slate-400 font-semibold uppercase text-[10px]">Priority</div>
+                  <div className="font-bold text-slate-800">{selectedComplaintView.priority || 'Medium'}</div>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl space-y-1 col-span-2">
+                  <div className="text-slate-400 font-semibold uppercase text-[10px]">Reported Address</div>
+                  <div className="font-medium text-slate-800 text-xs">
+                    {selectedComplaintView.location?.address || selectedComplaintView.citizenLocation?.address || 'Municipal Ward Area'}
+                  </div>
+                </div>
+              </div>
+
+              {selectedComplaintView.description && (
+                <div className="p-3 bg-slate-50 rounded-xl text-xs space-y-1">
+                  <div className="text-slate-400 font-semibold uppercase text-[10px]">Citizen Description</div>
+                  <div className="text-slate-700 leading-relaxed font-medium">{selectedComplaintView.description}</div>
+                </div>
+              )}
+
+              <div className="flex justify-end gap-2 pt-3 border-t border-slate-100">
+                <button
+                  onClick={() => setSelectedComplaintView(null)}
+                  className="px-4 py-2 border border-slate-200 text-slate-600 text-xs font-semibold rounded-xl hover:bg-slate-50 cursor-pointer"
+                >
+                  Close
+                </button>
+                {(!selectedComplaintView.assignedWorkerId || selectedComplaintView.assignedWorkerId === 'Unassigned') && (
+                  <button
+                    onClick={() => {
+                      const comp = selectedComplaintView;
+                      setSelectedComplaintView(null);
+                      setAssignModalComplaint(comp);
+                    }}
+                    className="px-4 py-2 bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-xs cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" /> Assign Field Worker
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
