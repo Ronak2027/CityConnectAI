@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import { Complaint } from '../models/Complaint.js';
 import { Task } from '../models/Task.js';
 import { Verification } from '../models/Verification.js';
@@ -7,8 +8,8 @@ import { jsonDB } from '../services/storageAdapter.js';
 
 const router = express.Router();
 
-// GET /api/admin/statistics
-router.get('/statistics', authenticate, async (req, res) => {
+// GET /api/admin/statistics & /api/admin/stats
+const getStatisticsHandler = async (req, res) => {
   try {
     let complaints = jsonDB.getComplaints();
     if (mongoose.connection.readyState === 1) {
@@ -56,7 +57,10 @@ router.get('/statistics', authenticate, async (req, res) => {
       cleanlinessScore: 88
     });
   }
-});
+};
+
+router.get('/statistics', authenticate, getStatisticsHandler);
+router.get('/stats', authenticate, getStatisticsHandler);
 
 // GET /api/admin/analytics
 router.get('/analytics', authenticate, async (req, res) => {

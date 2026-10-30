@@ -1,5 +1,7 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import { Complaint } from '../models/Complaint.js';
+import { jsonDB } from '../services/storageAdapter.js';
 
 const router = express.Router();
 
@@ -11,9 +13,19 @@ router.post('/query', async (req, res) => {
 
     if (text.includes('status') || text.includes('track') || text.includes('my complaint')) {
       if (citizenId) {
-        const complaints = await Complaint.find({ citizenId }).sort({ createdAt: -1 }).limit(3);
+        let complaints = [];
+        if (mongoose.connection.readyState === 1) {
+          try {
+            complaints = await Complaint.find({ citizenId }).sort({ createdAt: -1 }).limit(3);
+          } catch (err) {}
+        }
+        if (!complaints || complaints.length === 0) {
+          const allC = jsonDB.getComplaints();
+          complaints = allC.filter(c => c.citizenId === citizenId || !c.citizenId).slice(0, 3);
+        }
+
         if (complaints.length > 0) {
-          const listText = complaints.map(c => `• **${c.complaintId}** (${c.category}): ${c.status}`).join('\n');
+          const listText = complaints.map(c => `• **${c.complaintId || c._id}** (${c.category}): ${c.status}`).join('\n');
           return res.json({
             reply: `Here is the current status of your recent complaints:\n\n${listText}\n\nCan I help you with anything else?`,
             actions: [

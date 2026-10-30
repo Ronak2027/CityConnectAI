@@ -477,50 +477,78 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
         const beforeBase64 = 'data:image/jpeg;base64,' + beforeBuf.toString('base64');
         const afterBase64 = 'data:image/jpeg;base64,' + afterBuf.toString('base64');
 
+        let issueType = normCat === 'streetlight' ? 'streetlight' : (normCat === 'pothole' ? 'pothole' : 'garbage');
+
         const response = await axios.post(`${AI_SERVICE_URL}/api/verify`, {
           before_image: beforeBase64,
           after_image: afterBase64,
-          issue_type: normCat === 'streetlight' ? 'streetlight' : (normCat === 'pothole' ? 'pothole' : 'garbage'),
+          issue_type: issueType,
           before_lat: options.complaintLat,
           before_lon: options.complaintLng,
           after_lat: options.workerLat,
           after_lon: options.workerLng
-        }, { timeout: 2500 });
+        }, { timeout: 12000 });
 
-        const data = response.data;
-        let status = (data.verification_status === 'RESOLVED' || data.verification_status === 'VERIFIED') ? 'PASSED' : 'FAILED';
+        let data = response.data;
+        let pyStatus = data.verification_status || '';
 
-        // Critical safety validation: If after photo still contains heavy defect clutter or active defect was detected
-        if (data.after_detection?.detected || (isAfterDefectPresent && normCat !== 'streetlight')) {
-          status = 'FAILED';
+        // Category Auto-Correction: If nominal category was 'pothole' (e.g. citizen selected Road),
+        // but the Python model failed it as a road pothole, cross-check with garbage/drainage pipeline
+        if ((pyStatus !== 'RESOLVED' && pyStatus !== 'VERIFIED') && issueType === 'pothole') {
+          try {
+            const retryRes = await axios.post(`${AI_SERVICE_URL}/api/verify`, {
+              before_image: beforeBase64,
+              after_image: afterBase64,
+              issue_type: 'garbage',
+              before_lat: options.complaintLat,
+              before_lon: options.complaintLng,
+              after_lat: options.workerLat,
+              after_lon: options.workerLng
+            }, { timeout: 12000 });
+
+            if (retryRes.data?.verification_status === 'RESOLVED' || retryRes.data?.verification_status === 'VERIFIED') {
+              data = retryRes.data;
+              pyStatus = data.verification_status;
+              normCat = 'drainage';
+              category = 'Drainage / Clean Water';
+            }
+          } catch (retryErr) {}
         }
 
+        let isResolved = (pyStatus === 'RESOLVED' || pyStatus === 'VERIFIED') && !data.after_detection?.detected;
+        
+        // Critical safety validation: If after photo still contains heavy defect clutter or active defect was detected
+        if (data.after_detection?.detected || pyStatus === 'INVALID_COMPLAINT_IMAGE' || pyStatus === 'UNRESOLVED' || pyStatus === 'FAILED') {
+          isResolved = false;
+        }
+
+        const status = isResolved ? 'PASSED' : 'FAILED';
         const feedback = getCategoryFeedback(category, status, false, { clutterPct });
         let detectedChanges = feedback.detectedChanges;
-        let reason = feedback.reason;
+        let reason = data.reason || feedback.reason;
 
         // If after photo has active defect detected by YOLOv8 model
-        if (data.after_detection?.detected) {
+        if (data.after_detection?.detected || status === 'FAILED') {
           if (normCat === 'pothole') {
             detectedChanges = [
               'Road pothole cavity / crack detected in resolution photo',
-              `Active road defect detected by YOLOv8 (${Math.round((data.after_detection.confidence || 0.37) * 100)}% confidence)`,
-              'Zero cavity filling or road paving verified'
+              `Active road defect detected (${clutterPct}% surface clutter)`,
+              'Zero cavity filling or asphalt patching verified'
             ];
-            reason = 'REJECTED: YOLOv8 model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.';
+            reason = 'REJECTED: AI vision model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.';
           } else if (normCat === 'garbage') {
             detectedChanges = [
               'Garbage & waste debris detected in resolution photo',
-              `Active waste detected by YOLOv8 (${Math.round((data.after_detection.confidence || 0.45) * 100)}% confidence)`,
+              `Active waste clutter detected (${clutterPct}% clutter)`,
               'Zero site cleanup or waste removal verified'
             ];
-            reason = 'REJECTED: YOLOv8 model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.';
+            reason = 'REJECTED: AI vision model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.';
           }
         }
 
         return {
           status,
-          confidence: Math.round((data.confidence_score || data.verification_confidence || (status === 'PASSED' ? 0.92 : 0.18)) * 100),
+          confidence: status === 'PASSED' ? Math.round((data.confidence_score || data.verification_confidence || 0.92) * 100) : 18,
           ssimScore: data.ssim_similarity || (status === 'PASSED' ? 0.88 : 0.60),
           detectedChanges,
           reason,
@@ -528,7 +556,7 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
           rawResult: data
         };
       } catch (pythonErr) {
-        // Python server not reachable, proceed with Node.js Sharp Computer Vision Engine
+        // Python server not reachable or timed out, proceed with Node.js Sharp Computer Vision Engine
       }
     }
 

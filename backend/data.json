@@ -1,6 +1,158 @@
 {
   "complaints": [
     {
+      "_id": "CMP-2026-9275",
+      "complaintId": "CMP-2026-9275",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1793357269257-976677758.png",
+      "location": {
+        "latitude": 21.355654041493775,
+        "longitude": 74.88829868049794,
+        "address": "Shirpur, 425405"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "PENDING",
+      "createdAt": "2026-10-30T10:47:49.275Z"
+    },
+    {
+      "_id": "CMP-2026-6902",
+      "complaintId": "CMP-2026-6902",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Drainage / Clean Water",
+      "description": "",
+      "photoUrl": "/uploads/photo-1793356536889-631849806.png",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "priority": "Medium",
+      "department": "Water & Sewage",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-30T10:35:36.902Z",
+      "assignedWorkerId": "WRK-201",
+      "rejectionReason": "ddfg",
+      "resolvedAt": "2026-10-30T10:48:05.873Z"
+    },
+    {
+      "_id": "CMP-2026-1624",
+      "complaintId": "CMP-2026-1624",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1793356391616-661005217.png",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-30T10:33:11.624Z",
+      "assignedWorkerId": "WRK-201",
+      "rejectionReason": "Defect still visible / proof requires revision",
+      "resolvedAt": "2026-10-30T10:35:00.212Z"
+    },
+    {
+      "_id": "CMP-2026-9036",
+      "complaintId": "CMP-2026-9036",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1793356068045-601642942.png",
+      "location": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "Shirpur, 425405"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-30T10:27:49.037Z",
+      "assignedWorkerId": "WRK-202",
+      "rejectionReason": "same img",
+      "resolvedAt": "2026-10-30T10:31:43.084Z"
+    },
+    {
+      "_id": "CMP-2026-1934",
+      "complaintId": "CMP-2026-1934",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1793345780939-582438840.png",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-30T07:36:21.935Z",
+      "assignedWorkerId": "WRK-201",
+      "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified",
+      "resolvedAt": "2026-10-30T10:56:58.694Z"
+    },
+    {
+      "_id": "CMP-2026-9993",
+      "complaintId": "CMP-2026-9993",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "Clean it ASAP",
+      "photoUrl": "/uploads/photo-1793341418997-389792819.png",
+      "location": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "balaji nagar"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-10-30T06:23:39.993Z",
+      "assignedWorkerId": "WRK-202",
+      "resolvedAt": "2026-10-30T06:25:37.650Z"
+    },
+    {
+      "_id": "CMP-2026-7767",
+      "complaintId": "CMP-2026-7767",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "Test complaint verification",
+      "photoUrl": "",
+      "location": {
+        "latitude": 19.076,
+        "longitude": 72.8777,
+        "address": "Dadar West, Mumbai"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "PENDING",
+      "createdAt": "2026-10-30T06:16:37.767Z"
+    },
+    {
+      "_id": "CMP-2026-4229",
+      "complaintId": "CMP-2026-4229",
+      "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+      "category": "Garbage",
+      "description": "",
+      "photoUrl": "/uploads/photo-1789200784222-261457331.png",
+      "location": {
+        "latitude": 21.28489215535239,
+        "longitude": 74.84446244481,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "priority": "High",
+      "department": "Sanitation & Solid Waste",
+      "status": "RESOLVED",
+      "createdAt": "2026-09-12T08:13:04.229Z",
+      "assignedWorkerId": "WRK-201",
+      "resolvedAt": "2026-10-30T06:25:43.447Z"
+    },
+    {
       "_id": "CMP-2026-5596",
       "complaintId": "CMP-2026-5596",
       "citizenId": "66e1bf7289f1a23c4d5e6f7a",
@@ -186,10 +338,10 @@
       },
       "priority": "Medium",
       "department": "Roads & Infrastructure",
-      "status": "VERIFICATION",
+      "status": "RESOLVED",
       "createdAt": "2026-09-12T04:25:13.998Z",
       "assignedWorkerId": "WRK-203",
-      "resolvedAt": "2026-09-12T05:33:33.684Z",
+      "resolvedAt": "2026-10-30T08:29:42.092Z",
       "rejectionReason": "JJ\n"
     },
     {
@@ -225,10 +377,11 @@
       },
       "priority": "Medium",
       "department": "Roads & Infrastructure",
-      "status": "VERIFICATION",
+      "status": "RESOLVED",
       "createdAt": "2026-09-12T03:57:55.918Z",
       "assignedWorkerId": "WRK-202",
-      "rejectionReason": "G"
+      "rejectionReason": "G",
+      "resolvedAt": "2026-10-30T08:27:52.862Z"
     },
     {
       "_id": "CMP-2026-3534",
@@ -645,6 +798,562 @@
   "activeStormWarning": true,
   "verifications": [
     {
+      "_id": "VER-1793357798326",
+      "verificationId": "VER-2026-8326",
+      "taskId": "TSK-CMP-2026-1934",
+      "complaintId": {
+        "_id": "CMP-2026-1934",
+        "complaintId": "CMP-2026-1934",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793345780939-582438840.png",
+      "afterImage": "/uploads/afterImage-1793357798313-682070626.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 81,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "The reported garbage is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:56:52.061Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 7.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35570268280764,
+        "longitude": 74.88825681363838,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:56:38.326Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T10:56:38.326Z",
+      "adminDecisionAt": "2026-10-30T10:56:58.673Z"
+    },
+    {
+      "_id": "VER-1793356823407",
+      "verificationId": "VER-2026-3407",
+      "taskId": "TSK-CMP-2026-6902",
+      "complaintId": {
+        "_id": "CMP-2026-6902",
+        "complaintId": "CMP-2026-6902",
+        "category": "Drainage / Clean Water",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793356536889-631849806.png",
+      "afterImage": "/uploads/afterImage-1793356823395-419475037.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 90,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Drainage blockage cleared and desilted",
+          "Stagnant stormwater drained from site",
+          "Free water flow restored in storm channel"
+        ],
+        "reason": "The reported garbage is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:47:58.477Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:40:23.407Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T10:40:23.408Z",
+      "category": "Drainage / Clean Water",
+      "adminDecisionAt": "2026-10-30T10:48:05.848Z"
+    },
+    {
+      "_id": "VER-1793356567262",
+      "verificationId": "VER-2026-7262",
+      "taskId": "TSK-CMP-2026-6902",
+      "complaintId": {
+        "_id": "CMP-2026-6902",
+        "complaintId": "CMP-2026-6902",
+        "category": "Drainage / Clean Water",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793356536889-631849806.png",
+      "afterImage": "/uploads/afterImage-1793356567251-426088780.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 91,
+        "ssimScore": 0.89,
+        "detectedChanges": [
+          "Drainage blockage cleared and desilted",
+          "Free clean water flow restored in channel",
+          "All solid waste & plastic debris removed from site"
+        ],
+        "reason": "VERIFIED: AI vision model confirmed drain desilting and solid waste clearance. Water flow fully restored.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:44:55.003Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:36:07.262Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-10-30T10:36:07.262Z",
+      "rejectionReason": "ddfg",
+      "adminDecisionAt": "2026-10-30T10:39:53.798Z",
+      "category": "Drainage / Clean Water"
+    },
+    {
+      "_id": "VER-1793356483604",
+      "verificationId": "VER-2026-3604",
+      "taskId": "TSK-CMP-2026-1624",
+      "complaintId": {
+        "_id": "CMP-2026-1624",
+        "complaintId": "CMP-2026-1624",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793356391616-661005217.png",
+      "afterImage": "/uploads/afterImage-1793356483595-450378581.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 82,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "The reported garbage is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:34:53.458Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:34:43.604Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T10:34:43.604Z",
+      "adminDecisionAt": "2026-10-30T10:35:00.177Z"
+    },
+    {
+      "_id": "VER-1793356417092",
+      "verificationId": "VER-2026-7092",
+      "taskId": "TSK-CMP-2026-1624",
+      "complaintId": {
+        "_id": "CMP-2026-1624",
+        "complaintId": "CMP-2026-1624",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793356391616-661005217.png",
+      "afterImage": "/uploads/afterImage-1793356417080-519298995.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Garbage & waste debris detected in resolution photo",
+          "Active waste clutter detected (58.4% clutter)",
+          "Zero site cleanup or waste removal verified"
+        ],
+        "reason": "REJECTED: AI vision model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:34:04.406Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:33:37.092Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-10-30T10:33:37.092Z",
+      "rejectionReason": "Defect still visible / proof requires revision",
+      "adminDecisionAt": "2026-10-30T10:34:31.767Z"
+    },
+    {
+      "_id": "VER-1793356274725",
+      "verificationId": "VER-2026-4725",
+      "taskId": "TSK-CMP-2026-9036",
+      "complaintId": {
+        "_id": "CMP-2026-9036",
+        "complaintId": "CMP-2026-9036",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1793356068045-601642942.png",
+      "afterImage": "/uploads/afterImage-1793356274701-617914150.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 83,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "The reported garbage is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:31:23.338Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:31:14.725Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T10:31:14.725Z",
+      "adminDecisionAt": "2026-10-30T10:31:43.061Z"
+    },
+    {
+      "_id": "VER-1793356107416",
+      "verificationId": "VER-2026-7416",
+      "taskId": "TSK-CMP-2026-9036",
+      "complaintId": {
+        "_id": "CMP-2026-9036",
+        "complaintId": "CMP-2026-9036",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1793356068045-601642942.png",
+      "afterImage": "/uploads/afterImage-1793356107405-563004111.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Garbage & waste debris detected in resolution photo",
+          "Active waste clutter detected (58.1% clutter)",
+          "Zero site cleanup or waste removal verified"
+        ],
+        "reason": "REJECTED: AI vision model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T10:28:36.093Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T10:28:27.416Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-10-30T10:28:27.416Z",
+      "rejectionReason": "same img",
+      "adminDecisionAt": "2026-10-30T10:30:58.598Z"
+    },
+    {
+      "_id": "VER-1793345831622",
+      "verificationId": "VER-2026-1622",
+      "taskId": "TSK-CMP-2026-1934",
+      "complaintId": {
+        "_id": "CMP-2026-1934",
+        "complaintId": "CMP-2026-1934",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793345780939-582438840.png",
+      "afterImage": "/uploads/afterImage-1793345831609-762620042.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Garbage & waste debris detected in resolution photo",
+          "Active waste clutter detected (79.4% clutter)",
+          "Zero site cleanup or waste removal verified"
+        ],
+        "reason": "REJECTED: AI vision model detected active garbage and litter in the worker resolution photo. The site has not been cleaned.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T07:37:24.995Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T07:37:11.622Z",
+      "cameraVerification": true,
+      "status": "REJECTED",
+      "createdAt": "2026-10-30T07:37:11.622Z",
+      "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified",
+      "adminDecisionAt": "2026-10-30T07:38:18.761Z"
+    },
+    {
+      "_id": "VER-1793341511240",
+      "verificationId": "VER-2026-1240",
+      "taskId": "TSK-CMP-2026-9993",
+      "complaintId": {
+        "_id": "CMP-2026-9993",
+        "complaintId": "CMP-2026-9993",
+        "category": "Garbage",
+        "description": "Clean it ASAP"
+      },
+      "workerId": {
+        "_id": "WRK-202",
+        "name": "Suresh Kumar",
+        "department": "Drainage & Flooding",
+        "phone": "+91 98202 23456"
+      },
+      "beforeImage": "/uploads/photo-1793341418997-389792819.png",
+      "afterImage": "/uploads/afterImage-1793341511226-983654977.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 81,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Garbage and solid waste cleared from site",
+          "Ground surface swept and sanitized",
+          "Significant visual cleanup verified"
+        ],
+        "reason": "The reported garbage is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T08:29:49.522Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 5.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "complaintLocation": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "balaji nagar"
+      },
+      "captureTimestamp": "2026-10-30T06:25:11.240Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T06:25:11.240Z",
+      "adminDecisionAt": "2026-10-30T06:25:37.633Z"
+    },
+    {
+      "_id": "VER-1789200821935",
+      "verificationId": "VER-2026-1935",
+      "taskId": "TSK-CMP-2026-4229",
+      "complaintId": {
+        "_id": "CMP-2026-4229",
+        "complaintId": "CMP-2026-4229",
+        "category": "Garbage",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1789200784222-261457331.png",
+      "afterImage": "/uploads/afterImage-1789200821929-335901106.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 83,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Garbage & waste debris still present in resolution photo",
+          "Dense waste clutter detected (70.0% surface clutter)",
+          "Zero site cleanup or waste removal verified"
+        ],
+        "reason": "REJECTED: AI vision model detected heavy garbage and waste debris still present in the worker resolution photo (70.0% clutter). The reported defect has not been cleared.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-09-12T08:13:49.505Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 0.9,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.284893955208375,
+        "longitude": 74.84445415257589,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "complaintLocation": {
+        "latitude": 21.28489215535239,
+        "longitude": 74.84446244481,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "captureTimestamp": "2026-09-12T08:13:41.935Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T08:13:41.935Z",
+      "adminDecisionAt": "2026-10-30T06:25:43.415Z"
+    },
+    {
       "_id": "VER-1789200710041",
       "verificationId": "VER-2026-0041",
       "taskId": "TSK-CMP-2026-5917",
@@ -668,19 +1377,19 @@
         "confidence": 18,
         "ssimScore": 0.6,
         "detectedChanges": [
-          "Road pothole cavity / crack still present in resolution photo",
-          "Surface defect detected (70.0% road damage clutter)",
-          "Zero asphalt leveling or cavity filling verified"
+          "Road pothole cavity / crack detected in resolution photo",
+          "Active road defect detected (70.0% surface clutter)",
+          "Zero cavity filling or asphalt patching verified"
         ],
-        "reason": "REJECTED: AI vision model detected road pothole hazard still present in the worker resolution photo (70.0% defect clutter). The road surface has not been repaired.",
+        "reason": "REJECTED: AI vision model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.",
         "recommendation": "REJECT",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
-        "analyzedAt": "2026-09-12T08:11:56.229Z"
+        "analyzedAt": "2026-10-30T08:27:43.223Z"
       },
       "gpsVerification": {
-        "passed": true,
-        "distanceMeters": 4.7,
+        "passed": false,
+        "distanceMeters": 9092.5,
         "maxAllowedMeters": 9
       },
       "workerLocation": {
@@ -695,8 +1404,9 @@
       },
       "captureTimestamp": "2026-09-12T08:11:50.041Z",
       "cameraVerification": true,
-      "status": "PENDING",
-      "createdAt": "2026-09-12T08:11:50.041Z"
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T08:11:50.041Z",
+      "adminDecisionAt": "2026-10-30T08:27:52.839Z"
     },
     {
       "_id": "VER-1789200654301",
@@ -717,17 +1427,25 @@
       "beforeImage": "/uploads/beforeImage-1789200519039-50724857.jpg",
       "afterImage": "/uploads/afterImage-1789200654285-659549647.jpg",
       "imageVerification": {
-        "verifiedByModel": false,
-        "status": "AWAITING_MODEL",
-        "confidence": null,
-        "ssimScore": null,
-        "detectedChanges": [],
-        "reason": "Awaiting verification by admin via AI model"
+        "verifiedByModel": true,
+        "status": "FAILED",
+        "confidence": 18,
+        "ssimScore": 0.6,
+        "detectedChanges": [
+          "Road pothole cavity / crack detected in resolution photo",
+          "Active road defect detected (48.5% surface clutter)",
+          "Zero cavity filling or asphalt patching verified"
+        ],
+        "reason": "REJECTED: AI vision model detected active road pothole defect in the worker resolution photo. The road hazard has not been repaired.",
+        "recommendation": "REJECT",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T08:29:04.119Z"
       },
       "gpsVerification": {
-        "passed": true,
-        "distanceMeters": 3.7,
-        "maxAllowedMeters": 9
+        "passed": false,
+        "distanceMeters": 9104.4,
+        "maxAllowedMeters": 50
       },
       "workerLocation": {
         "latitude": 21.284910777189502,
@@ -741,8 +1459,9 @@
       },
       "captureTimestamp": "2026-09-12T08:10:54.301Z",
       "cameraVerification": true,
-      "status": "PENDING",
-      "createdAt": "2026-09-12T08:10:54.301Z"
+      "status": "APPROVED",
+      "createdAt": "2026-09-12T08:10:54.301Z",
+      "adminDecisionAt": "2026-10-30T08:29:42.068Z"
     },
     {
       "_id": "VER-1789200519065",
@@ -1213,18 +1932,18 @@
       "imageVerification": {
         "verifiedByModel": true,
         "status": "PASSED",
-        "confidence": 92,
-        "ssimScore": 0.9,
+        "confidence": 73,
+        "ssimScore": 0.88,
         "detectedChanges": [
           "Streetlight luminaire illuminated & functional",
           "Nighttime roadway illuminance restored",
           "Active electrical glow verified on pole fixture"
         ],
-        "reason": "VERIFIED: AI vision model confirmed streetlight illumination delta. Electrical fixture is operational and lighting roadway.",
+        "reason": "The reported streetlight is no longer detected in the closure photograph.",
         "recommendation": "APPROVE",
         "isFraud": false,
         "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
-        "analyzedAt": "2026-09-12T07:11:39.077Z"
+        "analyzedAt": "2026-10-30T08:30:29.682Z"
       },
       "gpsVerification": {
         "passed": true,
@@ -2903,6 +3622,287 @@
   ],
   "tasks": [
     {
+      "_id": "TSK-CMP-2026-6902",
+      "taskId": "TSK-CMP-2026-6902",
+      "complaintId": {
+        "_id": "CMP-2026-6902",
+        "complaintId": "CMP-2026-6902",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1793356536889-631849806.png",
+        "location": {
+          "latitude": 21.355634171990225,
+          "longitude": 74.88827165308751,
+          "address": "Shirpur, 425405"
+        },
+        "priority": "Medium",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T10:35:36.902Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "Medium",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "createdAt": "2026-10-30T10:35:51.243Z",
+      "beforeImage": "/uploads/photo-1793356536889-631849806.png",
+      "afterImage": "/uploads/afterImage-1793356823395-419475037.jpg",
+      "verificationId": "VER-1793356823407",
+      "rejectionReason": "ddfg",
+      "completedAt": "2026-10-30T10:48:05.859Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-1624",
+      "taskId": "TSK-CMP-2026-1624",
+      "complaintId": {
+        "_id": "CMP-2026-1624",
+        "complaintId": "CMP-2026-1624",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1793356391616-661005217.png",
+        "location": {
+          "latitude": 21.355634171990225,
+          "longitude": 74.88827165308751,
+          "address": "Shirpur, 425405"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T10:33:11.624Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "createdAt": "2026-10-30T10:33:24.040Z",
+      "beforeImage": "/uploads/photo-1793356391616-661005217.png",
+      "afterImage": "/uploads/afterImage-1793356483595-450378581.jpg",
+      "verificationId": "VER-1793356483604",
+      "rejectionReason": "Defect still visible / proof requires revision",
+      "completedAt": "2026-10-30T10:35:00.193Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-9036",
+      "taskId": "TSK-CMP-2026-9036",
+      "complaintId": {
+        "_id": "CMP-2026-9036",
+        "complaintId": "CMP-2026-9036",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1793356068045-601642942.png",
+        "location": {
+          "latitude": 21.355676,
+          "longitude": 74.888306,
+          "address": "Shirpur, 425405"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T10:27:49.037Z",
+        "assignedWorkerId": "WRK-202"
+      },
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "Shirpur, 425405"
+      },
+      "createdAt": "2026-10-30T10:28:03.476Z",
+      "beforeImage": "/uploads/photo-1793356068045-601642942.png",
+      "afterImage": "/uploads/afterImage-1793356274701-617914150.jpg",
+      "verificationId": "VER-1793356274725",
+      "rejectionReason": "same img",
+      "completedAt": "2026-10-30T10:31:43.074Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-1934",
+      "taskId": "TSK-CMP-2026-1934",
+      "complaintId": {
+        "_id": "CMP-2026-1934",
+        "complaintId": "CMP-2026-1934",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1793345780939-582438840.png",
+        "location": {
+          "latitude": 21.355634171990225,
+          "longitude": 74.88827165308751,
+          "address": "Shirpur, 425405"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T07:36:21.935Z",
+        "assignedWorkerId": "WRK-201",
+        "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "createdAt": "2026-10-30T08:32:30.103Z",
+      "beforeImage": "/uploads/photo-1793345780939-582438840.png",
+      "afterImage": "/uploads/afterImage-1793357798313-682070626.jpg",
+      "verificationId": "VER-1793357798326",
+      "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified",
+      "completedAt": "2026-10-30T10:56:58.684Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-9993",
+      "taskId": "TSK-CMP-2026-9993",
+      "complaintId": {
+        "_id": "CMP-2026-9993",
+        "complaintId": "CMP-2026-9993",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "Clean it ASAP",
+        "photoUrl": "/uploads/photo-1793341418997-389792819.png",
+        "location": {
+          "latitude": 21.355676,
+          "longitude": 74.888306,
+          "address": "balaji nagar"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T06:23:39.993Z",
+        "assignedWorkerId": "WRK-202"
+      },
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.355676,
+        "longitude": 74.888306,
+        "address": "balaji nagar"
+      },
+      "createdAt": "2026-10-30T06:24:52.626Z",
+      "beforeImage": "/uploads/photo-1793341418997-389792819.png",
+      "afterImage": "/uploads/afterImage-1793341511226-983654977.jpg",
+      "verificationId": "VER-1793341511240",
+      "completedAt": "2026-10-30T06:25:37.642Z"
+    },
+    {
+      "_id": "TSK-CMP-2026-4229",
+      "taskId": "TSK-CMP-2026-4229",
+      "complaintId": {
+        "_id": "CMP-2026-4229",
+        "complaintId": "CMP-2026-4229",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Garbage",
+        "description": "",
+        "photoUrl": "/uploads/photo-1789200784222-261457331.png",
+        "location": {
+          "latitude": 21.28489215535239,
+          "longitude": 74.84446244481,
+          "address": "Academic Building, Aamoda, Shirpur Taluka"
+        },
+        "priority": "High",
+        "department": "Sanitation & Solid Waste",
+        "status": "ASSIGNED",
+        "createdAt": "2026-09-12T08:13:04.229Z",
+        "assignedWorkerId": "WRK-201"
+      },
+      "workerId": "WRK-201",
+      "worker": {
+        "_id": "WRK-201",
+        "id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "phone": "+91 98201 12345",
+        "department": "Waste Management",
+        "domain": "Waste Management",
+        "zone": "Ward 4 - Central Zone",
+        "status": "ON_DUTY",
+        "rating": 4.8
+      },
+      "status": "COMPLETED",
+      "priority": "High",
+      "location": {
+        "latitude": 21.28489215535239,
+        "longitude": 74.84446244481,
+        "address": "Academic Building, Aamoda, Shirpur Taluka"
+      },
+      "createdAt": "2026-09-12T08:13:19.406Z",
+      "beforeImage": "/uploads/photo-1789200784222-261457331.png",
+      "afterImage": "/uploads/afterImage-1789200821929-335901106.jpg",
+      "verificationId": "VER-1789200821935",
+      "completedAt": "2026-10-30T06:25:43.435Z"
+    },
+    {
       "_id": "TSK-CMP-2026-5596",
       "taskId": "TSK-CMP-2026-5596",
       "complaintId": {
@@ -3350,7 +4350,7 @@
         "status": "ON_DUTY",
         "rating": 4.7
       },
-      "status": "VERIFICATION",
+      "status": "COMPLETED",
       "priority": "Medium",
       "location": {
         "latitude": 21.35587025943557,
@@ -3361,7 +4361,7 @@
       "beforeImage": "/uploads/beforeImage-1789200519039-50724857.jpg",
       "afterImage": "/uploads/afterImage-1789200654285-659549647.jpg",
       "verificationId": "VER-1789200654301",
-      "completedAt": "2026-09-12T05:33:33.679Z",
+      "completedAt": "2026-10-30T08:29:42.078Z",
       "rejectionReason": "JJ\n"
     },
     {
@@ -3443,7 +4443,7 @@
         "status": "ON_DUTY",
         "rating": 4.9
       },
-      "status": "VERIFICATION",
+      "status": "COMPLETED",
       "priority": "Medium",
       "location": {
         "latitude": 21.355713,
@@ -3454,7 +4454,8 @@
       "beforeImage": "/uploads/beforeImage-1789200710021-932569510.jpg",
       "afterImage": "/uploads/afterImage-1789200710018-788129138.jpg",
       "verificationId": "VER-1789200710041",
-      "rejectionReason": "G"
+      "rejectionReason": "G",
+      "completedAt": "2026-10-30T08:27:52.850Z"
     },
     {
       "_id": "TSK-CMP-2026-3534",

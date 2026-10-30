@@ -603,10 +603,12 @@ export default function AdminDashboard() {
                             {v.complaintLocation?.address || v.complaintId?.location?.address || 'Incident Site Coordinates'}
                           </strong>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-center">
                           <span>GPS Proximity:</span>
-                          <strong className="text-brand-success">
-                            {v.gpsVerification?.distanceMeters || 4.2}m (On-site ✓)
+                          <strong className={`font-bold ${v.gpsVerification?.passed !== false ? 'text-brand-success' : 'text-red-700'}`}>
+                            {v.gpsVerification?.distanceMeters >= 1000 
+                              ? `${(v.gpsVerification.distanceMeters / 1000).toFixed(1)} km` 
+                              : `${v.gpsVerification?.distanceMeters || 0}m`} ({v.gpsVerification?.passed !== false ? 'On-site ✓' : 'Off-site ✕'})
                           </strong>
                         </div>
                         <div className="flex justify-between items-center">

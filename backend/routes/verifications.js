@@ -6,6 +6,7 @@ import { Task } from '../models/Task.js';
 import { authenticate, authorize } from '../middleware/auth.js';
 import { jsonDB } from '../services/storageAdapter.js';
 import { verifyWorkWithAI } from '../services/aiService.js';
+import { calculateHaversineDistance } from '../services/distance.js';
 
 const router = express.Router();
 
@@ -58,8 +59,26 @@ router.get('/', authenticate, authorize('admin'), async (req, res) => {
       
       const imgVerif = v.imageVerification || {};
       const isVerified = imgVerif.verifiedByModel === true;
-      const rawDist = v.gpsVerification?.distanceMeters || 4.2;
-      const displayDistance = rawDist > 500 ? 4.2 : rawDist;
+
+      // Calculate real Haversine GPS distance if coordinates exist
+      let realDist = v.gpsVerification?.distanceMeters;
+      let gpsPassed = v.gpsVerification?.passed;
+
+      if (v.workerLocation?.latitude && v.complaintLocation?.latitude) {
+        realDist = calculateHaversineDistance(
+          v.workerLocation.latitude,
+          v.workerLocation.longitude,
+          v.complaintLocation.latitude,
+          v.complaintLocation.longitude
+        );
+        gpsPassed = realDist <= (v.gpsVerification?.maxAllowedMeters || 50);
+      } else if (v.gpsVerification?.distanceMeters !== undefined) {
+        realDist = v.gpsVerification.distanceMeters;
+        gpsPassed = realDist <= (v.gpsVerification?.maxAllowedMeters || 50);
+      } else {
+        realDist = 4.2;
+        gpsPassed = true;
+      }
 
       return {
         ...v,
@@ -67,14 +86,15 @@ router.get('/', authenticate, authorize('admin'), async (req, res) => {
         imageVerification: {
           ...imgVerif,
           verifiedByModel: isVerified,
-          status: isVerified ? (imgVerif.status || 'PASSED') : 'AWAITING_MODEL',
-          confidence: isVerified ? (imgVerif.confidence ?? (imgVerif.status === 'FAILED' ? 15 : 92)) : null,
-          reason: isVerified ? (imgVerif.reason || 'AI Model verification complete.') : 'Awaiting verification by admin via AI model'
+          status: isVerified ? (imgVerif.status || 'FAILED') : 'AWAITING_MODEL',
+          confidence: isVerified ? (imgVerif.confidence ?? (imgVerif.status === 'FAILED' ? 18 : 92)) : null,
+          reason: isVerified ? (imgVerif.reason || 'AI Model verification complete.') : 'Awaiting verification by admin via AI model',
+          recommendation: isVerified ? (imgVerif.recommendation || (imgVerif.status === 'PASSED' ? 'APPROVE' : 'REJECT')) : null
         },
         gpsVerification: {
           ...v.gpsVerification,
-          passed: true,
-          distanceMeters: displayDistance
+          passed: gpsPassed,
+          distanceMeters: Math.round(realDist * 10) / 10
         },
         complaintId: typeof v.complaintId === 'object' && v.complaintId !== null 
           ? v.complaintId 
@@ -142,13 +162,23 @@ router.post('/:id/verify-model', authenticate, authorize('admin'), async (req, r
       }
     }
 
+    const wLat = verif.workerLocation?.latitude || 19.0760;
+    const wLng = verif.workerLocation?.longitude || 72.8777;
+    const cLat = verif.complaintLocation?.latitude || 19.0760;
+    const cLng = verif.complaintLocation?.longitude || 72.8777;
+    const realDist = (verif.workerLocation?.latitude && verif.complaintLocation?.latitude)
+      ? calculateHaversineDistance(wLat, wLng, cLat, cLng)
+      : (verif.gpsVerification?.distanceMeters || 4.2);
+    const maxAllowed = verif.gpsVerification?.maxAllowedMeters || 50;
+    const gpsPassed = realDist <= maxAllowed;
+
     const aiResult = await verifyWorkWithAI(beforeImg, afterImg, {
       category,
-      workerLat: verif.workerLocation?.latitude || 19.0760,
-      workerLng: verif.workerLocation?.longitude || 72.8777,
-      complaintLat: verif.complaintLocation?.latitude || 19.0760,
-      complaintLng: verif.complaintLocation?.longitude || 72.8777,
-      distanceMeters: 4.2
+      workerLat: wLat,
+      workerLng: wLng,
+      complaintLat: cLat,
+      complaintLng: cLng,
+      distanceMeters: Math.round(realDist * 10) / 10
     });
 
     const updatedVerification = jsonDB.updateVerification(verifId, verif.status || 'PENDING', {
@@ -163,6 +193,11 @@ router.post('/:id/verify-model', authenticate, authorize('admin'), async (req, r
         isFraud: aiResult.isFraud || false,
         aiModelUsed: 'CityConnectAI YOLOv8 & SSIM Engine',
         analyzedAt: new Date().toISOString()
+      },
+      gpsVerification: {
+        passed: gpsPassed,
+        distanceMeters: Math.round(realDist * 10) / 10,
+        maxAllowedMeters: maxAllowed
       }
     });
 

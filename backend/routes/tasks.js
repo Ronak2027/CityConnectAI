@@ -137,9 +137,9 @@ router.post('/:id/complete', authenticate, upload.fields([{ name: 'afterImage', 
     const complaintLng = task?.location?.longitude || 72.8777;
 
     const rawDist = calculateHaversineDistance(workerLat, workerLng, complaintLat, complaintLng);
-    // If testing across different cities, normalize to realistic on-site proximity
-    const displayDistance = rawDist > 500 ? parseFloat((3.4 + Math.random() * 2.1).toFixed(1)) : parseFloat(rawDist.toFixed(1));
-    const gpsPassed = true;
+    const maxAllowed = 50.0;
+    const displayDistance = Math.round(rawDist * 10) / 10;
+    const gpsPassed = rawDist <= maxAllowed;
 
     // Associated complaint & worker info
     const complaintRef = task?.complaintId || { complaintId: 'CMP-2026-1001', category: 'Garbage / Waste' };

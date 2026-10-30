@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import dns from 'dns';
 
 export const connectDB = async () => {
+  // Prevent Mongoose from buffering queries indefinitely when offline/disconnected
+  mongoose.set('bufferCommands', false);
   try {
     const connStr = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cleancityai';
     
@@ -15,7 +17,7 @@ export const connectDB = async () => {
     }
 
     await mongoose.connect(connStr, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 3000,
     });
     console.log(`[Database] MongoDB Connected: ${mongoose.connection.host}`);
   } catch (error) {

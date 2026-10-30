@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import { Complaint } from '../models/Complaint.js';
 import { Task } from '../models/Task.js';
 import { User } from '../models/User.js';
@@ -81,10 +82,13 @@ router.post('/', authenticate, upload.single('photo'), async (req, res) => {
     };
 
     let complaint;
-    try {
-      complaint = await Complaint.create(complaintData);
-    } catch (dbErr) {
-      // JSON Storage fallback
+    if (mongoose.connection.readyState === 1) {
+      try {
+        complaint = await Complaint.create(complaintData);
+      } catch (dbErr) {
+        complaint = jsonDB.createComplaint(complaintData);
+      }
+    } else {
       complaint = jsonDB.createComplaint(complaintData);
     }
 
