@@ -44,7 +44,7 @@ export default function Footer() {
             <li><span className="hover:text-brand-emerald">YOLOv8 Object Detection</span></li>
             <li><span className="hover:text-brand-emerald">SSIM Image Matcher</span></li>
             <li><span className="hover:text-brand-emerald">Haversine GPS Verification (&lt;9m)</span></li>
-            <li><span className="hover:text-brand-emerald">Flood Early Warning System</span></li>
+            <li><span className="hover:text-brand-emerald">AI Hotspot & Density Engine (&gt;5 Rule)</span></li>
           </ul>
         </div>
 

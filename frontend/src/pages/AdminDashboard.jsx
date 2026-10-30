@@ -5,7 +5,8 @@ import {
   FileText, ShieldAlert, CheckCircle2, XCircle, AlertTriangle, RefreshCw, 
   Download, Search, Filter, PieChart as PieChartIcon, TrendingUp, 
   Building2, Bell, ChevronDown, Check, ArrowRight, Eye, Camera, 
-  Wrench, Clock, Activity, Zap, HardHat, Compass, AlertOctagon, CheckSquare
+  Wrench, Clock, Activity, Zap, HardHat, Compass, AlertOctagon, CheckSquare,
+  Flame, MapPin, Layers, Send, Siren
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -61,6 +62,7 @@ export default function AdminDashboard() {
   const [weatherRisk, setWeatherRisk] = useState(null);
   const [auditLogs, setAuditLogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [dispatchToast, setDispatchToast] = useState(null);
 
   // Inspector & Assignment Modals State
   const [selectedVerification, setSelectedVerification] = useState(null);
@@ -521,17 +523,24 @@ export default function AdminDashboard() {
             </button>
 
             <button
-              onClick={() => setActiveTab('flood')}
+              onClick={() => setActiveTab('hotspots')}
               className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
-                activeTab === 'flood'
+                activeTab === 'hotspots' || activeTab === 'flood'
                   ? 'bg-[#059669] text-white shadow-xs font-semibold'
                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
               }`}
             >
               <div className="flex items-center gap-3">
-                <CloudRain className="w-4 h-4 shrink-0" />
-                <span>Flood Risk Warning</span>
+                <Flame className="w-4 h-4 shrink-0 text-amber-300" />
+                <span>Hotspot Intelligence</span>
               </div>
+              {(weatherRisk?.criticalHotspotsCount || 0) > 0 ? (
+                <span className="px-1.5 py-0.5 text-[10px] font-black rounded-full bg-rose-500 text-white animate-pulse">
+                  {weatherRisk.criticalHotspotsCount} Alert
+                </span>
+              ) : (
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              )}
             </button>
 
             <button
@@ -1174,23 +1183,502 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          {/* TAB: FLOOD RISK */}
-          {activeTab === 'flood' && (
+          {/* TAB: AI COMPLAINT HOTSPOTS & PRIORITY ATTENTION */}
+          {(activeTab === 'hotspots' || activeTab === 'flood') && (
             <div className="space-y-6">
-              <h3 className="font-bold text-lg text-slate-900">AI Flood Early Warning Intelligence</h3>
-              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-bold text-base text-slate-900">Zone Flood Risk: {weatherRisk?.riskLevel || 'LOW'}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{weatherRisk?.alertMessage}</p>
+              
+              {/* Header Title & Subtitle */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 flex items-center gap-1.5">
+                      <Flame className="w-3.5 h-3.5 text-amber-600" />
+                      Spatial Density AI Engine
+                    </span>
+                    {(weatherRisk?.criticalHotspotsCount || 0) > 0 && (
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-100 text-rose-700 animate-pulse">
+                        ⚠️ {weatherRisk.criticalHotspotsCount} Zone(s) Over 5-Complaint Limit
+                      </span>
+                    )}
                   </div>
-                  <CloudRain className="w-10 h-10 text-blue-600" />
+                  <h1 className="text-2xl font-bold text-slate-900 tracking-tight mt-2">
+                    AI Complaint Hotspots &amp; Priority Attention
+                  </h1>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Automated spatial clustering of civic complaints. Flags high-density zones with &gt; 5 complaints for immediate municipal intervention before public escalation.
+                  </p>
                 </div>
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 text-xs space-y-1">
-                  <div className="font-bold text-slate-800">Automated Recommendation:</div>
-                  <div className="text-slate-600">{weatherRisk?.recommendation}</div>
+
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => fetchAdminData(true)}
+                    className="px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold shadow-2xs flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5 text-slate-400" /> Refresh Intelligence
+                  </button>
                 </div>
               </div>
+
+              {/* Toast Notification */}
+              {dispatchToast && (
+                <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between shadow-xs">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <div>
+                      <div className="text-xs font-bold text-emerald-900">{dispatchToast.title}</div>
+                      <div className="text-[11px] text-emerald-700 mt-0.5">{dispatchToast.message}</div>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setDispatchToast(null)}
+                    className="text-xs font-bold text-emerald-700 hover:text-emerald-900 p-1 cursor-pointer"
+                  >
+                    Dismiss
+                  </button>
+                </div>
+              )}
+
+              {/* Primary AI Attention Alert Banner */}
+              {(() => {
+                const isCritical = (weatherRisk?.criticalHotspotsCount || 0) > 0 || (weatherRisk?.topHotspot?.totalComplaints || 0) >= 5;
+                const isElevated = !isCritical && ((weatherRisk?.topHotspot?.totalComplaints || 0) >= 3);
+                const topArea = weatherRisk?.topHotspot || { areaName: 'Central Zone', totalComplaints: 0, activeComplaints: 0, dominantCategory: 'Civic Infrastructure' };
+
+                if (isCritical) {
+                  return (
+                    <div className="bg-gradient-to-r from-rose-50 via-red-50 to-orange-50 border-2 border-rose-300 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-rose-200/40 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+                      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+                        <div className="space-y-3 max-w-3xl">
+                          <div className="flex items-center gap-2">
+                            <span className="w-3 h-3 rounded-full bg-rose-600 animate-ping" />
+                            <span className="px-2.5 py-0.5 rounded-md text-xs font-black uppercase tracking-wider bg-rose-600 text-white">
+                              CRITICAL HOTSPOT TRIGGERED (&gt; 5 COMPLAINTS)
+                            </span>
+                            <span className="text-xs font-bold text-rose-800">
+                              Zone: {topArea.areaName}
+                            </span>
+                          </div>
+                          
+                          <h2 className="text-xl font-bold text-slate-900">
+                            High-Density Attention Alert: {topArea.totalComplaints} Clustered Complaints in {topArea.areaName}
+                          </h2>
+
+                          <p className="text-xs text-slate-700 leading-relaxed">
+                            {weatherRisk?.alertMessage || `Multiple residents in ${topArea.areaName} have reported overlapping civic breakdowns (${topArea.dominantCategory}). Concentration has exceeded the 5-complaint threshold.`}
+                          </p>
+
+                          <div className="p-4 bg-white/90 backdrop-blur-xs rounded-xl border border-rose-200 space-y-1.5 shadow-2xs">
+                            <div className="flex items-center gap-2 text-xs font-bold text-rose-900">
+                              <Zap className="w-4 h-4 text-rose-600" />
+                              AI Automated Municipal Recommendation:
+                            </div>
+                            <div className="text-xs text-slate-800 leading-relaxed font-medium">
+                              {weatherRisk?.recommendation || `Deploy rapid intervention team to ${topArea.areaName} immediately. Expedite resolution for ${topArea.activeComplaints} pending issues to restore public infrastructure.`}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+                          <button
+                            onClick={() => {
+                              setDispatchToast({
+                                title: `Rapid Response Squad Deployed to ${topArea.areaName}`,
+                                message: `Ward Supervisor and nearest field teams have been mobilized for immediate inspection.`
+                              });
+                            }}
+                            className="px-5 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                          >
+                            <Siren className="w-4 h-4" />
+                            Dispatch Rapid Response Squad
+                          </button>
+                          <button
+                            onClick={() => setActiveTab('complaints')}
+                            className="px-5 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                          >
+                            <FileText className="w-3.5 h-3.5 text-slate-500" />
+                            Review {topArea.totalComplaints} Complaints
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                if (isElevated) {
+                  return (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wide">
+                          <AlertTriangle className="w-4 h-4 text-amber-600" />
+                          Elevated Concentration ({topArea.totalComplaints} Complaints)
+                        </div>
+                        <h3 className="text-base font-bold text-slate-900">
+                          {topArea.areaName} approaching the 5-complaint threshold
+                        </h3>
+                        <p className="text-xs text-slate-600 max-w-2xl">
+                          {weatherRisk?.alertMessage}
+                        </p>
+                        <div className="text-xs font-semibold text-amber-900 mt-1">
+                          Recommendation: {weatherRisk?.recommendation}
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setDispatchToast({
+                            title: `Priority Inspection Scheduled for ${topArea.areaName}`,
+                            message: `Preventive squad assigned to inspect cluster before complaints cross threshold.`
+                          });
+                        }}
+                        className="px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shrink-0 cursor-pointer shadow-xs"
+                      >
+                        Schedule Inspection
+                      </button>
+                    </div>
+                  );
+                }
+
+                return (
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 shadow-2xs flex items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wide">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        Civic Zone Health: Stable
+                      </div>
+                      <h3 className="text-base font-bold text-slate-900">
+                        All Neighborhoods Operating Below the 5-Complaint Critical Threshold
+                      </h3>
+                      <p className="text-xs text-emerald-700">
+                        {weatherRisk?.alertMessage || 'No dense clustering detected. Routine operations and standard worker dispatch proceed normally.'}
+                      </p>
+                    </div>
+                    <span className="px-3 py-1 bg-white text-emerald-700 text-xs font-bold rounded-xl border border-emerald-200 shrink-0">
+                      Surveillance Active
+                    </span>
+                  </div>
+                );
+              })()}
+
+              {/* 4 Metric / KPI Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-500">Critical Hotspots (&gt;5)</span>
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${
+                      (weatherRisk?.criticalHotspotsCount || 0) > 0 ? 'bg-rose-100 text-rose-600' : 'bg-emerald-100 text-emerald-600'
+                    }`}>
+                      <Flame className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-slate-900">
+                      {weatherRisk?.criticalHotspotsCount || 0}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium">Zones</span>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 flex items-center gap-1">
+                    {(weatherRisk?.criticalHotspotsCount || 0) > 0 ? (
+                      <span className="text-rose-600 font-bold">Needs Immediate Action</span>
+                    ) : (
+                      <span className="text-emerald-600 font-bold">Zero active violations</span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-500">Highest Area Density</span>
+                    <div className="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-slate-900">
+                      {weatherRisk?.topHotspot?.totalComplaints || 0}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium">Complaints</span>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 truncate" title={weatherRisk?.topHotspot?.areaName || 'None'}>
+                    In <span className="font-bold text-slate-700">{weatherRisk?.topHotspot?.areaName || 'None'}</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-500">Pending in Top Hotspot</span>
+                    <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-slate-900">
+                      {weatherRisk?.topHotspot?.activeComplaints || 0}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium">Active Tickets</span>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500">
+                    Primary: <span className="font-bold text-amber-700">{weatherRisk?.topHotspot?.dominantCategory || 'Civic'}</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-500">Hotspot Trigger Rule</span>
+                    <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
+                      <AlertOctagon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-purple-700">&gt; 5</span>
+                    <span className="text-xs text-slate-500 font-medium">per neighborhood</span>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500">
+                    Auto-escalates to priority dispatch
+                  </div>
+                </div>
+              </div>
+
+              {/* Spatial Hotspot Map + Dominant Breakdown */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                {/* 2 Cols: Hotspots GIS Map */}
+                <div className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                        <Map className="w-4 h-4 text-emerald-600" />
+                        Live Spatial Hotspots &amp; Complaint Distribution Map
+                      </h3>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        Interactive GIS mapping of citizen complaints across all municipal sectors
+                      </p>
+                    </div>
+                    <span className="text-[11px] font-mono font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
+                      {complaints.length} Geo-tagged Points
+                    </span>
+                  </div>
+                  
+                  <div className="rounded-xl overflow-hidden border border-slate-200">
+                    <LeafletMap complaints={complaints} workers={workers} height="380px" zoom={12} />
+                  </div>
+                </div>
+
+                {/* 1 Col: Top Clustered Areas List */}
+                <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                      <Flame className="w-4 h-4 text-amber-500" />
+                      Priority Attention Zones
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      Ranked by complaint volume. Areas with &gt; 5 require urgent action.
+                    </p>
+
+                    <div className="mt-4 space-y-3">
+                      {(weatherRisk?.clusters || []).slice(0, 5).map((cl, idx) => {
+                        const isHot = cl.totalComplaints >= 5;
+                        return (
+                          <div 
+                            key={idx}
+                            className={`p-3 rounded-xl border transition-all ${
+                              isHot 
+                                ? 'bg-rose-50/70 border-rose-200' 
+                                : 'bg-slate-50 border-slate-200/60'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <div className="font-bold text-xs text-slate-900 truncate max-w-[170px]" title={cl.areaName}>
+                                {cl.areaName}
+                              </div>
+                              <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
+                                isHot 
+                                  ? 'bg-rose-600 text-white animate-pulse' 
+                                  : 'bg-slate-200 text-slate-700'
+                              }`}>
+                                {cl.totalComplaints} Complaints
+                              </span>
+                            </div>
+
+                            <div className="flex items-center justify-between text-[11px] text-slate-500 mt-2">
+                              <span>Primary: <b className="text-slate-700">{cl.dominantCategory}</b></span>
+                              <span>Pending: <b className={isHot ? 'text-rose-700' : 'text-slate-700'}>{cl.activeComplaints}</b></span>
+                            </div>
+
+                            {/* Progress bar */}
+                            <div className="w-full bg-slate-200 rounded-full h-1.5 mt-2 overflow-hidden flex">
+                              <div 
+                                className="bg-emerald-500 h-full" 
+                                style={{ width: `${cl.totalComplaints > 0 ? (cl.resolvedComplaints / cl.totalComplaints) * 100 : 0}%` }}
+                                title={`Resolved: ${cl.resolvedComplaints}`}
+                              />
+                              <div 
+                                className={isHot ? 'bg-rose-500 h-full' : 'bg-amber-500 h-full'}
+                                style={{ width: `${cl.totalComplaints > 0 ? (cl.activeComplaints / cl.totalComplaints) * 100 : 0}%` }}
+                                title={`Active: ${cl.activeComplaints}`}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+
+                      {(!weatherRisk?.clusters || weatherRisk?.clusters.length === 0) && (
+                        <div className="p-6 text-center text-xs text-slate-400">
+                          No complaint clusters detected
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 mt-4">
+                    <button
+                      onClick={() => setActiveTab('complaints')}
+                      className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      Open Full Complaints Register <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Comprehensive Hotspots Attention Ranking Table */}
+              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+                <div className="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h3 className="font-bold text-sm text-slate-900">
+                      Neighborhood Complaint Clusters &amp; Escalation Status
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      Monitors complaint density across all municipal wards. Automatic alerts trigger when count &gt; 5.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-slate-500">Legend:</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-700">Critical (&gt;5)</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Elevated (3-4)</span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Normal (&lt;3)</span>
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-50 text-slate-500 uppercase font-bold border-b border-slate-200">
+                      <tr>
+                        <th className="p-4">Rank / Area</th>
+                        <th className="p-4">Total Complaints</th>
+                        <th className="p-4">Dominant Category</th>
+                        <th className="p-4">Active vs Resolved</th>
+                        <th className="p-4">Escalation Status</th>
+                        <th className="p-4 text-right">Rapid Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {(weatherRisk?.clusters || []).map((cl, idx) => {
+                        const isCritical = cl.totalComplaints >= 5;
+                        const isElevated = !isCritical && cl.totalComplaints >= 3;
+                        return (
+                          <tr key={idx} className={`hover:bg-slate-50/80 transition-colors ${isCritical ? 'bg-rose-50/30' : ''}`}>
+                            <td className="p-4">
+                              <div className="flex items-center gap-2.5">
+                                <span className={`w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px] ${
+                                  idx === 0 ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-600'
+                                }`}>
+                                  {idx + 1}
+                                </span>
+                                <div>
+                                  <div className="font-bold text-slate-900">{cl.areaName}</div>
+                                  <div className="text-[11px] text-slate-400 truncate max-w-xs">{cl.fullAddress}</div>
+                                </div>
+                              </div>
+                            </td>
+
+                            <td className="p-4">
+                              <div className="flex items-center gap-2">
+                                <span className="text-sm font-black text-slate-900">{cl.totalComplaints}</span>
+                                {isCritical && (
+                                  <span className="px-1.5 py-0.5 rounded-full text-[10px] font-black bg-rose-600 text-white animate-pulse">
+                                    &gt; 5 HOTSPOT
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+
+                            <td className="p-4">
+                              <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">
+                                {cl.dominantCategory}
+                              </span>
+                            </td>
+
+                            <td className="p-4">
+                              <div className="space-y-1 w-32">
+                                <div className="flex justify-between text-[10px] text-slate-500 font-medium">
+                                  <span className="text-emerald-700">{cl.resolvedComplaints} solved</span>
+                                  <span className="text-rose-700">{cl.activeComplaints} active</span>
+                                </div>
+                                <div className="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden flex">
+                                  <div 
+                                    className="bg-emerald-500 h-full" 
+                                    style={{ width: `${cl.totalComplaints > 0 ? (cl.resolvedComplaints / cl.totalComplaints) * 100 : 0}%` }}
+                                  />
+                                  <div 
+                                    className={isCritical ? 'bg-rose-500 h-full' : 'bg-amber-500 h-full'}
+                                    style={{ width: `${cl.totalComplaints > 0 ? (cl.activeComplaints / cl.totalComplaints) * 100 : 0}%` }}
+                                  />
+                                </div>
+                              </div>
+                            </td>
+
+                            <td className="p-4">
+                              {isCritical ? (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-rose-100 text-rose-800">
+                                  <span className="w-2 h-2 rounded-full bg-rose-600 animate-ping" />
+                                  HIGH ATTENTION REQUIRED
+                                </span>
+                              ) : isElevated ? (
+                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">
+                                  <AlertTriangle className="w-3 h-3 text-amber-600" />
+                                  ELEVATED ATTENTION
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">
+                                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                                  STABLE
+                                </span>
+                              )}
+                            </td>
+
+                            <td className="p-4 text-right">
+                              <button
+                                onClick={() => {
+                                  setDispatchToast({
+                                    title: `Dispatched Intervention Squad to ${cl.areaName}`,
+                                    message: `Squad notified to resolve ${cl.activeComplaints} open complaints immediately.`
+                                  });
+                                }}
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                                  isCritical
+                                    ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-xs'
+                                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                                }`}
+                              >
+                                {isCritical ? '🚨 Dispatch Squad' : 'Inspect Zone'}
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+
+                      {(!weatherRisk?.clusters || weatherRisk?.clusters.length === 0) && (
+                        <tr>
+                          <td colSpan={6} className="p-8 text-center text-slate-400">
+                            No area clusters found in records
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
             </div>
           )}
 

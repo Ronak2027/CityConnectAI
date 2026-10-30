@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Building2, ShieldCheck, Sparkles, MapPin, Truck, Bot, ArrowRight, 
-  AlertTriangle, CheckCircle2, CloudRain, Cpu, BarChart3, ChevronRight, User, Eye, Activity
+  AlertTriangle, CheckCircle2, CloudRain, Cpu, BarChart3, ChevronRight, User, Eye, Activity, Flame
 } from 'lucide-react';
 import axios from 'axios';
 import LeafletMap from '../components/LeafletMap';
@@ -267,17 +267,17 @@ export default function LandingPage() {
 
           {/* Card 3 */}
           <div className="p-8 rounded-card bg-white border border-brand-border shadow-xs hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6">
-              <CloudRain className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
+              <Flame className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-lg text-brand-text mb-2">Flood Early Warning</h3>
+            <h3 className="font-bold text-lg text-brand-text mb-2">AI Hotspot &amp; Density Engine</h3>
             <p className="text-xs text-brand-muted leading-relaxed mb-6">
-              Correlates live rainfall predictions with drainage complaint density to highlight waterlogging risk zones before storms hit.
+              Spatial clustering detects neighborhood complaint clusters in real-time. Automatically triggers high-priority alerts when an area exceeds 5 complaints.
             </p>
             <div className="bg-brand-bg p-3 rounded-xl text-[11px] font-mono text-brand-muted space-y-1.5 border border-brand-border">
-              <div>OpenWeather API</div>
-              <div>+ Drain History</div>
-              <div className="text-purple-600 font-bold">→ Preventive Cleaning Task</div>
+              <div>Neighborhood Clustering</div>
+              <div>&gt; 5 Complaint Rule</div>
+              <div className="text-amber-600 font-bold">→ Priority Rapid Squad Dispatch</div>
             </div>
           </div>
         </div>
