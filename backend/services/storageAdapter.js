@@ -53,6 +53,18 @@ export const jsonDB = {
     return newComplaint;
   },
 
+  updateComplaint: (id, updates) => {
+    const data = readData();
+    data.complaints = data.complaints || [];
+    const idx = data.complaints.findIndex(c => c.id === id || c._id === id || c.complaintId === id);
+    if (idx !== -1) {
+      data.complaints[idx] = { ...data.complaints[idx], ...updates };
+      writeData(data);
+      return data.complaints[idx];
+    }
+    return null;
+  },
+
   getTasks: () => {
     const data = readData();
     let tasks = data.tasks || [];

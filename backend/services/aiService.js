@@ -2,7 +2,8 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import { verifyWorkWithGeminiVision } from './geminiService.js';
+import { verifyWorkWithGeminiVision, assessComplaintPriorityAI } from './geminiService.js';
+export { assessComplaintPriorityAI };
 
 // Python AI Engine URL on port 5001
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://127.0.0.1:5001';

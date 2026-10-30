@@ -20,6 +20,9 @@ const complaintSchema = new mongoose.Schema({
     enum: ['Low', 'Medium', 'High', 'Critical'], 
     default: 'Medium' 
   },
+  aiPriorityReason: { type: String, default: '' },
+  aiSeverityScore: { type: Number, default: 0 },
+  aiEngine: { type: String, default: 'CityConnectAI Gemini Priority Engine' },
   status: { 
     type: String, 
     enum: ['PENDING', 'ASSIGNED', 'IN_PROGRESS', 'VERIFICATION', 'RESOLVED', 'REJECTED'], 

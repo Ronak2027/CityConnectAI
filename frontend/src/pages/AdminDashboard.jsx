@@ -7,7 +7,7 @@ import {
   Building2, Bell, ChevronDown, Check, ArrowRight, Eye, Camera, 
   Wrench, Clock, Activity, Zap, HardHat, Compass, AlertOctagon, CheckSquare,
   Flame, MapPin, Layers, Send, Siren, MoreVertical, Calendar, ChevronLeft,
-  ChevronRight, ArrowUpDown, Trash2, Lightbulb, Droplets, Plus, X, User
+  ChevronRight, ArrowUpDown, Trash2, Lightbulb, Droplets, Plus, X, User, Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -77,11 +77,27 @@ export default function AdminDashboard() {
   const [statusFilter, setStatusFilter] = useState('ALL');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
   const [priorityFilter, setPriorityFilter] = useState('ALL');
-  const [wardFilter, setWardFilter] = useState('ALL');
   const [selectedComplaintIds, setSelectedComplaintIds] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [selectedComplaintView, setSelectedComplaintView] = useState(null);
+  const [recalculatingPriorities, setRecalculatingPriorities] = useState(false);
+
+  const handleRecalculateAiPriorities = async () => {
+    setRecalculatingPriorities(true);
+    try {
+      const res = await axios.post('/api/complaints/recalculate-priorities');
+      setDispatchToast({
+        title: '✨ AI Priority Evaluation Complete',
+        message: res.data?.message || 'All civic complaints successfully re-assessed using AI Priority Engine.'
+      });
+      await fetchAdminData(true);
+    } catch (err) {
+      alert('Error evaluating priorities with AI: ' + (err.response?.data?.message || err.message));
+    } finally {
+      setRecalculatingPriorities(false);
+    }
+  };
 
   // Top Bar State
   const [adminDropdownOpen, setAdminDropdownOpen] = useState(false);
@@ -1033,34 +1049,47 @@ export default function AdminDashboard() {
 
             const formatLocation = (c) => {
               const raw = (c.location?.address || c.citizenLocation?.address || '').trim();
-              if (!raw) return 'Ward 3';
-              const wardMatch = raw.match(/Ward\s*\d+/i);
-              if (wardMatch) return wardMatch[0];
-              const parts = raw.split(',');
-              return parts[0].trim();
+              if (!raw) return 'Central Municipal Sector';
+              // Remove artificial "Ward" references to display real neighborhood / area names
+              const cleaned = raw.replace(/Ward\s*\d+\s*[-–,]*\s*/gi, '').trim();
+              if (!cleaned) return raw;
+              const parts = cleaned.split(',').map(s => s.trim()).filter(Boolean);
+              return parts.length > 1 ? `${parts[0]}, ${parts[1]}` : parts[0];
             };
 
-            const formatPriority = (priority) => {
-              const p = (priority || 'Medium').toLowerCase();
+            const formatPriority = (priority, c = {}) => {
+              const p = (priority || c.priority || 'Medium').toLowerCase();
+              const reason = c.aiPriorityReason || 'Assigned by CityConnectAI Priority Engine';
+
               if (p === 'high' || p === 'critical') {
                 return (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200/60">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-600" />
-                    High
+                  <span 
+                    title={reason}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200/60 cursor-help"
+                  >
+                    <Sparkles className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{p === 'critical' ? 'Critical' : 'High'}</span>
                   </span>
                 );
               }
               if (p === 'low') {
                 return (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
+                  <span 
+                    title={reason}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60 cursor-help"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                    Low
+                    <span>Low</span>
                   </span>
                 );
               }
               return (
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200/60">
-                  Medium
+                <span 
+                  title={reason}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200/60 cursor-help"
+                >
+                  <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                  <span>Medium</span>
                 </span>
               );
             };
@@ -1171,11 +1200,6 @@ export default function AdminDashboard() {
                 if (p !== priorityFilter.toLowerCase()) return false;
               }
 
-              if (wardFilter !== 'ALL') {
-                const addr = (c.location?.address || c.citizenLocation?.address || '').toLowerCase();
-                if (!addr.includes(wardFilter.toLowerCase())) return false;
-              }
-
               return true;
             });
 
@@ -1201,7 +1225,6 @@ export default function AdminDashboard() {
               setStatusFilter('ALL');
               setCategoryFilter('ALL');
               setPriorityFilter('ALL');
-              setWardFilter('ALL');
               setCurrentPage(1);
             };
 
@@ -1359,23 +1382,6 @@ export default function AdminDashboard() {
                       <option value="Low">Low</option>
                     </select>
 
-                    {/* Wards Select */}
-                    <select
-                      value={wardFilter}
-                      onChange={(e) => { setWardFilter(e.target.value); setCurrentPage(1); }}
-                      className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 outline-none focus:border-[#059669] font-medium cursor-pointer"
-                    >
-                      <option value="ALL">All Wards</option>
-                      <option value="Ward 1">Ward 1</option>
-                      <option value="Ward 2">Ward 2</option>
-                      <option value="Ward 3">Ward 3</option>
-                      <option value="Ward 4">Ward 4</option>
-                      <option value="Ward 5">Ward 5</option>
-                      <option value="Ward 6">Ward 6</option>
-                      <option value="Ward 7">Ward 7</option>
-                      <option value="Ward 8">Ward 8</option>
-                    </select>
-
                     {/* Date Range Display */}
                     <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 font-medium">
                       <Calendar className="w-3.5 h-3.5 text-slate-400" />
@@ -1384,14 +1390,26 @@ export default function AdminDashboard() {
 
                   </div>
 
-                  {/* Reset Filters */}
-                  <button
-                    onClick={handleResetFilters}
-                    className="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer shrink-0"
-                  >
-                    <RefreshCw className="w-3.5 h-3.5 text-slate-400" />
-                    Reset Filters
-                  </button>
+                  {/* Actions Right: AI Priority Button & Reset */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleRecalculateAiPriorities}
+                      disabled={recalculatingPriorities}
+                      className="px-3.5 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-2xs transition-all cursor-pointer disabled:opacity-60"
+                      title="Run AI Priority Engine to analyze civic risk and assign optimal priority"
+                    >
+                      <Sparkles className={`w-3.5 h-3.5 ${recalculatingPriorities ? 'animate-spin' : 'text-amber-200'}`} />
+                      <span>{recalculatingPriorities ? 'Evaluating with AI...' : 'Assign Priority with AI'}</span>
+                    </button>
+
+                    <button
+                      onClick={handleResetFilters}
+                      className="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer shrink-0"
+                    >
+                      <RefreshCw className="w-3.5 h-3.5 text-slate-400" />
+                      Reset Filters
+                    </button>
+                  </div>
                 </div>
 
                 {/* 4. Main Complaints Table */}
@@ -1517,7 +1535,7 @@ export default function AdminDashboard() {
 
                                 {/* Priority */}
                                 <td className="p-4">
-                                  {formatPriority(c.priority)}
+                                  {formatPriority(c.priority, c)}
                                 </td>
 
                                 {/* Status */}
@@ -2461,6 +2479,18 @@ export default function AdminDashboard() {
                 <div className="p-3 bg-slate-50 rounded-xl space-y-1">
                   <div className="text-slate-400 font-semibold uppercase text-[10px]">Priority</div>
                   <div className="font-bold text-slate-800">{selectedComplaintView.priority || 'Medium'}</div>
+                </div>
+                <div className="p-3 bg-purple-50/60 border border-purple-100 rounded-xl space-y-1 col-span-2">
+                  <div className="flex items-center justify-between text-[10px] text-purple-700 font-bold uppercase tracking-wider">
+                    <span className="flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-purple-600" />
+                      AI Priority Classification
+                    </span>
+                    <span>{selectedComplaintView.aiSeverityScore ? `${selectedComplaintView.aiSeverityScore}% Severity` : 'AI Evaluated'}</span>
+                  </div>
+                  <div className="text-xs text-purple-900 font-medium leading-relaxed">
+                    {selectedComplaintView.aiPriorityReason || `Evaluated as ${selectedComplaintView.priority || 'Medium'} priority by CityConnectAI Priority Engine based on civic risk and severity.`}
+                  </div>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-xl space-y-1 col-span-2">
                   <div className="text-slate-400 font-semibold uppercase text-[10px]">Reported Address</div>

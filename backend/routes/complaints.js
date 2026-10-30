@@ -7,6 +7,7 @@ import { Notification } from '../models/Notification.js';
 import { authenticate } from '../middleware/auth.js';
 import { upload } from '../middleware/upload.js';
 import { jsonDB } from '../services/storageAdapter.js';
+import { assessComplaintPriorityAI } from '../services/aiService.js';
 
 const router = express.Router();
 
@@ -61,7 +62,15 @@ router.post('/', authenticate, upload.single('photo'), async (req, res) => {
     }
 
     const complaintId = `CMP-${new Date().getFullYear()}-${String(Date.now()).slice(-4)}`;
-    const { priority, department } = getCategoryMeta(category);
+    const { department } = getCategoryMeta(category);
+
+    // AI Priority Assessment
+    const aiAssessment = await assessComplaintPriorityAI({
+      category,
+      description: description.trim(),
+      photoUrl,
+      location: { latitude: lat, longitude: lng, address }
+    });
 
     const complaintData = {
       _id: complaintId,
@@ -75,7 +84,10 @@ router.post('/', authenticate, upload.single('photo'), async (req, res) => {
         longitude: lng,
         address: (address && !address.startsWith('Lat:')) ? address.trim() : `Coordinates: ${lat.toFixed(5)}, ${lng.toFixed(5)}`
       },
-      priority,
+      priority: aiAssessment.priority,
+      aiPriorityReason: aiAssessment.reason,
+      aiSeverityScore: aiAssessment.severityScore,
+      aiEngine: aiAssessment.aiEngine,
       department,
       status: 'PENDING',
       createdAt: new Date().toISOString()
@@ -102,6 +114,62 @@ router.post('/', authenticate, upload.single('photo'), async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: 'Error submitting complaint', error: error.message });
+  }
+});
+
+// POST /api/complaints/recalculate-priorities (AI Priority Re-assessment Engine)
+router.post('/recalculate-priorities', async (req, res) => {
+  try {
+    let complaints = [];
+    if (mongoose.connection.readyState === 1) {
+      try {
+        complaints = await Complaint.find();
+      } catch (e) {}
+    }
+    if (!complaints || complaints.length === 0) {
+      complaints = jsonDB.getComplaints();
+    }
+
+    const updated = [];
+    for (const c of complaints) {
+      const assessment = await assessComplaintPriorityAI({
+        category: c.category,
+        description: c.description || c.title || '',
+        photoUrl: c.photoUrl || c.citizenPhoto || '',
+        location: c.location || c.citizenLocation || {}
+      });
+
+      c.priority = assessment.priority;
+      c.aiPriorityReason = assessment.reason;
+      c.aiSeverityScore = assessment.severityScore;
+
+      if (mongoose.connection.readyState === 1 && typeof c.save === 'function') {
+        try {
+          await c.save();
+        } catch (err) {}
+      } else if (c.id || c._id) {
+        jsonDB.updateComplaint(c.id || c._id, {
+          priority: assessment.priority,
+          aiPriorityReason: assessment.reason,
+          aiSeverityScore: assessment.severityScore
+        });
+      }
+      updated.push({
+        id: c.id || c._id || c.complaintId,
+        category: c.category,
+        priority: c.priority,
+        reason: c.aiPriorityReason,
+        score: c.aiSeverityScore
+      });
+    }
+
+    res.json({
+      message: `AI Priority Engine successfully evaluated ${updated.length} complaints.`,
+      count: updated.length,
+      complaints: updated
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error recalculating AI priorities', error: err.message });
   }
 });
 

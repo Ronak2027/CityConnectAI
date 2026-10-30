@@ -15,7 +15,9 @@
       "priority": "Medium",
       "department": "Roads & Infrastructure",
       "status": "PENDING",
-      "createdAt": "2026-10-30T17:48:41.845Z"
+      "createdAt": "2026-10-30T17:48:41.845Z",
+      "aiPriorityReason": "The complaint lacks a specific description for the road issue in Shirpur, pointing to a standard civic repair or moderate road surface defect requiring routine attention.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-8178",
@@ -34,7 +36,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-10-30T17:20:38.178Z",
       "assignedWorkerId": "WRK-202",
-      "resolvedAt": "2026-10-30T17:21:26.178Z"
+      "resolvedAt": "2026-10-30T17:21:26.178Z",
+      "aiPriorityReason": "The complaint pertains to a road issue without a detailed description, suggesting a standard surface repair or minor defect requiring routine municipal attention.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-9504",
@@ -53,7 +57,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-10-30T17:19:09.505Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-10-30T17:20:02.812Z"
+      "resolvedAt": "2026-10-30T17:20:02.812Z",
+      "aiPriorityReason": "The complaint lacks a specific description for the road issue in Shirpur, indicating a standard civic repair of moderate concern.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-0135",
@@ -67,13 +73,15 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T17:13:10.135Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
-      "resolvedAt": "2026-10-30T17:20:09.080Z"
+      "resolvedAt": "2026-10-30T17:20:09.080Z",
+      "aiPriorityReason": "The complaint lacks a detailed description regarding the location and scale of the garbage issue, making it a standard civic repair requiring routine attention.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-9505",
@@ -87,12 +95,14 @@
         "longitude": 74.888306,
         "address": "Shirpur, 425405"
       },
-      "priority": "Medium",
+      "priority": "Low",
       "department": "Roads & Infrastructure",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T17:10:59.505Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-10-30T17:20:10.349Z"
+      "resolvedAt": "2026-10-30T17:20:10.349Z",
+      "aiPriorityReason": "The complaint lacks a description and specifies only the road category with no indicated hazard, placing it at a low aesthetic or non-urgent priority level.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-7075",
@@ -106,12 +116,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-10-30T16:58:57.075Z",
       "assignedWorkerId": "WRK-201",
-      "rejectionReason": "Defect still visible / proof requires revision"
+      "rejectionReason": "Defect still visible / proof requires revision",
+      "aiPriorityReason": "The complaint pertains to garbage without specific severity details or hazardous locations, categorizing it as a standard civic repair issue.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-0300",
@@ -125,12 +137,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T16:33:10.300Z",
       "assignedWorkerId": "WRK-202",
-      "resolvedAt": "2026-10-30T16:33:57.115Z"
+      "resolvedAt": "2026-10-30T16:33:57.115Z",
+      "aiPriorityReason": "The complaint lacks a specific description and details for the garbage issue, categorizing it as a standard non-urgent aesthetic or minor civic matter.",
+      "aiSeverityScore": 25
     },
     {
       "_id": "CMP-2026-1469",
@@ -144,12 +158,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-10-30T16:30:21.469Z",
       "assignedWorkerId": "WRK-201",
-      "rejectionReason": "Defect still visible / proof requires revision"
+      "rejectionReason": "Defect still visible / proof requires revision",
+      "aiPriorityReason": "The complaint lacks a specific description and details for the garbage issue in Shirpur, resulting in a default low priority classification due to insufficient information regarding danger or severity.",
+      "aiSeverityScore": 25
     },
     {
       "_id": "CMP-2026-5159",
@@ -163,12 +179,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T16:29:05.160Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-10-30T16:29:56.192Z"
+      "resolvedAt": "2026-10-30T16:29:56.192Z",
+      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue in Shirpur, categorizing it as a standard civic repair requiring routine waste management attention.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-9275",
@@ -182,10 +200,12 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
-      "createdAt": "2026-10-30T10:47:49.275Z"
+      "createdAt": "2026-10-30T10:47:49.275Z",
+      "aiPriorityReason": "The complaint is categorized under Garbage with no specific hazardous details provided, placing it as a standard civic issue requiring routine cleanup.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-6902",
@@ -205,7 +225,9 @@
       "createdAt": "2026-10-30T10:35:36.902Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "ddfg",
-      "resolvedAt": "2026-10-30T10:48:05.873Z"
+      "resolvedAt": "2026-10-30T10:48:05.873Z",
+      "aiPriorityReason": "The complaint is categorized under Drainage / Clean Water with no specific description provided, requiring standard investigation and civic repair within 24 hours.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-1624",
@@ -219,13 +241,15 @@
         "longitude": 74.88827165308751,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T10:33:11.624Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
-      "resolvedAt": "2026-10-30T10:35:00.212Z"
+      "resolvedAt": "2026-10-30T10:35:00.212Z",
+      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue, making it a standard civic repair requiring routine garbage collection within 24 hours.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-9036",
@@ -239,13 +263,15 @@
         "longitude": 74.888306,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T10:27:49.037Z",
       "assignedWorkerId": "WRK-202",
       "rejectionReason": "same img",
-      "resolvedAt": "2026-10-30T10:31:43.084Z"
+      "resolvedAt": "2026-10-30T10:31:43.084Z",
+      "aiPriorityReason": "The complaint lacks a description and specifies a garbage category without indicating urgent hazards or overflowing conditions, categorizing it as a standard aesthetic issue.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-1934",
@@ -259,13 +285,15 @@
         "longitude": 74.88827165308751,
         "address": "Shirpur, 425405"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T07:36:21.935Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified",
-      "resolvedAt": "2026-10-30T10:56:58.694Z"
+      "resolvedAt": "2026-10-30T10:56:58.694Z",
+      "aiPriorityReason": "The complaint is categorized under garbage without further specifying critical details or hazards, making it a standard civic cleanliness issue.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-9993",
@@ -279,12 +307,14 @@
         "longitude": 74.888306,
         "address": "balaji nagar"
       },
-      "priority": "High",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T06:23:39.993Z",
       "assignedWorkerId": "WRK-202",
-      "resolvedAt": "2026-10-30T06:25:37.650Z"
+      "resolvedAt": "2026-10-30T06:25:37.650Z",
+      "aiPriorityReason": "The complaint is vague and lacks details regarding significant health hazards or large-scale disruption, classifying it as a minor or standard cosmetic issue.",
+      "aiSeverityScore": 25
     },
     {
       "_id": "CMP-2026-7767",
@@ -298,10 +328,12 @@
         "longitude": 72.8777,
         "address": "Dadar West, Mumbai"
       },
-      "priority": "High",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
-      "createdAt": "2026-10-30T06:16:37.767Z"
+      "createdAt": "2026-10-30T06:16:37.767Z",
+      "aiPriorityReason": "The complaint is marked as a test verification with no details regarding severe health hazards, making it a non-urgent cosmetic or testing issue.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-4229",
@@ -315,12 +347,14 @@
         "longitude": 74.84446244481,
         "address": "Academic Building, Aamoda, Shirpur Taluka"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T08:13:04.229Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-10-30T06:25:43.447Z"
+      "resolvedAt": "2026-10-30T06:25:43.447Z",
+      "aiPriorityReason": "The complaint indicates a standard garbage issue near an academic building, which requires attention as an ordinary full trash bin rather than an immediate health hazard.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-5596",
@@ -339,7 +373,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T07:11:05.596Z",
       "assignedWorkerId": "WRK-203",
-      "resolvedAt": "2026-09-12T07:11:56.503Z"
+      "resolvedAt": "2026-09-12T07:11:56.503Z",
+      "aiPriorityReason": "The complaint involves a single streetlight issue near an academic building, categorized as a standard civic repair with minimal immediate public danger.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-1103",
@@ -358,7 +394,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T07:09:41.103Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T07:10:36.409Z"
+      "resolvedAt": "2026-09-12T07:10:36.409Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-5014",
@@ -377,7 +415,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T07:00:05.016Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T07:09:19.643Z"
+      "resolvedAt": "2026-09-12T07:09:19.643Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Streetlight. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-7650",
@@ -391,13 +431,15 @@
         "longitude": 74.84444912589774,
         "address": "Coordinates: 21.28486, 74.84445"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T06:52:27.652Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "DIFFERENT PHOTO",
-      "resolvedAt": "2026-09-12T06:59:32.901Z"
+      "resolvedAt": "2026-09-12T06:59:32.901Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-1683",
@@ -416,7 +458,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T06:00:41.683Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T06:01:32.233Z"
+      "resolvedAt": "2026-09-12T06:01:32.233Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Streetlight. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-3803",
@@ -430,12 +474,14 @@
         "longitude": 74.84445592159743,
         "address": "Lat: 21.2849, Lng: 74.8445"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T05:50:43.803Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T05:52:40.954Z"
+      "resolvedAt": "2026-09-12T05:52:40.954Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-5178",
@@ -454,7 +500,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T05:46:55.178Z",
       "assignedWorkerId": "WRK-203",
-      "resolvedAt": "2026-09-12T05:49:30.754Z"
+      "resolvedAt": "2026-09-12T05:49:30.754Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Streetlight. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-9346",
@@ -473,7 +521,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T05:40:19.346Z",
       "assignedWorkerId": "WRK-202",
-      "resolvedAt": "2026-09-12T05:42:24.949Z"
+      "resolvedAt": "2026-09-12T05:42:24.949Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-2599",
@@ -492,7 +542,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T05:38:32.602Z",
       "assignedWorkerId": "WRK-203",
-      "resolvedAt": "2026-09-12T05:46:06.188Z"
+      "resolvedAt": "2026-09-12T05:46:06.188Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Streetlight. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-3997",
@@ -512,7 +564,9 @@
       "createdAt": "2026-09-12T04:25:13.998Z",
       "assignedWorkerId": "WRK-203",
       "resolvedAt": "2026-10-30T08:29:42.092Z",
-      "rejectionReason": "JJ\n"
+      "rejectionReason": "JJ\n",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-6023",
@@ -531,7 +585,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T04:16:36.024Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T05:56:29.941Z"
+      "resolvedAt": "2026-09-12T05:56:29.941Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-5917",
@@ -551,7 +607,9 @@
       "createdAt": "2026-09-12T03:57:55.918Z",
       "assignedWorkerId": "WRK-202",
       "rejectionReason": "G",
-      "resolvedAt": "2026-10-30T08:27:52.862Z"
+      "resolvedAt": "2026-10-30T08:27:52.862Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-3534",
@@ -565,12 +623,14 @@
         "longitude": 74.88830521982318,
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T03:54:43.535Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T05:56:11.733Z"
+      "resolvedAt": "2026-09-12T05:56:11.733Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-8861",
@@ -589,7 +649,9 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-12T03:29:18.861Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T04:27:46.377Z"
+      "resolvedAt": "2026-09-12T04:27:46.377Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Road. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-3117",
@@ -603,12 +665,14 @@
         "longitude": 74.88830521982318,
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T02:59:23.117Z",
       "assignedWorkerId": "WRK-201",
-      "resolvedAt": "2026-09-12T03:50:57.698Z"
+      "resolvedAt": "2026-09-12T03:50:57.698Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-2378",
@@ -622,11 +686,13 @@
         "longitude": 74.88833021837812,
         "address": "Lat: 21.3560, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-12T02:47:22.379Z",
-      "resolvedAt": "2026-09-12T02:55:41.768Z"
+      "resolvedAt": "2026-09-12T02:55:41.768Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-0886",
@@ -640,11 +706,13 @@
         "longitude": 74.88834750000001,
         "address": "Lat: 21.3560, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-09-11T18:30:00.886Z",
-      "resolvedAt": "2026-09-12T03:52:02.606Z"
+      "resolvedAt": "2026-09-12T03:52:02.606Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-0265",
@@ -658,12 +726,14 @@
         "longitude": 74.888392,
         "address": "Lat: 21.3557, Lng: 74.8884"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "ASSIGNED",
       "createdAt": "2026-09-11T18:23:10.265Z",
       "resolvedAt": "2026-09-12T03:33:07.914Z",
-      "assignedWorkerId": "WRK-201"
+      "assignedWorkerId": "WRK-201",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-4184",
@@ -681,7 +751,9 @@
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-09-11T18:17:14.185Z",
-      "rejectionReason": "no garbage is clean"
+      "rejectionReason": "no garbage is clean",
+      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Garbage. Priority response scheduled.",
+      "aiSeverityScore": 82
     },
     {
       "_id": "CMP-2026-5740",
@@ -695,11 +767,13 @@
         "longitude": 74.88834750000001,
         "address": "Lat: 21.3560, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-09-11T18:00:25.740Z",
-      "rejectionReason": "no clean"
+      "rejectionReason": "no clean",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-6346",
@@ -713,10 +787,12 @@
         "longitude": 72.8478,
         "address": "Lat: 19.0178, Lng: 72.8478"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
-      "createdAt": "2026-09-11T17:58:36.346Z"
+      "createdAt": "2026-09-11T17:58:36.346Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-5062",
@@ -730,10 +806,12 @@
         "longitude": 74.88829,
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
-      "priority": "High",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
-      "createdAt": "2026-09-11T17:58:35.062Z"
+      "createdAt": "2026-09-11T17:58:35.062Z",
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "id": "CMP-1007",
@@ -747,14 +825,16 @@
         "address": "Dadar Market, Sector 4, Mumbai"
       },
       "status": "ASSIGNED",
-      "priority": "HIGH",
+      "priority": "High",
       "assignedWorkerId": "WRK-201",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
       "workerLocation": null,
       "verificationResult": null,
       "createdAt": "2026-09-11T17:27:40.261Z",
-      "updatedAt": "2026-09-11T17:27:40.261Z"
+      "updatedAt": "2026-09-11T17:27:40.261Z",
+      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Waste Management. Priority response scheduled.",
+      "aiSeverityScore": 82
     },
     {
       "id": "STORM-DRAIN-2582",
@@ -768,14 +848,16 @@
         "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
       },
       "status": "ASSIGNED",
-      "priority": "CRITICAL",
+      "priority": "Critical",
       "assignedWorkerId": "WRK-202",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
       "workerLocation": null,
       "verificationResult": null,
       "createdAt": "2026-09-11T17:26:12.582Z",
-      "updatedAt": "2026-09-11T17:26:12.582Z"
+      "updatedAt": "2026-09-11T17:26:12.582Z",
+      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
+      "aiSeverityScore": 95
     },
     {
       "id": "STORM-DRAIN-9507",
@@ -789,14 +871,16 @@
         "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
       },
       "status": "ASSIGNED",
-      "priority": "CRITICAL",
+      "priority": "Critical",
       "assignedWorkerId": "WRK-202",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
       "workerLocation": null,
       "verificationResult": null,
       "createdAt": "2026-09-11T17:25:19.507Z",
-      "updatedAt": "2026-09-11T17:25:19.507Z"
+      "updatedAt": "2026-09-11T17:25:19.507Z",
+      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
+      "aiSeverityScore": 95
     },
     {
       "id": "CMP-1001",
@@ -810,7 +894,7 @@
         "address": "Dadar Market, Sector 4, Mumbai"
       },
       "status": "SUBMITTED_FOR_VERIFICATION",
-      "priority": "HIGH",
+      "priority": "High",
       "assignedWorkerId": "WRK-201",
       "workerBeforePhoto": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80",
       "workerAfterPhoto": "https://images.unsplash.com/photo-1532996679820-b553ba67a845?auto=format&fit=crop&w=600&q=80",
@@ -820,7 +904,9 @@
       },
       "verificationResult": null,
       "createdAt": "2026-09-11T12:19:40.945Z",
-      "updatedAt": "2026-09-11T16:19:40.946Z"
+      "updatedAt": "2026-09-11T16:19:40.946Z",
+      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Waste Management. Priority response scheduled.",
+      "aiSeverityScore": 82
     },
     {
       "id": "CMP-1002",
@@ -834,7 +920,7 @@
         "address": "Wadala Station Bridge, Ward 5, Mumbai"
       },
       "status": "RESOLVED",
-      "priority": "CRITICAL",
+      "priority": "High",
       "assignedWorkerId": "WRK-202",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
@@ -842,7 +928,9 @@
       "verificationResult": null,
       "createdAt": "2026-09-11T09:19:40.946Z",
       "updatedAt": "2026-09-11T13:19:40.946Z",
-      "resolvedAt": "2026-09-12T05:50:27.148Z"
+      "resolvedAt": "2026-09-12T05:50:27.148Z",
+      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Clogged Drains. Priority response scheduled.",
+      "aiSeverityScore": 82
     },
     {
       "id": "CMP-1003",
@@ -856,7 +944,7 @@
         "address": "High School Ave, Prabhadevi, Mumbai"
       },
       "status": "IN_PROGRESS",
-      "priority": "MEDIUM",
+      "priority": "Critical",
       "assignedWorkerId": "WRK-203",
       "workerBeforePhoto": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80",
       "workerAfterPhoto": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=600&q=80",
@@ -882,7 +970,9 @@
       },
       "createdAt": "2026-09-10T17:19:40.946Z",
       "updatedAt": "2026-09-11T15:19:40.946Z",
-      "rejectionReason": "NO garbage is clean"
+      "rejectionReason": "NO garbage is clean",
+      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
+      "aiSeverityScore": 95
     },
     {
       "id": "CMP-1004",
@@ -896,7 +986,7 @@
         "address": "Cross Road 3, Sion, Mumbai"
       },
       "status": "REJECTED",
-      "priority": "CRITICAL",
+      "priority": "Critical",
       "assignedWorkerId": null,
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
@@ -915,7 +1005,9 @@
         ]
       },
       "createdAt": "2026-09-11T16:19:40.946Z",
-      "updatedAt": "2026-09-11T17:25:44.430Z"
+      "updatedAt": "2026-09-11T17:25:44.430Z",
+      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
+      "aiSeverityScore": 95
     }
   ],
   "workers": [
