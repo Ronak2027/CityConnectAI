@@ -5,12 +5,13 @@ import App from './App.jsx'
 import './index.css'
 import { isNativeApp } from './utils/nativeBridge.js'
 
-// Automatically configure backend URL for mobile app vs web browser
-// When running inside Android APK, route to your network backend IP (192.168.1.3:5000)
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || (isNativeApp() ? 'http://192.168.1.3:5000' : '');
+// Live secure HTTPS cloud tunnel to backend (bypasses Windows Firewall and router Wi-Fi isolation completely)
+export const DEFAULT_CLOUD_API = 'https://f1634fc82e76ce.lhr.life';
+
+const BACKEND_URL = localStorage.getItem('cityconnect_backend_url') || import.meta.env.VITE_BACKEND_URL || (isNativeApp() ? DEFAULT_CLOUD_API : '');
 if (BACKEND_URL) {
   axios.defaults.baseURL = BACKEND_URL;
-  console.log('[CityConnectAI Mobile] Configured Axios BaseURL:', BACKEND_URL);
+  console.log('[CityConnectAI Mobile] Active Backend URL:', BACKEND_URL);
 }
 
 // Simple Error Boundary to catch any render errors and prevent blank screen

@@ -4,12 +4,14 @@ import { isNativeApp } from '../utils/nativeBridge';
 
 const SocketContext = createContext();
 
+const DEFAULT_CLOUD_API = 'https://f1634fc82e76ce.lhr.life';
+
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    const SOCKET_SERVER_URL = import.meta.env.VITE_BACKEND_URL || (isNativeApp() ? 'http://192.168.1.3:5000' : 'http://localhost:5000');
+    const SOCKET_SERVER_URL = localStorage.getItem('cityconnect_backend_url') || import.meta.env.VITE_BACKEND_URL || (isNativeApp() ? DEFAULT_CLOUD_API : 'http://localhost:5000');
 
     const socketInstance = io(SOCKET_SERVER_URL, {
       transports: ['polling', 'websocket'],
