@@ -345,8 +345,8 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-[#f8fafc] flex flex-col font-sans text-slate-800 antialiased">
       
-      {/* 1. TOP NAVBAR (Cohesive with Worker & Citizen portals) */}
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between shadow-xs">
+      {/* 1. TOP NAVBAR */}
+      <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-xs">
         {/* Brand Left */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#059669] flex items-center justify-center text-white shadow-sm">
@@ -354,7 +354,7 @@ export default function AdminDashboard() {
           </div>
           <div>
             <div className="font-extrabold text-base tracking-tight text-slate-900 leading-none">
-              CLEAN CITY AI
+              CityConnectAI
             </div>
             <div className="text-[11px] font-medium text-slate-400 mt-1">
               Smart Civic Operations Platform • Municipal Command Center
@@ -462,9 +462,9 @@ export default function AdminDashboard() {
       </header>
 
       {/* 2. BODY LAYOUT: LEFT SIDEBAR + MAIN CONTENT */}
-      <div className="flex-1 flex flex-col md:flex-row">
+      <div className="flex-1 flex flex-col md:flex-row min-w-0 overflow-x-hidden w-full">
         
-        {/* LEFT SIDEBAR (Matching Clean City AI Design Language) */}
+        {/* LEFT SIDEBAR (Matching CityConnectAI Design Language) */}
         <aside className="w-full md:w-64 bg-white border-r border-slate-200/80 p-4 flex flex-col justify-between shrink-0">
           
           <div className="space-y-1.5">
@@ -606,7 +606,7 @@ export default function AdminDashboard() {
         </aside>
 
         {/* MAIN WORKSPACE */}
-        <main className="flex-1 p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 md:p-6 lg:p-8 space-y-6 max-w-7xl mx-auto w-full min-w-0 overflow-x-hidden">
           
           {/* TAB: ANALYTICS & CHARTS (Properly Redesigned) */}
           {activeTab === 'analytics' && (
@@ -986,7 +986,7 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          {/* TAB: COMPLAINTS (Redesigned matching Clean City AI Mockup) */}
+          {/* TAB: COMPLAINTS (Redesigned matching CityConnectAI Mockup) */}
           {activeTab === 'complaints' && (() => {
             // Computed counts
             const compTotal = complaints.length;
@@ -1243,85 +1243,85 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* 2. Five Metric Summary Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3.5 w-full min-w-0">
                   
                   {/* Card 1: Total Complaints */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                        <FileText className="w-5 h-5" />
+                  <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <FileText className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-slate-900 leading-none">{compTotal}</div>
-                        <div className="text-xs font-medium text-slate-500 mt-1">Total Complaints</div>
+                      <div className="min-w-0">
+                        <div className="text-xl font-bold text-slate-900 leading-none">{compTotal}</div>
+                        <div className="text-[11px] font-medium text-slate-500 mt-1 truncate">Total Complaints</div>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
-                      ↑ 12% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0" title="vs last week">
+                      ↑ 12%<span className="hidden 2xl:inline font-normal text-[9px] text-slate-400"> vs last wk</span>
                     </span>
                   </div>
 
                   {/* Card 2: Pending */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                        <Clock className="w-5 h-5" />
+                  <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <Clock className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-slate-900 leading-none">{compPending}</div>
-                        <div className="text-xs font-medium text-slate-500 mt-1">Pending</div>
+                      <div className="min-w-0">
+                        <div className="text-xl font-bold text-slate-900 leading-none">{compPending}</div>
+                        <div className="text-[11px] font-medium text-slate-500 mt-1 truncate">Pending</div>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0">
-                      ↑ 14% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0" title="vs last week">
+                      ↑ 14%<span className="hidden 2xl:inline font-normal text-[9px] text-slate-400"> vs last wk</span>
                     </span>
                   </div>
 
                   {/* Card 3: In Progress */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                        <RefreshCw className="w-5 h-5" />
+                  <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <RefreshCw className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-slate-900 leading-none">{compInProgress}</div>
-                        <div className="text-xs font-medium text-slate-500 mt-1">In Progress</div>
+                      <div className="min-w-0">
+                        <div className="text-xl font-bold text-slate-900 leading-none">{compInProgress}</div>
+                        <div className="text-[11px] font-medium text-slate-500 mt-1 truncate">In Progress</div>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
-                      ↓ 22% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0" title="vs last week">
+                      ↓ 22%<span className="hidden 2xl:inline font-normal text-[9px] text-slate-400"> vs last wk</span>
                     </span>
                   </div>
 
                   {/* Card 4: Resolved */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                        <CheckCircle2 className="w-5 h-5" />
+                  <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-slate-900 leading-none">{compResolved}</div>
-                        <div className="text-xs font-medium text-slate-500 mt-1">Resolved</div>
+                      <div className="min-w-0">
+                        <div className="text-xl font-bold text-slate-900 leading-none">{compResolved}</div>
+                        <div className="text-[11px] font-medium text-slate-500 mt-1 truncate">Resolved</div>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
-                      ↑ 36% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0" title="vs last week">
+                      ↑ 36%<span className="hidden 2xl:inline font-normal text-[9px] text-slate-400"> vs last wk</span>
                     </span>
                   </div>
 
                   {/* Card 5: Unassigned */}
-                  <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                        <User className="w-5 h-5" />
+                  <div className="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <User className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-slate-900 leading-none">{compUnassigned}</div>
-                        <div className="text-xs font-medium text-slate-500 mt-1">Unassigned</div>
+                      <div className="min-w-0">
+                        <div className="text-xl font-bold text-slate-900 leading-none">{compUnassigned}</div>
+                        <div className="text-[11px] font-medium text-slate-500 mt-1 truncate">Unassigned</div>
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0">
-                      ↑ 0% <span className="font-normal text-[10px] text-slate-400">vs last week</span>
+                    <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full shrink-0" title="vs last week">
+                      ↑ 0%<span className="hidden 2xl:inline font-normal text-[9px] text-slate-400"> vs last wk</span>
                     </span>
                   </div>
 
@@ -1413,12 +1413,12 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* 4. Main Complaints Table */}
-                <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left text-xs">
+                <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs w-full min-w-0">
+                  <div className="overflow-x-auto w-full">
+                    <table className="w-full text-left text-xs min-w-[760px]">
                       <thead className="bg-[#f8fafc] text-slate-500 uppercase text-[11px] font-bold border-b border-slate-200/90">
                         <tr>
-                          <th className="p-4 w-10">
+                          <th className="px-3 py-3.5 w-10">
                             <input 
                               type="checkbox"
                               checked={selectedComplaintIds.length > 0 && selectedComplaintIds.length === paginatedComplaints.length}

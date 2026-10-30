@@ -425,7 +425,7 @@ export default function WorkerPortal() {
           </div>
           <div>
             <div className="font-extrabold text-base tracking-tight text-slate-900 leading-none">
-              CLEAN CITY AI
+              CityConnectAI
             </div>
             <div className="text-[11px] font-medium text-slate-400 mt-1">
               Smart Civic Operations Platform

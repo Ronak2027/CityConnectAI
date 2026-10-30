@@ -318,7 +318,7 @@ export default function CitizenPortal() {
           </div>
           <div>
             <div className="font-extrabold text-base tracking-tight text-slate-900 leading-none">
-              CLEAN CITY AI
+              CityConnectAI
             </div>
             <div className="text-[11px] font-medium text-slate-400 mt-1">
               Smart Civic Operations Platform
@@ -383,7 +383,7 @@ export default function CitizenPortal() {
                   {user?.name || 'Citizen'}
                 </div>
                 <div className="text-[10px] font-medium text-slate-400">
-                  Clean City AI
+                  CityConnectAI
                 </div>
               </div>
               <ChevronDown className="w-4 h-4 text-slate-400" />
@@ -933,7 +933,7 @@ export default function CitizenPortal() {
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
                   <h4 className="font-bold text-slate-800">How does AI Verification work?</h4>
                   <p className="text-slate-500 text-[11px] leading-relaxed">
-                    When a field worker finishes work on-site, they submit a timestamped After photo. The Clean City AI Vision model compares before and after evidence, while GPS verifies the worker was on-site within 10 meters.
+                    When a field worker finishes work on-site, they submit a timestamped After photo. The CityConnectAI Vision model compares before and after evidence, while GPS verifies the worker was on-site within 10 meters.
                   </p>
                 </div>
               </div>

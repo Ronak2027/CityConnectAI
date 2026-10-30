@@ -162,7 +162,7 @@ export default function LandingPage() {
             {/* Animated Moving Garbage Truck */}
             <div className="absolute left-0 animate-[moveTruck_12s_linear_infinite] flex items-center gap-1 text-white bg-brand-emerald px-3 py-1 rounded-lg text-xs font-bold shadow-lg">
               <Truck className="w-5 h-5 text-white" />
-              <span>CLEAN CITY AI TRUCK</span>
+              <span>CITYCONNECT AI TRUCK</span>
             </div>
 
             {/* Worker Avatar */}

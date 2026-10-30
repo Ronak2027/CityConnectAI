@@ -12,12 +12,12 @@
         "longitude": 74.88827165308751,
         "address": "Shirpur, 425405"
       },
-      "priority": "Medium",
+      "priority": "Low",
       "department": "Roads & Infrastructure",
       "status": "PENDING",
       "createdAt": "2026-10-30T17:48:41.845Z",
-      "aiPriorityReason": "The complaint lacks a specific description for the road issue in Shirpur, pointing to a standard civic repair or moderate road surface defect requiring routine attention.",
-      "aiSeverityScore": 45
+      "aiPriorityReason": "The complaint in Shirpur lacks a specific description for the road category, indicating a potentially minor or non-urgent issue.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-8178",
@@ -37,7 +37,7 @@
       "createdAt": "2026-10-30T17:20:38.178Z",
       "assignedWorkerId": "WRK-202",
       "resolvedAt": "2026-10-30T17:21:26.178Z",
-      "aiPriorityReason": "The complaint pertains to a road issue without a detailed description, suggesting a standard surface repair or minor defect requiring routine municipal attention.",
+      "aiPriorityReason": "The complaint falls under the Road category with no specific description provided, indicating a standard road-related inquiry or moderate surface issue requiring routine inspection.",
       "aiSeverityScore": 45
     },
     {
@@ -80,7 +80,7 @@
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
       "resolvedAt": "2026-10-30T17:20:09.080Z",
-      "aiPriorityReason": "The complaint lacks a detailed description regarding the location and scale of the garbage issue, making it a standard civic repair requiring routine attention.",
+      "aiPriorityReason": "The complaint is categorized as standard garbage collection with no description provided of severe hazards, making it a routine civic repair issue.",
       "aiSeverityScore": 45
     },
     {
@@ -101,7 +101,7 @@
       "createdAt": "2026-10-30T17:10:59.505Z",
       "assignedWorkerId": "WRK-201",
       "resolvedAt": "2026-10-30T17:20:10.349Z",
-      "aiPriorityReason": "The complaint lacks a description and specifies only the road category with no indicated hazard, placing it at a low aesthetic or non-urgent priority level.",
+      "aiPriorityReason": "The complaint lacks a description and specifies a road category without detailing any active hazards, leading to a default low priority assessment.",
       "aiSeverityScore": 15
     },
     {
@@ -122,7 +122,7 @@
       "createdAt": "2026-10-30T16:58:57.075Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
-      "aiPriorityReason": "The complaint pertains to garbage without specific severity details or hazardous locations, categorizing it as a standard civic repair issue.",
+      "aiPriorityReason": "The complaint is categorized under Garbage with no specific description provided, indicating a standard civic issue requiring routine clearance rather than an immediate hazard.",
       "aiSeverityScore": 45
     },
     {
@@ -137,14 +137,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "Low",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T16:33:10.300Z",
       "assignedWorkerId": "WRK-202",
       "resolvedAt": "2026-10-30T16:33:57.115Z",
-      "aiPriorityReason": "The complaint lacks a specific description and details for the garbage issue, categorizing it as a standard non-urgent aesthetic or minor civic matter.",
-      "aiSeverityScore": 25
+      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue, making it a standard civic repair requiring routine garbage collection without immediate danger.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-1469",
@@ -158,14 +158,14 @@
         "longitude": 74.88829868049794,
         "address": "Shirpur, 425405"
       },
-      "priority": "Low",
+      "priority": "Medium",
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-10-30T16:30:21.469Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
-      "aiPriorityReason": "The complaint lacks a specific description and details for the garbage issue in Shirpur, resulting in a default low priority classification due to insufficient information regarding danger or severity.",
-      "aiSeverityScore": 25
+      "aiPriorityReason": "The complaint lacks a detailed description regarding the location or volume of the garbage, classifying it as an ordinary waste management issue requiring standard response times.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-5159",
@@ -185,7 +185,7 @@
       "createdAt": "2026-10-30T16:29:05.160Z",
       "assignedWorkerId": "WRK-201",
       "resolvedAt": "2026-10-30T16:29:56.192Z",
-      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue in Shirpur, categorizing it as a standard civic repair requiring routine waste management attention.",
+      "aiPriorityReason": "The complaint is categorized under Garbage with no specific description provided, indicating a standard civic issue requiring routine garbage collection within 24 hours.",
       "aiSeverityScore": 45
     },
     {
@@ -204,7 +204,7 @@
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
       "createdAt": "2026-10-30T10:47:49.275Z",
-      "aiPriorityReason": "The complaint is categorized under Garbage with no specific hazardous details provided, placing it as a standard civic issue requiring routine cleanup.",
+      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue, making it a standard civic repair requiring routine garbage collection within 24 hours.",
       "aiSeverityScore": 45
     },
     {
@@ -226,7 +226,7 @@
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "ddfg",
       "resolvedAt": "2026-10-30T10:48:05.873Z",
-      "aiPriorityReason": "The complaint is categorized under Drainage / Clean Water with no specific description provided, requiring standard investigation and civic repair within 24 hours.",
+      "aiPriorityReason": "The complaint is categorized under Drainage / Clean Water with no specific description provided, requiring a standard assessment for civic maintenance and inspection within 24 hours.",
       "aiSeverityScore": 45
     },
     {
@@ -248,7 +248,7 @@
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Defect still visible / proof requires revision",
       "resolvedAt": "2026-10-30T10:35:00.212Z",
-      "aiPriorityReason": "The complaint lacks a specific description for the garbage issue, making it a standard civic repair requiring routine garbage collection within 24 hours.",
+      "aiPriorityReason": "The complaint is categorized under Garbage with no specific description provided, representing an ordinary municipal waste issue requiring standard attention.",
       "aiSeverityScore": 45
     },
     {
@@ -270,7 +270,7 @@
       "assignedWorkerId": "WRK-202",
       "rejectionReason": "same img",
       "resolvedAt": "2026-10-30T10:31:43.084Z",
-      "aiPriorityReason": "The complaint lacks a description and specifies a garbage category without indicating urgent hazards or overflowing conditions, categorizing it as a standard aesthetic issue.",
+      "aiPriorityReason": "The complaint lacks a specific description and details regarding the volume or location context of the garbage, classifying it as a minor non-urgent issue.",
       "aiSeverityScore": 15
     },
     {
@@ -285,15 +285,15 @@
         "longitude": 74.88827165308751,
         "address": "Shirpur, 425405"
       },
-      "priority": "Medium",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "RESOLVED",
       "createdAt": "2026-10-30T07:36:21.935Z",
       "assignedWorkerId": "WRK-201",
       "rejectionReason": "Active waste clutter detected (79.4% clutter), Zero site cleanup or waste removal verified",
       "resolvedAt": "2026-10-30T10:56:58.694Z",
-      "aiPriorityReason": "The complaint is categorized under garbage without further specifying critical details or hazards, making it a standard civic cleanliness issue.",
-      "aiSeverityScore": 45
+      "aiPriorityReason": "The complaint lacks a description and specifies only the category and location, indicating a standard, non-urgent civic issue.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-9993",
@@ -313,8 +313,8 @@
       "createdAt": "2026-10-30T06:23:39.993Z",
       "assignedWorkerId": "WRK-202",
       "resolvedAt": "2026-10-30T06:25:37.650Z",
-      "aiPriorityReason": "The complaint is vague and lacks details regarding significant health hazards or large-scale disruption, classifying it as a minor or standard cosmetic issue.",
-      "aiSeverityScore": 25
+      "aiPriorityReason": "The complaint lacks specific details about public health risks or severe overflow, categorizing it as a standard minor litter or general cleaning request.",
+      "aiSeverityScore": 15
     },
     {
       "_id": "CMP-2026-7767",
@@ -332,7 +332,7 @@
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
       "createdAt": "2026-10-30T06:16:37.767Z",
-      "aiPriorityReason": "The complaint is marked as a test verification with no details regarding severe health hazards, making it a non-urgent cosmetic or testing issue.",
+      "aiPriorityReason": "The complaint is a generic test submission lacking details of health hazards or large-scale disruption, qualifying it as a low-priority cosmetic or verification issue.",
       "aiSeverityScore": 15
     },
     {
@@ -353,8 +353,8 @@
       "createdAt": "2026-09-12T08:13:04.229Z",
       "assignedWorkerId": "WRK-201",
       "resolvedAt": "2026-10-30T06:25:43.447Z",
-      "aiPriorityReason": "The complaint indicates a standard garbage issue near an academic building, which requires attention as an ordinary full trash bin rather than an immediate health hazard.",
-      "aiSeverityScore": 45
+      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
+      "aiSeverityScore": 55
     },
     {
       "_id": "CMP-2026-5596",
@@ -374,7 +374,7 @@
       "createdAt": "2026-09-12T07:11:05.596Z",
       "assignedWorkerId": "WRK-203",
       "resolvedAt": "2026-09-12T07:11:56.503Z",
-      "aiPriorityReason": "The complaint involves a single streetlight issue near an academic building, categorized as a standard civic repair with minimal immediate public danger.",
+      "aiPriorityReason": "A single non-functional streetlight at an academic building poses a moderate local issue regarding visibility and minor security concerns, fitting standard civic repair criteria.",
       "aiSeverityScore": 45
     },
     {
@@ -671,8 +671,8 @@
       "createdAt": "2026-09-12T02:59:23.117Z",
       "assignedWorkerId": "WRK-201",
       "resolvedAt": "2026-09-12T03:50:57.698Z",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "The complaint lacks specific details regarding the volume or location context of the garbage, classifying it as an ordinary waste management issue requiring standard response times.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-2378",
@@ -711,8 +711,8 @@
       "status": "RESOLVED",
       "createdAt": "2026-09-11T18:30:00.886Z",
       "resolvedAt": "2026-09-12T03:52:02.606Z",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "The complaint lacks specific context regarding the volume or location of the garbage, classifying it as an ordinary waste management issue requiring standard response time.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-0265",
@@ -732,8 +732,8 @@
       "createdAt": "2026-09-11T18:23:10.265Z",
       "resolvedAt": "2026-09-12T03:33:07.914Z",
       "assignedWorkerId": "WRK-201",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "The complaint is categorized as standard garbage collection with no description of an immediate public hazard or severe disruption, placing it in the medium response category.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-4184",
@@ -767,13 +767,13 @@
         "longitude": 74.88834750000001,
         "address": "Lat: 21.3560, Lng: 74.8883"
       },
-      "priority": "Medium",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "IN_PROGRESS",
       "createdAt": "2026-09-11T18:00:25.740Z",
       "rejectionReason": "no clean",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "The complaint lacks a specific description and details for the garbage issue, categorizing it as a non-urgent cosmetic matter.",
+      "aiSeverityScore": 25
     },
     {
       "_id": "CMP-2026-6346",
@@ -791,8 +791,8 @@
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
       "createdAt": "2026-09-11T17:58:36.346Z",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "Uncollected waste represents standard civic maintenance and ordinary full trash bins, requiring routine remediation without immediate public danger.",
+      "aiSeverityScore": 45
     },
     {
       "_id": "CMP-2026-5062",
@@ -806,12 +806,12 @@
         "longitude": 74.88829,
         "address": "Lat: 21.3559, Lng: 74.8883"
       },
-      "priority": "Medium",
+      "priority": "Low",
       "department": "Sanitation & Solid Waste",
       "status": "PENDING",
       "createdAt": "2026-09-11T17:58:35.062Z",
-      "aiPriorityReason": "Standard municipal maintenance priority assigned for Garbage. Inspection allocated.",
-      "aiSeverityScore": 55
+      "aiPriorityReason": "The complaint is categorized under Garbage with no specific description provided, indicating a minor or unspecified aesthetic issue.",
+      "aiSeverityScore": 25
     },
     {
       "id": "CMP-1007",
@@ -833,8 +833,8 @@
       "verificationResult": null,
       "createdAt": "2026-09-11T17:27:40.261Z",
       "updatedAt": "2026-09-11T17:27:40.261Z",
-      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Waste Management. Priority response scheduled.",
-      "aiSeverityScore": 82
+      "aiPriorityReason": "Garbage accumulation near the main gate of a crowded market constitutes a severe health hazard requiring prompt intervention to prevent public health risks.",
+      "aiSeverityScore": 75
     },
     {
       "id": "STORM-DRAIN-2582",
@@ -848,7 +848,7 @@
         "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
       },
       "status": "ASSIGNED",
-      "priority": "Critical",
+      "priority": "High",
       "assignedWorkerId": "WRK-202",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
@@ -856,8 +856,8 @@
       "verificationResult": null,
       "createdAt": "2026-09-11T17:26:12.582Z",
       "updatedAt": "2026-09-11T17:26:12.582Z",
-      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
-      "aiSeverityScore": 95
+      "aiPriorityReason": "Heavy rain prediction in a low-lying Mumbai hotspot combined with a clogged storm drain poses a severe risk of flash flooding and major civic disruption.",
+      "aiSeverityScore": 85
     },
     {
       "id": "STORM-DRAIN-9507",
@@ -871,7 +871,7 @@
         "address": "Low-Lying Storm Drain Hotspot, Wadala, Mumbai"
       },
       "status": "ASSIGNED",
-      "priority": "Critical",
+      "priority": "High",
       "assignedWorkerId": "WRK-202",
       "workerBeforePhoto": null,
       "workerAfterPhoto": null,
@@ -879,8 +879,8 @@
       "verificationResult": null,
       "createdAt": "2026-09-11T17:25:19.507Z",
       "updatedAt": "2026-09-11T17:25:19.507Z",
-      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
-      "aiSeverityScore": 95
+      "aiPriorityReason": "Heavy rain prediction in a low-lying Mumbai hotspot combined with a clogged storm drain poses a severe risk of flash flooding and major civic disruption.",
+      "aiSeverityScore": 88
     },
     {
       "id": "CMP-1001",
@@ -905,7 +905,7 @@
       "verificationResult": null,
       "createdAt": "2026-09-11T12:19:40.945Z",
       "updatedAt": "2026-09-11T16:19:40.946Z",
-      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Waste Management. Priority response scheduled.",
+      "aiPriorityReason": "The garbage bin is overflowing near a crowded market area, creating a severe health hazard, foul smell, and blocking the pedestrian walkway.",
       "aiSeverityScore": 82
     },
     {
@@ -929,7 +929,7 @@
       "createdAt": "2026-09-11T09:19:40.946Z",
       "updatedAt": "2026-09-11T13:19:40.946Z",
       "resolvedAt": "2026-09-12T05:50:27.148Z",
-      "aiPriorityReason": "AI identified major civic obstruction or health hazard in Clogged Drains. Priority response scheduled.",
+      "aiPriorityReason": "The storm drain is severely choked with plastic waste near a major transit hub, posing a high risk of immediate waterlogging and traffic disruption during rainfall.",
       "aiSeverityScore": 82
     },
     {
@@ -944,7 +944,7 @@
         "address": "High School Ave, Prabhadevi, Mumbai"
       },
       "status": "IN_PROGRESS",
-      "priority": "Critical",
+      "priority": "Medium",
       "assignedWorkerId": "WRK-203",
       "workerBeforePhoto": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=600&q=80",
       "workerAfterPhoto": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=600&q=80",
@@ -971,8 +971,8 @@
       "createdAt": "2026-09-10T17:19:40.946Z",
       "updatedAt": "2026-09-11T15:19:40.946Z",
       "rejectionReason": "NO garbage is clean",
-      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
-      "aiSeverityScore": 95
+      "aiPriorityReason": "A dark stretch of road poses a safety hazard for commuters, aligning with standard civic repairs for faulty streetlights.",
+      "aiSeverityScore": 45
     },
     {
       "id": "CMP-1004",
@@ -1006,7 +1006,7 @@
       },
       "createdAt": "2026-09-11T16:19:40.946Z",
       "updatedAt": "2026-09-11T17:25:44.430Z",
-      "aiPriorityReason": "AI detected high public danger (open manhole / structural risk). Dispatched at Critical priority.",
+      "aiPriorityReason": "An open sewer chamber without caution barriers poses an immediate, life-threatening danger to pedestrians and vehicles, requiring emergency response under two hours.",
       "aiSeverityScore": 95
     }
   ],

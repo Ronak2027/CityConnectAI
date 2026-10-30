@@ -73,7 +73,7 @@ export default function LoginPage() {
           <div className="w-10 h-10 rounded-2xl bg-brand-emerald text-white flex items-center justify-center font-bold">
             <Building2 className="w-6 h-6" />
           </div>
-          <span className="font-extrabold text-xl tracking-tight text-brand-text">CLEAN CITY AI</span>
+          <span className="font-extrabold text-xl tracking-tight text-brand-text">CityConnectAI</span>
         </div>
 
         <h2 className="text-xl font-bold text-center text-brand-text mb-1">

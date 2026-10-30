@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="w-8 h-8 rounded-xl bg-brand-emerald text-white flex items-center justify-center font-bold">
               <Building2 className="w-5 h-5" />
             </div>
-            <span className="font-extrabold text-base text-brand-text">CLEAN CITY AI</span>
+            <span className="font-extrabold text-base text-brand-text">CityConnectAI</span>
           </div>
           <p className="text-xs text-brand-muted leading-relaxed">
             Smart civic operations platform for cleaner, safer, and transparent municipal management.
@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto border-t border-brand-border pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted">
-        <p>© 2026 CLEAN CITY AI. All Rights Reserved.</p>
+        <p>© 2026 CityConnectAI. All Rights Reserved.</p>
         <p className="flex items-center gap-1 mt-2 sm:mt-0">
           Crafted for Smart City Operations
         </p>

@@ -1,7 +1,7 @@
 {
   "name": "smart-city-backend",
   "version": "1.0.0",
-  "description": "Backend REST API & Realtime Socket.IO server for Clean City AI",
+  "description": "Backend REST API & Realtime Socket.IO server for CityConnectAI",
   "main": "server.js",
   "type": "module",
   "scripts": {

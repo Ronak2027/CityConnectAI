@@ -56,7 +56,7 @@ app.use('/api/chatbot', chatbotRoutes);
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
-    service: 'Clean City AI Backend API',
+    service: 'CityConnectAI Backend API',
     timestamp: new Date().toISOString()
   });
 });

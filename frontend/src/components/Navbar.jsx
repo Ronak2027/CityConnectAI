@@ -22,8 +22,8 @@ export default function Navbar() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg text-brand-text tracking-tight">CLEAN CITY</span>
-              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-brand-blue text-white tracking-widest uppercase">AI</span>
+              <span className="font-extrabold text-lg text-brand-text tracking-tight">CityConnect</span>
+              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-brand-emerald text-white tracking-widest uppercase">AI</span>
             </div>
             <span className="text-[11px] font-medium text-brand-muted hidden sm:block">Smart Civic Operations Platform</span>
           </div>
