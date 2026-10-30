@@ -114,61 +114,16 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          {/* Right Column: Panoramic City Image with Angled Edge and Floating Badge */}
+          {/* Right Column: Panoramic City Image from user mockup */}
           <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full">
-            
-            {/* The City Photo */}
             <div className="absolute inset-0 w-full h-full">
               <img
-                src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=80"
+                src="/hero-city.jpg"
                 alt="Clean Modern City Boulevard"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-left"
               />
-              {/* Warm Gradient Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/40 lg:via-transparent to-black/10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-transparent to-transparent w-20"></div>
             </div>
-
-            {/* Angled Ribbon / Wedge Accent (matching mockup) */}
-            <div 
-              className="hidden lg:block absolute -left-1 top-0 bottom-0 w-24 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none"
-              style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
-            ></div>
-
-            {/* Floating Capabilities Card (matching top-right mockup pill) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.92, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="absolute top-6 right-6 sm:top-10 sm:right-10 bg-white/95 backdrop-blur-md rounded-2xl border border-white/80 p-4 sm:p-5 shadow-xl max-w-xs space-y-3"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-800">GPS Verified Locations</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
-                  <Camera className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-800">AI Image Analysis</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
-                  <BarChart3 className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-800">Real-Time Tracking</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-800">Transparent Governance</span>
-              </div>
-            </motion.div>
           </div>
 
         </div>
@@ -230,12 +185,12 @@ export default function LandingPage() {
 
 
       {/* =========================================================================
-          03. CHOOSE YOUR PORTAL / "BUILT FOR EVERY STAKEHOLDER" (Matching Mockup)
+          03. CHOOSE YOUR PORTAL / "BUILT FOR EVERY STAKEHOLDER" (Matching Mockup Side-by-Side Layout)
           ========================================================================= */}
       <section id="features" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="mb-12">
+        <div className="mb-10">
           <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#78716C] mb-1">
             Choose Your Portal
           </div>
@@ -247,104 +202,98 @@ export default function LandingPage() {
           </p>
         </div>
 
-        {/* 3 Portal Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 3 Portal Cards - matching the side-by-side layout in the mockup */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* CARD 1: CITIZEN PORTAL */}
           <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
-            <div>
-              <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center mb-4">
-                <User className="w-5 h-5" />
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <div className="flex-1">
+                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center mb-3">
+                  <User className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mb-1">Citizen Portal</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                  Report civic issues, track status, and stay informed about your city.
+                </p>
+                <Link
+                  to="/citizen"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all"
+                >
+                  <span>Access Citizen Portal</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Citizen Portal</h3>
-              <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                Report civic issues, track status, and stay informed about your city.
-              </p>
-              
-              <Link
-                to="/citizen"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
-              >
-                <span>Access Citizen Portal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
 
-            {/* Card Mockup Visual */}
-            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
-              <img 
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
-                alt="Citizen Mobile App"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
-                <span className="text-[11px] font-semibold text-white drop-shadow">Geo-tagged Quick Reporting</span>
+              {/* Cropped Mockup Image */}
+              <div className="w-24 sm:w-28 h-32 sm:h-36 rounded-xl overflow-hidden border border-[#EBE3D7] shrink-0 bg-slate-100 shadow-2xs">
+                <img 
+                  src="/citizen-card.jpg" 
+                  alt="Citizen Portal"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>
 
           {/* CARD 2: WORKER FIELD CONSOLE */}
           <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
-            <div>
-              <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                <HardHat className="w-5 h-5" />
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <div className="flex-1">
+                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                  <HardHat className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mb-1">Worker Field Console</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                  View assigned tasks, update work status, and upload before/after evidence.
+                </p>
+                <Link
+                  to="/worker"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all"
+                >
+                  <span>Access Worker Console</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Worker Field Console</h3>
-              <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                View assigned tasks, update work status, and upload before/after evidence.
-              </p>
-              
-              <Link
-                to="/worker"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
-              >
-                <span>Access Worker Console</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
 
-            {/* Card Mockup Visual */}
-            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
-              <img 
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?auto=format&fit=crop&w=600&q=80" 
-                alt="Municipal Worker on Site"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
-                <span className="text-[11px] font-semibold text-white drop-shadow">On-Site Task Resolution &amp; Proof</span>
+              {/* Cropped Mockup Image */}
+              <div className="w-24 sm:w-28 h-32 sm:h-36 rounded-xl overflow-hidden border border-[#EBE3D7] shrink-0 bg-slate-100 shadow-2xs">
+                <img 
+                  src="/worker-card.jpg" 
+                  alt="Worker Field Console"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>
 
           {/* CARD 3: MUNICIPAL COMMAND CENTER */}
           <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
-            <div>
-              <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
-                <Building2 className="w-5 h-5" />
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <div className="flex-1">
+                <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mb-1">Municipal Command Center</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                  Monitor complaints, verify completed work, view GIS maps and analyze city data.
+                </p>
+                <Link
+                  to="/admin"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all"
+                >
+                  <span>Access Admin Dashboard</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Municipal Command Center</h3>
-              <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                Monitor complaints, verify completed work, view GIS maps and analyze city data.
-              </p>
-              
-              <Link
-                to="/admin"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
-              >
-                <span>Access Admin Dashboard</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
 
-            {/* Card Mockup Visual */}
-            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
-              <img 
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
-                alt="Command Center Multi-Monitor"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
-                <span className="text-[11px] font-semibold text-white drop-shadow">GIS Heatmaps &amp; Verification Queue</span>
+              {/* Cropped Mockup Image */}
+              <div className="w-24 sm:w-28 h-32 sm:h-36 rounded-xl overflow-hidden border border-[#EBE3D7] shrink-0 bg-slate-100 shadow-2xs">
+                <img 
+                  src="/command-card.jpg" 
+                  alt="Municipal Command Center"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>
@@ -379,15 +328,12 @@ export default function LandingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-11 gap-3 sm:gap-4 items-center">
                 
                 {/* Before Photo */}
-                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border border-slate-300 shadow-sm h-52 sm:h-56">
+                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border border-slate-300 shadow-sm h-52 sm:h-56 bg-slate-900">
                   <img 
-                    src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80"
+                    src="/before-pothole.jpg"
                     alt="Pothole Issue Before Repair"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-900/80 text-white text-[11px] font-bold">
-                    Before
-                  </div>
                   <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[10px] px-2 py-1 rounded-md font-mono">
                     Severe Road Defect • Reported by Citizen
                   </div>
@@ -401,15 +347,12 @@ export default function LandingPage() {
                 </div>
 
                 {/* After Photo */}
-                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border-2 border-[#A34B24] shadow-sm h-52 sm:h-56">
+                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border-2 border-[#A34B24] shadow-sm h-52 sm:h-56 bg-slate-900">
                   <img 
-                    src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=600&q=80"
+                    src="/after-road.jpg"
                     alt="Fresh Asphalt Repaved Road"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#A34B24] text-white text-[11px] font-bold">
-                    After
-                  </div>
                   <div className="absolute bottom-2 left-2 right-2 bg-[#A34B24]/90 text-white text-[10px] px-2 py-1 rounded-md font-mono flex items-center justify-between">
                     <span>Clean Surface Repaved</span>
                     <span className="font-bold">SSIM: 94% Match</span>
