@@ -6,10 +6,21 @@
   "scripts": {
     "dev": "vite --port 3000 --host",
     "build": "vite build",
+    "cap:build": "vite build && cap sync",
+    "cap:sync": "cap sync",
+    "cap:copy": "cap copy",
+    "cap:android": "cap open android",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/camera": "^8.2.6",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/geolocation": "^8.2.4",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "framer-motion": "^11.15.0",

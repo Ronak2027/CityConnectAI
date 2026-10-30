@@ -1,0 +1,20 @@
+{
+  "appId": "com.cityconnectai.app",
+  "appName": "CityConnectAI",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#FAF7F2",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#FAF7F2"
+    }
+  }
+}

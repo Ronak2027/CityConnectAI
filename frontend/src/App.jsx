@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
+import { initNativeApp } from './utils/nativeBridge';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -14,6 +15,10 @@ import AdminDashboard from './pages/AdminDashboard';
 import LoginPage from './pages/LoginPage';
 
 export default function App() {
+  useEffect(() => {
+    initNativeApp();
+  }, []);
+
   return (
     <AuthProvider>
       <SocketProvider>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CityConnectAI</string>
+    <string name="title_activity_main">CityConnectAI</string>
+    <string name="package_name">com.cityconnectai.app</string>
+    <string name="custom_url_scheme">com.cityconnectai.app</string>
+</resources>
