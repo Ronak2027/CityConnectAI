@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Building2, ShieldCheck, Heart } from 'lucide-react';
 
 export default function Footer() {
+  const location = useLocation();
+
+  if (location.pathname === '/worker') {
+    return null;
+  }
   return (
     <footer className="bg-white border-t border-brand-border pt-12 pb-8 px-4 lg:px-8 mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">

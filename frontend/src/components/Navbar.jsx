@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ShieldCheck, User, LogOut, LayoutDashboard, Truck, ShieldAlert, Sparkles, Building2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  if (location.pathname === '/worker') {
+    return null;
+  }
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-border px-4 lg:px-8 py-3.5 shadow-xs">
