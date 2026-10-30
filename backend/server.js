@@ -1,9 +1,9 @@
+import 'dotenv/config';
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import path from 'path';
 
 import { connectDB } from './config/db.js';
@@ -14,8 +14,6 @@ import verificationRoutes from './routes/verifications.js';
 import adminRoutes from './routes/admin.js';
 import weatherRoutes from './routes/weather.js';
 import chatbotRoutes from './routes/chatbot.js';
-
-dotenv.config();
 
 const app = express();
 const server = http.createServer(app);

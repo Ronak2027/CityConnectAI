@@ -203,16 +203,6 @@ export default function VerificationModal({ verification: initialVerification, o
                     ) : (
                       <span className="text-gray-500 text-xs">No After Image</span>
                     )}
-
-                    {/* Live Scanner Laser Animation while running model */}
-                    {runningModel && (
-                      <motion.div 
-                        initial={{ top: '0%' }}
-                        animate={{ top: ['0%', '100%', '0%'] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
-                        className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#22d3ee]"
-                      />
-                    )}
                   </div>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import { execFileSync } from 'child_process';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
+import sharp from 'sharp';
 
 /**
  * Universal Gemini API Caller
@@ -101,8 +102,16 @@ export async function verifyWorkWithGeminiVision(beforeBuf, afterBuf, options = 
 
   try {
     const category = options.category || 'Civic Infrastructure';
-    const beforeBase64 = beforeBuf.toString('base64');
-    const afterBase64 = afterBuf.toString('base64');
+
+    let safeBefore = beforeBuf;
+    let safeAfter = afterBuf;
+    try {
+      safeBefore = await sharp(beforeBuf).resize(768, 768, { fit: 'inside' }).jpeg({ quality: 80 }).toBuffer();
+      safeAfter = await sharp(afterBuf).resize(768, 768, { fit: 'inside' }).jpeg({ quality: 80 }).toBuffer();
+    } catch (e) {}
+
+    const beforeBase64 = safeBefore.toString('base64');
+    const afterBase64 = safeAfter.toString('base64');
 
     const promptText = `You are CityConnectAI Neural Inspector, an objective in-house municipal quality auditor inspecting field worker proof-of-work.
 Image 1: Citizen Complaint Defect (BEFORE).
