@@ -8,7 +8,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  if (location.pathname === '/worker') {
+  if (location.pathname === '/worker' || location.pathname === '/citizen') {
     return null;
   }
 
