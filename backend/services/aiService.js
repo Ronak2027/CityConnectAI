@@ -2,6 +2,7 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
+import { verifyWorkWithGeminiVision } from './geminiService.js';
 
 // Python AI Engine URL on port 5001
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://127.0.0.1:5001';
@@ -438,6 +439,25 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
       if (visualCatBefore && visualCatBefore !== 'general') {
         category = visualCatBefore;
         normCat = normalizeCategory(category);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // 0. GOOGLE GEMINI MULTIMODAL VISION INSPECTION (Human-Level AI)
+    // -------------------------------------------------------------
+    if (beforeBuf && afterBuf) {
+      try {
+        const geminiResult = await verifyWorkWithGeminiVision(beforeBuf, afterBuf, {
+          category: category || normCat,
+          complaintLat: options.complaintLat,
+          complaintLng: options.complaintLng
+        });
+        if (geminiResult && geminiResult.status) {
+          console.log(`[AI Vision Engine] Verified via ${geminiResult.aiModelUsed}:`, geminiResult.status, `(${geminiResult.confidence}%)`);
+          return geminiResult;
+        }
+      } catch (geminiErr) {
+        console.warn('[AI Vision Engine] Gemini Vision failed, falling back to local vision models:', geminiErr.message);
       }
     }
 
