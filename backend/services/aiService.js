@@ -443,7 +443,7 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
     }
 
     // -------------------------------------------------------------
-    // 0. GOOGLE GEMINI MULTIMODAL VISION INSPECTION (Human-Level AI)
+    // 0. CITYCONNECTAI NEURAL MULTIMODAL AUDIT (Primary Neural Brain)
     // -------------------------------------------------------------
     if (beforeBuf && afterBuf) {
       try {
@@ -457,7 +457,7 @@ export async function verifyWorkWithAI(beforeImagePath, afterImagePath, options 
           return geminiResult;
         }
       } catch (geminiErr) {
-        console.warn('[AI Vision Engine] Gemini Vision failed, falling back to local vision models:', geminiErr.message);
+        console.warn('[AI Vision Engine] Primary neural model check fallback to secondary models:', geminiErr.message);
       }
     }
 

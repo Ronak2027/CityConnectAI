@@ -56,7 +56,7 @@ router.post('/query', async (req, res) => {
       return res.json({
         reply: geminiReply.reply,
         actions,
-        poweredBy: 'Google Gemini'
+        poweredBy: 'CityConnectAI'
       });
     }
 
@@ -80,7 +80,7 @@ router.post('/query', async (req, res) => {
 
     // Default intelligent assistant response
     return res.json({
-      reply: `I am CleanCity AI Assistant powered by Google Gemini. I can help you report civic issues, track your complaints, or answer city maintenance queries. How may I assist you today?`,
+      reply: `I am CityConnectAI Assistant. I can help you report civic issues, track your complaints, or answer city maintenance queries. How may I assist you today?`,
       actions: [
         { label: 'Report an Issue', action: 'NAVIGATE_REPORT' },
         { label: 'Check Complaint Status', action: 'CHECK_STATUS' }
