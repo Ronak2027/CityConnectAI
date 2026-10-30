@@ -114,16 +114,52 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          {/* Right Column: Panoramic City Image from user mockup */}
-          <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full">
+          {/* Right Column: Ultra-HD Panoramic City Image with crisp floating capability card */}
+          <div className="lg:col-span-6 relative min-h-[420px] lg:min-h-full">
             <div className="absolute inset-0 w-full h-full">
               <img
-                src="/hero-city.jpg"
+                src="/hero-city-hd.jpg"
                 alt="Clean Modern City Boulevard"
-                className="w-full h-full object-cover object-left"
+                className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-transparent to-transparent w-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-transparent to-transparent w-24"></div>
             </div>
+
+            {/* Floating Capabilities Card (matching top-right mockup pill) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.94, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="absolute top-6 right-6 sm:top-10 sm:right-10 bg-white/95 backdrop-blur-md rounded-2xl border border-white/80 p-4 sm:p-5 shadow-xl max-w-xs space-y-3 z-10"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">GPS Verified Locations</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <Camera className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">AI Image Analysis</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <BarChart3 className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">Real-Time Tracking</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">Transparent Governance</span>
+              </div>
+            </motion.div>
           </div>
 
         </div>
