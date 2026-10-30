@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Building2, ShieldCheck, Sparkles, MapPin, Truck, Bot, ArrowRight, 
-  AlertTriangle, CheckCircle2, CloudRain, Cpu, BarChart3, ChevronRight, User, Eye, Activity, Flame
+  AlertTriangle, CheckCircle2, Cpu, BarChart3, ChevronRight, User, Eye, 
+  Activity, Flame, Megaphone, Camera, Navigation, Layers, ShieldAlert,
+  Clock, CheckCircle, FileText, Smartphone, HardHat
 } from 'lucide-react';
 import axios from 'axios';
 import LeafletMap from '../components/LeafletMap';
@@ -40,376 +42,539 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F5F7F4] text-[#17201C] overflow-hidden">
+    <div id="home" className="min-h-screen bg-[#FAF7F2] text-[#1C1917] overflow-x-hidden selection:bg-[#A34B24] selection:text-white">
       
-      {/* 01. FULL-SCREEN HERO SECTION */}
-      <section className="relative min-h-[90vh] pt-12 pb-20 px-4 md:px-8 flex flex-col items-center justify-center bg-gradient-to-b from-emerald-50/40 via-transparent to-[#F5F7F4]">
-        
-        {/* Trust Pill */}
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/60 border border-emerald-200 text-brand-emerald text-xs font-semibold mb-6 shadow-xs"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-brand-emerald" />
-          <span>AI-Powered • GPS Verified • Real-Time • Citizen-First</span>
-        </motion.div>
-
-        {/* Hero Headlines */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-center tracking-tight text-brand-text max-w-4xl uppercase leading-none mb-6"
-        >
-          SMARTER CITY. <br />
-          <span className="text-brand-emerald bg-clip-text text-transparent bg-gradient-to-r from-[#087F5B] to-[#0EA5A4]">
-            CLEANER TOMORROW.
-          </span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-base md:text-xl text-center text-brand-muted max-w-2xl font-normal leading-relaxed mb-8"
-        >
-          AI-powered civic maintenance that connects citizens, field workers and municipal teams in one intelligent platform.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-16"
-        >
-          <Link
-            to="/citizen"
-            className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-emerald text-white font-bold text-sm hover:bg-[#066749] shadow-lg shadow-brand-emerald/25 transition-all flex items-center justify-center gap-2 group"
-          >
-            <span>Report an Issue</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            to="/admin"
-            className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white border border-brand-border text-brand-text font-bold text-sm hover:bg-gray-50 shadow-sm transition-all flex items-center justify-center gap-2"
-          >
-            <Activity className="w-4 h-4 text-brand-blue" />
-            <span>Explore City Operations</span>
-          </Link>
-        </motion.div>
-
-        {/* HERO CITY ANIMATED VISUALIZATION (Requirement #9) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="w-full max-w-5xl h-[320px] md:h-[400px] bg-gradient-to-b from-sky-50 via-emerald-50/20 to-emerald-100/40 rounded-card border border-brand-border shadow-xl relative overflow-hidden flex flex-col justify-end"
-        >
-          {/* Animated Sky Clouds */}
-          <div className="absolute top-4 left-10 w-24 h-8 bg-white/70 rounded-full blur-xs animate-[pulse_4s_infinite]"></div>
-          <div className="absolute top-12 right-20 w-32 h-10 bg-white/80 rounded-full blur-xs animate-[pulse_6s_infinite]"></div>
-
-          {/* AI Scanning Circle Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-emerald/10 to-transparent pointer-events-none animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-
-          {/* Buildings Backdrop (SVG) */}
-          <div className="flex items-end justify-center gap-4 px-8 pb-12 opacity-85">
-            <div className="w-16 h-48 bg-slate-300 rounded-t-xl relative border-t-2 border-slate-400">
-              <div className="grid grid-cols-2 gap-1 p-2">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <div key={i} className="h-3 bg-yellow-100/80 rounded-xs"></div>
-                ))}
-              </div>
-            </div>
-            <div className="w-24 h-64 bg-slate-400 rounded-t-2xl relative border-t-2 border-slate-500">
-              <div className="grid grid-cols-3 gap-1.5 p-3">
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <div key={i} className="h-3 bg-blue-100/90 rounded-xs"></div>
-                ))}
-              </div>
-              {/* GPS Pulsing Marker on Roof */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center justify-center">
-                <span className="w-6 h-6 rounded-full bg-brand-emerald/40 animate-ping absolute"></span>
-                <MapPin className="w-6 h-6 text-brand-emerald drop-shadow-md" />
-              </div>
-            </div>
-            <div className="w-20 h-56 bg-slate-300 rounded-t-xl relative border-t-2 border-slate-400">
-              <div className="grid grid-cols-2 gap-1.5 p-2">
-                {Array.from({ length: 10 }).map((_, i) => (
-                  <div key={i} className="h-3 bg-yellow-100/80 rounded-xs"></div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Environmental Trees & Greenery */}
-          <div className="absolute bottom-12 left-6 flex gap-2">
-            <div className="w-8 h-12 bg-emerald-600 rounded-t-full"></div>
-            <div className="w-10 h-16 bg-emerald-700 rounded-t-full"></div>
-          </div>
-          <div className="absolute bottom-12 right-12 flex gap-2">
-            <div className="w-10 h-16 bg-emerald-600 rounded-t-full"></div>
-            <div className="w-8 h-12 bg-emerald-700 rounded-t-full"></div>
-          </div>
-
-          {/* Road Strip with Moving Vehicles */}
-          <div className="w-full h-14 bg-slate-700 border-t-4 border-slate-600 relative flex items-center overflow-hidden">
-            {/* Road Dash Lines */}
-            <div className="w-full border-t-2 border-dashed border-yellow-400/80"></div>
+      {/* =========================================================================
+          01. HERO SECTION (Matching Mockup: Angled Divider, High-Res City, Floating Card)
+          ========================================================================= */}
+      <section className="relative bg-[#FAF7F2] overflow-hidden border-b border-[#EBE3D7]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[580px] lg:min-h-[620px]">
+          
+          {/* Left Column: Headlines & CTAs */}
+          <div className="lg:col-span-6 px-6 sm:px-8 lg:px-12 py-12 lg:py-20 flex flex-col justify-center z-10">
             
-            {/* Animated Moving Garbage Truck */}
-            <div className="absolute left-0 animate-[moveTruck_12s_linear_infinite] flex items-center gap-1 text-white bg-brand-emerald px-3 py-1 rounded-lg text-xs font-bold shadow-lg">
-              <Truck className="w-5 h-5 text-white" />
-              <span>CITYCONNECT AI TRUCK</span>
-            </div>
+            {/* Tagline Pill */}
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#78716C] mb-4 select-none"
+            >
+              <span>Cleaner Cities</span>
+              <span className="text-[#A34B24]">•</span>
+              <span>Safer Communities</span>
+              <span className="text-[#A34B24]">•</span>
+              <span>Smarter Governance</span>
+            </motion.div>
 
-            {/* Worker Avatar */}
-            <div className="absolute right-1/4 flex items-center gap-1 bg-brand-blue text-white px-2 py-0.5 rounded-full text-[11px] font-bold shadow-md">
-              <User className="w-3.5 h-3.5" />
-              <span>Worker #04</span>
-            </div>
+            {/* Main Headline */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.08] mb-6"
+            >
+              Cleaner Cities <br />
+              Through Smarter <br />
+              <span className="text-[#A34B24]">Collaboration.</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-lg mb-8"
+            >
+              An AI-powered platform that connects citizens, field workers and municipal teams to manage civic issues efficiently, transparently and in real-time.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap items-center gap-3.5"
+            >
+              <Link
+                to="/citizen"
+                className="px-6 py-3.5 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-md shadow-[#A34B24]/20 transition-all flex items-center gap-2 group cursor-pointer"
+              >
+                <Megaphone className="w-4 h-4" />
+                <span>Report an Issue</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                to="/admin"
+                className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-[#EBE3D7] text-slate-800 text-xs font-bold shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <BarChart3 className="w-4 h-4 text-[#A34B24]" />
+                <span>Explore City Operations</span>
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Banner Tag */}
-          <div className="bg-brand-emerald py-2 px-4 text-center text-white font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2">
-            <Bot className="w-4 h-4" /> AI SCANNING ACTIVE • LIVE MUNICIPAL GEOLOCATION
+          {/* Right Column: Panoramic City Image with Angled Edge and Floating Badge */}
+          <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full">
+            
+            {/* The City Photo */}
+            <div className="absolute inset-0 w-full h-full">
+              <img
+                src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=80"
+                alt="Clean Modern City Boulevard"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Warm Gradient Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/40 lg:via-transparent to-black/10"></div>
+            </div>
+
+            {/* Angled Ribbon / Wedge Accent (matching mockup) */}
+            <div 
+              className="hidden lg:block absolute -left-1 top-0 bottom-0 w-24 bg-gradient-to-r from-[#FAF7F2] to-transparent pointer-events-none"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+            ></div>
+
+            {/* Floating Capabilities Card (matching top-right mockup pill) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="absolute top-6 right-6 sm:top-10 sm:right-10 bg-white/95 backdrop-blur-md rounded-2xl border border-white/80 p-4 sm:p-5 shadow-xl max-w-xs space-y-3"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">GPS Verified Locations</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <Camera className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">AI Image Analysis</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <BarChart3 className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">Real-Time Tracking</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-bold text-slate-800">Transparent Governance</span>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+        </div>
       </section>
 
-      {/* 02. LIVE CITY GIS SECTION (Requirement #10) */}
-      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl font-extrabold text-brand-text mb-3">Your City. In Real Time.</h2>
-          <p className="text-brand-muted text-sm">
-            One intelligent GIS overview of citizen complaints, active field workers, garbage vehicles, and civic risk zones.
+
+      {/* =========================================================================
+          02. FOUR CORE PILLARS (Horizontal Row under Hero, matching mockup)
+          ========================================================================= */}
+      <section className="bg-white border-b border-[#EBE3D7] py-6 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Pillar 1 */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">Cleaner Environment</h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">Faster resolution of civic issues</p>
+            </div>
+          </div>
+
+          {/* Pillar 2 */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+              <User className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">Citizen Participation</h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">A more informed and engaged community</p>
+            </div>
+          </div>
+
+          {/* Pillar 3 */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+              <Activity className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">Data-Driven Governance</h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">Real-time insights and analytics</p>
+            </div>
+          </div>
+
+          {/* Pillar 4 */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-900">Accountability &amp; Transparency</h4>
+              <p className="text-[11px] text-slate-500 mt-0.5">Verified evidence and audit trails</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          03. CHOOSE YOUR PORTAL / "BUILT FOR EVERY STAKEHOLDER" (Matching Mockup)
+          ========================================================================= */}
+      <section id="features" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="mb-12">
+          <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#78716C] mb-1">
+            Choose Your Portal
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Built for Every Stakeholder
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+            Dedicated tools for citizens, field workers and municipal teams.
           </p>
         </div>
 
-        <LeafletMap complaints={complaints} height="480px" />
+        {/* 3 Portal Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* CARD 1: CITIZEN PORTAL */}
+          <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
+            <div>
+              <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center mb-4">
+                <User className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Citizen Portal</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                Report civic issues, track status, and stay informed about your city.
+              </p>
+              
+              <Link
+                to="/citizen"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
+              >
+                <span>Access Citizen Portal</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Card Mockup Visual */}
+            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
+                alt="Citizen Mobile App"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
+                <span className="text-[11px] font-semibold text-white drop-shadow">Geo-tagged Quick Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 2: WORKER FIELD CONSOLE */}
+          <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
+            <div>
+              <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                <HardHat className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Worker Field Console</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                View assigned tasks, update work status, and upload before/after evidence.
+              </p>
+              
+              <Link
+                to="/worker"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
+              >
+                <span>Access Worker Console</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Card Mockup Visual */}
+            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?auto=format&fit=crop&w=600&q=80" 
+                alt="Municipal Worker on Site"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
+                <span className="text-[11px] font-semibold text-white drop-shadow">On-Site Task Resolution &amp; Proof</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 3: MUNICIPAL COMMAND CENTER */}
+          <div className="bg-white rounded-2xl border border-[#EBE3D7] p-5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden">
+            <div>
+              <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-1.5">Municipal Command Center</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                Monitor complaints, verify completed work, view GIS maps and analyze city data.
+              </p>
+              
+              <Link
+                to="/admin"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-2xs transition-all mb-4"
+              >
+                <span>Access Admin Dashboard</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Card Mockup Visual */}
+            <div className="mt-2 h-44 rounded-xl overflow-hidden border border-[#EBE3D7] relative bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
+                alt="Command Center Multi-Monitor"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
+                <span className="text-[11px] font-semibold text-white drop-shadow">GIS Heatmaps &amp; Verification Queue</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      {/* 03. IMPACT STATISTICS SECTION (Requirement #11 - Live MongoDB Calculated) */}
-      <section className="py-12 px-4 md:px-8 bg-white border-y border-brand-border">
+
+      {/* =========================================================================
+          04. AI VERIFICATION IN ACTION / "FROM ISSUE TO VERIFIED RESOLUTION"
+          ========================================================================= */}
+      <section id="how-it-works" className="py-16 md:py-20 px-4 md:px-8 bg-white border-y border-[#EBE3D7]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-card bg-brand-bg border border-brand-border text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-brand-emerald mb-1">
-                {stats.totalComplaints}
-              </div>
-              <div className="text-xs font-semibold text-brand-muted uppercase tracking-wider">Total Complaints</div>
+          
+          {/* Section Header */}
+          <div className="mb-12">
+            <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#78716C] mb-1">
+              AI Verification in Action
             </div>
-            <div className="p-6 rounded-card bg-brand-bg border border-brand-border text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-brand-blue mb-1">
-                {stats.activeTasks}
-              </div>
-              <div className="text-xs font-semibold text-brand-muted uppercase tracking-wider">Active Field Tasks</div>
-            </div>
-            <div className="p-6 rounded-card bg-brand-bg border border-brand-border text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-brand-success mb-1">
-                {stats.resolvedIssues}
-              </div>
-              <div className="text-xs font-semibold text-brand-muted uppercase tracking-wider">Resolved Issues</div>
-            </div>
-            <div className="p-6 rounded-card bg-brand-bg border border-brand-border text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-purple-600 mb-1">
-                {stats.verificationRate}%
-              </div>
-              <div className="text-xs font-semibold text-brand-muted uppercase tracking-wider">AI Verification Rate</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 04. AI INTELLIGENCE SECTION (Requirement #12) */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-text mb-3">
-            AI That Doesn't Just React. <br />
-            <span className="text-brand-blue">It Predicts.</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="p-8 rounded-card bg-white border border-brand-border shadow-xs hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center mb-6">
-              <Cpu className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-lg text-brand-text mb-2">AI Complaint Intelligence</h3>
-            <p className="text-xs text-brand-muted leading-relaxed mb-6">
-              Automatic classification, priority indexing, and intelligent department assignment upon submission.
-            </p>
-            <div className="bg-brand-bg p-3 rounded-xl text-[11px] font-mono text-brand-muted space-y-1.5 border border-brand-border">
-              <div>Complaint → Classification</div>
-              <div>Priority → Department</div>
-              <div className="text-brand-emerald font-bold">✓ Automated Dispatch</div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="p-8 rounded-card bg-white border border-brand-border shadow-xs hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-6">
-              <BarChart3 className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-lg text-brand-text mb-2">Predictive Maintenance</h3>
-            <p className="text-xs text-brand-muted leading-relaxed mb-6">
-              Historical issue analysis combined with GIS location density to predict overflowing garbage bins and road defects.
-            </p>
-            <div className="bg-brand-bg p-3 rounded-xl text-[11px] font-mono text-brand-muted space-y-1.5 border border-brand-border">
-              <div>History + GIS Data</div>
-              <div>+ Weather Correlator</div>
-              <div className="text-brand-blue font-bold">→ Risk Map Generated</div>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="p-8 rounded-card bg-white border border-brand-border shadow-xs hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
-              <Flame className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold text-lg text-brand-text mb-2">AI Hotspot &amp; Density Engine</h3>
-            <p className="text-xs text-brand-muted leading-relaxed mb-6">
-              Spatial clustering detects neighborhood complaint clusters in real-time. Automatically triggers high-priority alerts when an area exceeds 5 complaints.
-            </p>
-            <div className="bg-brand-bg p-3 rounded-xl text-[11px] font-mono text-brand-muted space-y-1.5 border border-brand-border">
-              <div>Neighborhood Clustering</div>
-              <div>&gt; 5 Complaint Rule</div>
-              <div className="text-amber-600 font-bold">→ Priority Rapid Squad Dispatch</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 05. PROOF-OF-WORK SECTION (Requirement #13) */}
-      <section className="py-20 px-4 md:px-8 bg-brand-bg border-t border-brand-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-text mb-3">
-              Work Done. <span className="text-brand-emerald">Proof Verified.</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              From Issue to Verified Resolution
             </h2>
-            <p className="text-brand-muted text-sm">
-              AI-powered evidence verification compares Worker BEFORE vs Worker AFTER photos with mandatory backend GPS distance checks (&lt;9m).
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+              Our AI-powered verification system compares before and after images, validates GPS location and detects unresolved or fake submissions.
             </p>
           </div>
 
-          <div className="bg-white rounded-card border border-brand-border p-6 md:p-10 shadow-lg max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="p-4 rounded-2xl bg-gray-50 border border-brand-border text-center">
-                <div className="text-xs font-bold text-gray-500 uppercase mb-2">Worker BEFORE Photo</div>
-                <div className="h-44 bg-slate-800 rounded-xl flex items-center justify-center text-white text-xs font-mono">
-                  📷 Uncleaned Site Capture
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left 8 Cols: Side-by-Side Proof Comparison (Before -> After) */}
+            <div className="lg:col-span-8 bg-[#FAF7F2] p-4 sm:p-6 rounded-2xl border border-[#EBE3D7]">
+              <div className="grid grid-cols-1 sm:grid-cols-11 gap-3 sm:gap-4 items-center">
+                
+                {/* Before Photo */}
+                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border border-slate-300 shadow-sm h-52 sm:h-56">
+                  <img 
+                    src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80"
+                    alt="Pothole Issue Before Repair"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-900/80 text-white text-[11px] font-bold">
+                    Before
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[10px] px-2 py-1 rounded-md font-mono">
+                    Severe Road Defect • Reported by Citizen
+                  </div>
                 </div>
+
+                {/* Arrow Divider */}
+                <div className="sm:col-span-1 flex items-center justify-center py-2 sm:py-0">
+                  <div className="w-8 h-8 rounded-full bg-[#A34B24] text-white flex items-center justify-center shadow-sm">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+
+                {/* After Photo */}
+                <div className="sm:col-span-5 relative rounded-xl overflow-hidden border-2 border-[#A34B24] shadow-sm h-52 sm:h-56">
+                  <img 
+                    src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=600&q=80"
+                    alt="Fresh Asphalt Repaved Road"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#A34B24] text-white text-[11px] font-bold">
+                    After
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 bg-[#A34B24]/90 text-white text-[10px] px-2 py-1 rounded-md font-mono flex items-center justify-between">
+                    <span>Clean Surface Repaved</span>
+                    <span className="font-bold">SSIM: 94% Match</span>
+                  </div>
+                </div>
+
               </div>
-              <div className="p-4 rounded-2xl bg-gray-50 border border-brand-border text-center">
-                <div className="text-xs font-bold text-brand-emerald uppercase mb-2">Worker AFTER Photo</div>
-                <div className="h-44 bg-emerald-900/80 rounded-xl flex items-center justify-center text-white text-xs font-mono border-2 border-brand-emerald">
-                  ✨ Cleaned Site Capture
+
+              {/* Status bar under Before/After */}
+              <div className="mt-4 pt-3 border-t border-[#EBE3D7] flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="font-semibold text-slate-800">YOLOv8 + SSIM Vision Model Verified</span>
+                </div>
+                <div className="flex items-center gap-4 text-slate-500 font-medium text-[11px]">
+                  <span>GPS Distance: <strong>3.2m</strong> (&lt;9m rule)</span>
+                  <span>AI Recommendation: <strong className="text-emerald-700">APPROVE</strong></span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-brand-bg p-6 rounded-2xl border border-brand-border grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div>
-                <div className="text-xs text-brand-muted">Image Analysis</div>
-                <div className="text-sm font-bold text-brand-success mt-1">✓ Passed (94%)</div>
+            {/* Right 4 Cols: Vertical Capabilities List (Matching Mockup) */}
+            <div className="lg:col-span-4 space-y-4">
+              
+              <div className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#FAF7F2] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0 mt-0.5">
+                  <Camera className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900">Image Analysis</h4>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Detects and verifies real issues with YOLOv8</p>
+                </div>
               </div>
-              <div>
-                <div className="text-xs text-brand-muted">GPS Distance</div>
-                <div className="text-sm font-bold text-brand-success mt-1">✓ 7.4 meters (&lt;9m)</div>
+
+              <div className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#FAF7F2] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900">GPS Validation</h4>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Confirms exact on-site location (&lt;9m)</p>
+                </div>
               </div>
-              <div>
-                <div className="text-xs text-brand-muted">Live Camera</div>
-                <div className="text-sm font-bold text-brand-success mt-1">✓ Verified</div>
+
+              <div className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#FAF7F2] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0 mt-0.5">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900">Metadata Check</h4>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Validates submission timestamp &amp; EXIF data</p>
+                </div>
               </div>
-              <div>
-                <div className="text-xs text-brand-muted">Status</div>
-                <div className="text-sm font-bold text-brand-blue mt-1">Ready for Admin</div>
+
+              <div className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#FAF7F2] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] text-[#A34B24] flex items-center justify-center shrink-0 mt-0.5">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900">Fraud Detection</h4>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Guards against inverted or invalid photos</p>
+                </div>
               </div>
+
             </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          05. LIVE GIS OPERATIONS MAP & DATABASE KPI COUNTERS
+          ========================================================================= */}
+      <section id="about" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        
+        {/* KPI Counter Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
+          
+          <div className="p-5 rounded-2xl bg-white border border-[#EBE3D7] shadow-2xs">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Complaints</div>
+            <div className="text-3xl font-extrabold text-slate-900 mt-1">{stats.totalComplaints}</div>
+            <div className="text-[10px] text-slate-500 mt-1">Live Database Records</div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white border border-[#EBE3D7] shadow-2xs">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Active Field Tasks</div>
+            <div className="text-3xl font-extrabold text-[#A34B24] mt-1">{stats.activeTasks}</div>
+            <div className="text-[10px] text-slate-500 mt-1">Dispatched to Workers</div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white border border-[#EBE3D7] shadow-2xs">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Resolved Issues</div>
+            <div className="text-3xl font-extrabold text-emerald-700 mt-1">{stats.resolvedIssues}</div>
+            <div className="text-[10px] text-slate-500 mt-1">Cleaned &amp; Closed</div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white border border-[#EBE3D7] shadow-2xs">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">AI Verification</div>
+            <div className="text-3xl font-extrabold text-blue-700 mt-1">{stats.verificationRate}%</div>
+            <div className="text-[10px] text-slate-500 mt-1">Dual AI + GPS Audited</div>
+          </div>
+
+        </div>
+
+        {/* Live GIS Map Card */}
+        <div className="bg-white rounded-2xl border border-[#EBE3D7] overflow-hidden shadow-xs">
+          <div className="p-4 sm:p-5 border-b border-[#EBE3D7] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h3 className="font-bold text-base text-slate-900 flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#A34B24]" />
+                Live City Civic Operations Map
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Real-time incident distribution, worker locations, and hotspot intelligence
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Link
+                to="/admin"
+                className="px-3.5 py-1.5 rounded-xl bg-[#FAF7F2] hover:bg-[#EFE7DC] border border-[#EBE3D7] text-slate-800 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+              >
+                <span>Full GIS Console</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <LeafletMap complaints={complaints} height="460px" />
+        </div>
+
+      </section>
+
+
+      {/* =========================================================================
+          06. CONTACT & MUNICIPAL ACTION BANNER
+          ========================================================================= */}
+      <section id="contact" className="py-14 px-4 md:px-8 bg-[#FAF0E6] border-t border-[#EBE3D7]">
+        <div className="max-w-5xl mx-auto text-center space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Ready to Build a Cleaner, Smarter City?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Join thousands of active citizens, municipal workers, and city administrators working together on CityConnectAI.
+          </p>
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/citizen"
+              className="px-6 py-3 rounded-xl bg-[#A34B24] hover:bg-[#8C3E1B] text-white text-xs font-bold shadow-md shadow-[#A34B24]/20 transition-all flex items-center gap-1.5"
+            >
+              <Megaphone className="w-4 h-4" />
+              <span>Report an Issue</span>
+            </Link>
+            <Link
+              to="/login"
+              className="px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-[#EBE3D7] text-slate-800 text-xs font-bold shadow-2xs transition-all flex items-center gap-1.5"
+            >
+              <User className="w-4 h-4" />
+              <span>Login to Portal</span>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* 06. THREE ROLE SYSTEM SECTION (Requirement #14) */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-extrabold text-brand-text mb-3">Choose Your Role</h2>
-          <p className="text-brand-muted text-sm">Experience the platform built for all municipal stakeholders.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* CITIZEN */}
-          <Link 
-            to="/citizen"
-            className="p-8 rounded-card bg-white border border-brand-border hover:border-brand-emerald shadow-xs hover:shadow-xl transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <User className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-brand-text mb-2">CITIZEN PORTAL</h3>
-              <p className="text-xs text-brand-muted leading-relaxed mb-6">
-                Report civic issues in seconds with auto GPS location, track status in real-time, and chat with AI assistant.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-bold text-brand-emerald group-hover:translate-x-1 transition-transform">
-              <span>Access Citizen Portal</span>
-              <ChevronRight className="w-4 h-4" />
-            </div>
-          </Link>
-
-          {/* WORKER */}
-          <Link 
-            to="/worker"
-            className="p-8 rounded-card bg-white border border-brand-border hover:border-brand-blue shadow-xs hover:shadow-xl transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Truck className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-brand-text mb-2">WORKER FIELD CONSOLE</h3>
-              <p className="text-xs text-brand-muted leading-relaxed mb-6">
-                Mobile-first field console for workers to view tasks, navigate with GPS, and record Before/After evidence.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-bold text-brand-blue group-hover:translate-x-1 transition-transform">
-              <span>Access Worker Console</span>
-              <ChevronRight className="w-4 h-4" />
-            </div>
-          </Link>
-
-          {/* ADMIN */}
-          <Link 
-            to="/admin"
-            className="p-8 rounded-card bg-white border border-brand-border hover:border-purple-600 shadow-xs hover:shadow-xl transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Eye className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-brand-text mb-2">MUNICIPAL COMMAND CENTER</h3>
-              <p className="text-xs text-brand-muted leading-relaxed mb-6">
-                Comprehensive operations dashboard for city administrators, proof verification, worker dispatch, and analytics.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-bold text-purple-600 group-hover:translate-x-1 transition-transform">
-              <span>Access Admin Dashboard</span>
-              <ChevronRight className="w-4 h-4" />
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Keyframe Styles for Hero Truck Animation */}
-      <style>{`
-        @keyframes moveTruck {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(1000%); }
-        }
-      `}</style>
 
     </div>
   );

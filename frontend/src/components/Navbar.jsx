@@ -13,67 +13,85 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-border px-4 lg:px-8 py-3.5 shadow-xs">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#EBE3D7] px-4 lg:px-8 py-3.5 shadow-2xs">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-2xl bg-brand-emerald flex items-center justify-center text-white shadow-md shadow-brand-emerald/20 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-[#A34B24] flex items-center justify-center text-white shadow-md shadow-[#A34B24]/20 group-hover:scale-105 transition-transform">
             <Building2 className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg text-brand-text tracking-tight">CityConnect</span>
-              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-brand-emerald text-white tracking-widest uppercase">AI</span>
+              <span className="font-extrabold text-lg text-slate-900 tracking-tight">CityConnectAI</span>
             </div>
-            <span className="text-[11px] font-medium text-brand-muted hidden sm:block">Smart Civic Operations Platform</span>
+            <span className="text-[11px] font-medium text-slate-500 hidden sm:block">Smart Civic Operations Platform</span>
           </div>
         </Link>
 
-        {/* Center Role Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-brand-bg p-1.5 rounded-2xl border border-brand-border">
-          <Link
-            to="/citizen"
-            className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-brand-text hover:bg-white hover:shadow-xs transition-all flex items-center gap-1.5"
+        {/* Center Mockup Navigation Links */}
+        <nav className="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-600">
+          <a
+            href="#home"
+            className="text-[#A34B24] relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#A34B24]"
           >
-            <User className="w-3.5 h-3.5 text-brand-emerald" /> Citizen
-          </Link>
-          <Link
-            to="/worker"
-            className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-brand-text hover:bg-white hover:shadow-xs transition-all flex items-center gap-1.5"
+            Home
+          </a>
+          <a
+            href="#about"
+            className="hover:text-[#A34B24] transition-colors py-1"
           >
-            <Truck className="w-3.5 h-3.5 text-brand-blue" /> Worker
-          </Link>
-          <Link
-            to="/admin"
-            className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-brand-text hover:bg-white hover:shadow-xs transition-all flex items-center gap-1.5"
+            About
+          </a>
+          <a
+            href="#features"
+            className="hover:text-[#A34B24] transition-colors py-1"
           >
-            <LayoutDashboard className="w-3.5 h-3.5 text-purple-600" /> Admin
-          </Link>
+            Features
+          </a>
+          <a
+            href="#how-it-works"
+            className="hover:text-[#A34B24] transition-colors py-1"
+          >
+            How It Works
+          </a>
+          <a
+            href="#contact"
+            className="hover:text-[#A34B24] transition-colors py-1"
+          >
+            Contact
+          </a>
         </nav>
 
-        {/* Right User State */}
+        {/* Right User State / Login Button */}
         <div className="flex items-center gap-3">
           {user ? (
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <div className="text-xs font-bold text-brand-text">{user.name}</div>
-                <div className="text-[10px] font-semibold text-brand-emerald capitalize">{user.role} Account</div>
+                <div className="text-xs font-bold text-slate-900">{user.name}</div>
+                <div className="text-[10px] font-semibold text-[#A34B24] capitalize">{user.role} Account</div>
               </div>
+              <Link
+                to={user.role === 'admin' ? '/admin' : user.role === 'worker' ? '/worker' : '/citizen'}
+                className="px-3.5 py-1.5 rounded-xl bg-[#A34B24] text-white text-xs font-bold hover:bg-[#8C3E1B] transition-colors shadow-2xs"
+              >
+                Go to Portal
+              </Link>
               <button
                 onClick={() => { logout(); navigate('/'); }}
-                className="p-2 rounded-xl text-brand-muted hover:text-brand-critical hover:bg-red-50 transition-colors"
+                className="p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
                 title="Logout"
               >
-                <LogOut className="w-5 h-5" />
+                <LogOut className="w-4 h-4" />
               </button>
             </div>
           ) : (
             <div className="flex items-center gap-2">
               <Link
                 to="/login"
-                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-emerald hover:bg-[#066749] shadow-sm transition-all"
+                className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#A34B24] hover:bg-[#8C3E1B] shadow-sm shadow-[#A34B24]/20 transition-all flex items-center gap-1.5"
               >
-                Sign In / Access Roles
+                <User className="w-3.5 h-3.5" />
+                <span>Login</span>
               </Link>
             </div>
           )}

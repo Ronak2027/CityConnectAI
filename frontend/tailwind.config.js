@@ -8,17 +8,24 @@ export default {
     extend: {
       colors: {
         brand: {
-          emerald: '#087F5B',
-          teal: '#0EA5A4',
+          primary: '#A34B24',
+          primaryDark: '#873815',
+          primaryLight: '#FDF2E9',
+          primaryBorder: '#F4D7C5',
+          terracotta: '#A34B24',
+          emerald: '#A34B24', // Unified primary accent mapped to the new terracotta theme
+          teal: '#C25E2E',
           blue: '#2563EB',
           success: '#16A34A',
-          warning: '#F59E0B',
+          warning: '#D97706',
           critical: '#DC2626',
-          bg: '#F5F7F4',
+          bg: '#FAF7F2',
           card: '#FFFFFF',
-          text: '#17201C',
-          muted: '#64706A',
-          border: '#E1E7E3',
+          text: '#1C1917',
+          muted: '#78716C',
+          border: '#EBE3D7',
+          cream: '#F5EFE6',
+          sand: '#EFE7DC',
         }
       },
       fontFamily: {

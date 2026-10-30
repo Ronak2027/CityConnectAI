@@ -9,20 +9,20 @@ export default function Footer() {
     return null;
   }
   return (
-    <footer className="bg-white border-t border-brand-border pt-12 pb-8 px-4 lg:px-8 mt-20">
+    <footer className="bg-white border-t border-[#EBE3D7] pt-12 pb-8 px-4 lg:px-8 mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         {/* Col 1 */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-brand-emerald text-white flex items-center justify-center font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#A34B24] text-white flex items-center justify-center font-bold">
               <Building2 className="w-5 h-5" />
             </div>
-            <span className="font-extrabold text-base text-brand-text">CityConnectAI</span>
+            <span className="font-extrabold text-base text-slate-900">CityConnectAI</span>
           </div>
-          <p className="text-xs text-brand-muted leading-relaxed">
+          <p className="text-xs text-slate-500 leading-relaxed">
             Smart civic operations platform for cleaner, safer, and transparent municipal management.
           </p>
-          <div className="text-[11px] text-brand-emerald font-semibold flex items-center gap-1">
+          <div className="text-[11px] text-[#A34B24] font-semibold flex items-center gap-1">
             <ShieldCheck className="w-4 h-4" /> AI Verified • GPS Validated
           </div>
         </div>

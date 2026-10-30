@@ -87,13 +87,13 @@ export default function LoginPage() {
         <div className="p-3 bg-brand-bg rounded-2xl border border-brand-border mb-6">
           <div className="text-[10px] font-bold text-brand-muted uppercase text-center mb-2">Instant Demo Role Access:</div>
           <div className="grid grid-cols-3 gap-2">
-            <button onClick={() => handleQuickDemo('citizen')} className="p-2 bg-emerald-50 text-brand-emerald rounded-xl text-[11px] font-bold border border-emerald-200 hover:bg-emerald-100 flex flex-col items-center gap-1">
+            <button onClick={() => handleQuickDemo('citizen')} className="p-2 bg-[#FAF0E6] text-[#A34B24] rounded-xl text-[11px] font-bold border border-[#F4D7C5] hover:bg-[#F5E6D8] flex flex-col items-center gap-1 transition-colors">
               <User className="w-4 h-4" /> Citizen
             </button>
-            <button onClick={() => handleQuickDemo('worker')} className="p-2 bg-blue-50 text-brand-blue rounded-xl text-[11px] font-bold border border-blue-200 hover:bg-blue-100 flex flex-col items-center gap-1">
+            <button onClick={() => handleQuickDemo('worker')} className="p-2 bg-blue-50 text-brand-blue rounded-xl text-[11px] font-bold border border-blue-200 hover:bg-blue-100 flex flex-col items-center gap-1 transition-colors">
               <Truck className="w-4 h-4" /> Worker
             </button>
-            <button onClick={() => handleQuickDemo('admin')} className="p-2 bg-purple-50 text-purple-600 rounded-xl text-[11px] font-bold border border-purple-200 hover:bg-purple-100 flex flex-col items-center gap-1">
+            <button onClick={() => handleQuickDemo('admin')} className="p-2 bg-purple-50 text-purple-600 rounded-xl text-[11px] font-bold border border-purple-200 hover:bg-purple-100 flex flex-col items-center gap-1 transition-colors">
               <ShieldCheck className="w-4 h-4" /> Admin
             </button>
           </div>
@@ -160,7 +160,7 @@ export default function LoginPage() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full py-3 bg-brand-emerald text-white font-bold rounded-xl hover:bg-[#066749] shadow-md transition-colors mt-2"
+            className="w-full py-3 bg-[#A34B24] text-white font-bold rounded-xl hover:bg-[#8C3E1B] shadow-md shadow-[#A34B24]/20 transition-all mt-2 cursor-pointer"
           >
             {loading ? 'Processing...' : isRegister ? 'Register Account' : 'Sign In'}
           </button>
