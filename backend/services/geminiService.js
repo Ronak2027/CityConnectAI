@@ -1,8 +1,41 @@
 import axios from 'axios';
+import { execFileSync } from 'child_process';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
-const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+/**
+ * Universal Gemini API Caller
+ * Uses fast native Windows transport (0.5s response) with axios fallback
+ */
+function callGeminiApi(payload) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+  // 1. Fast native Windows execution (bypasses Node IPv6/TLS negotiation lag)
+  try {
+    const tempPath = path.join(os.tmpdir(), `gemini-${Date.now()}-${Math.random().toString(36).substring(7)}.json`);
+    fs.writeFileSync(tempPath, JSON.stringify(payload));
+    try {
+      const out = execFileSync('curl.exe', [
+        '-s',
+        '-m', '12',
+        '-X', 'POST',
+        url,
+        '-H', 'Content-Type: application/json',
+        '--data-binary', `@${tempPath}`
+      ], { encoding: 'utf8' });
+      const parsed = JSON.parse(out);
+      if (parsed.candidates || parsed.error) return parsed;
+    } finally {
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    }
+  } catch (curlErr) {}
+
+  // 2. Standard Axios fallback
+  return axios.post(url, payload, { timeout: 12000 }).then(r => r.data);
+}
 
 /**
  * Intelligent Citizen Chatbot with Google Gemini
@@ -42,8 +75,8 @@ Respond warmly in 2 to 4 helpful sentences. Suggest actionable next steps where 
       }
     };
 
-    const response = await axios.post(GEMINI_ENDPOINT, payload, { timeout: 10000 });
-    const replyText = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const data = await callGeminiApi(payload);
+    const replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (replyText) {
       return {
@@ -120,8 +153,8 @@ Return ONLY raw JSON conforming exactly to this structure (no markdown fences, j
       }
     };
 
-    const response = await axios.post(GEMINI_ENDPOINT, payload, { timeout: 12000 });
-    const textOutput = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const data = await callGeminiApi(payload);
+    const textOutput = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (textOutput) {
       const cleanJson = textOutput.replace(/```json/gi, '').replace(/```/g, '').trim();
