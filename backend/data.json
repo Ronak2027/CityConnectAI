@@ -14,10 +14,12 @@
       },
       "priority": "Low",
       "department": "Roads & Infrastructure",
-      "status": "PENDING",
+      "status": "RESOLVED",
       "createdAt": "2026-10-30T17:48:41.845Z",
       "aiPriorityReason": "The complaint in Shirpur lacks a specific description for the road category, indicating a potentially minor or non-urgent issue.",
-      "aiSeverityScore": 15
+      "aiSeverityScore": 15,
+      "assignedWorkerId": "WRK-202",
+      "resolvedAt": "2026-10-30T19:29:28.719Z"
     },
     {
       "_id": "CMP-2026-8178",
@@ -1059,6 +1061,61 @@
   ],
   "activeStormWarning": true,
   "verifications": [
+    {
+      "_id": "VER-1793388527118",
+      "verificationId": "VER-2026-7118",
+      "taskId": "TSK-CMP-2026-1844",
+      "complaintId": {
+        "_id": "CMP-2026-1844",
+        "complaintId": "CMP-2026-1844",
+        "category": "Road",
+        "description": "Civic maintenance issue"
+      },
+      "workerId": {
+        "_id": "WRK-201",
+        "name": "Ramesh Shinde",
+        "department": "Waste Management",
+        "phone": "+91 98201 12345"
+      },
+      "beforeImage": "/uploads/photo-1793382520863-928872873.png",
+      "afterImage": "/uploads/afterImage-1793388527100-644476907.jpg",
+      "imageVerification": {
+        "verifiedByModel": true,
+        "status": "PASSED",
+        "confidence": 71,
+        "ssimScore": 0.88,
+        "detectedChanges": [
+          "Pothole cavity filled and leveled",
+          "Fresh bitumen / asphalt patch applied",
+          "Smooth road surface restored for traffic"
+        ],
+        "reason": "The reported pothole is no longer detected in the closure photograph.",
+        "recommendation": "APPROVE",
+        "isFraud": false,
+        "aiModelUsed": "CityConnectAI YOLOv8 & SSIM Engine",
+        "analyzedAt": "2026-10-30T19:29:28.014Z"
+      },
+      "gpsVerification": {
+        "passed": true,
+        "distanceMeters": 7.8,
+        "maxAllowedMeters": 9
+      },
+      "workerLocation": {
+        "latitude": 21.35570268280764,
+        "longitude": 74.88825681363838,
+        "address": "Near Coordinates (21.3557, 74.8883)"
+      },
+      "complaintLocation": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "captureTimestamp": "2026-10-30T19:28:47.119Z",
+      "cameraVerification": true,
+      "status": "APPROVED",
+      "createdAt": "2026-10-30T19:28:47.119Z",
+      "adminDecisionAt": "2026-10-30T19:29:28.675Z"
+    },
     {
       "_id": "VER-1793380856853",
       "verificationId": "VER-2026-6853",
@@ -4486,6 +4543,54 @@
     }
   ],
   "tasks": [
+    {
+      "_id": "TSK-CMP-2026-1844",
+      "taskId": "TSK-CMP-2026-1844",
+      "complaintId": {
+        "_id": "CMP-2026-1844",
+        "complaintId": "CMP-2026-1844",
+        "citizenId": "66e1bf7289f1a23c4d5e6f7a",
+        "category": "Road",
+        "description": "",
+        "photoUrl": "/uploads/photo-1793382520863-928872873.png",
+        "location": {
+          "latitude": 21.355634171990225,
+          "longitude": 74.88827165308751,
+          "address": "Shirpur, 425405"
+        },
+        "priority": "Low",
+        "department": "Roads & Infrastructure",
+        "status": "ASSIGNED",
+        "createdAt": "2026-10-30T17:48:41.845Z",
+        "aiPriorityReason": "The complaint in Shirpur lacks a specific description for the road category, indicating a potentially minor or non-urgent issue.",
+        "aiSeverityScore": 15,
+        "assignedWorkerId": "WRK-202"
+      },
+      "workerId": "WRK-202",
+      "worker": {
+        "_id": "WRK-202",
+        "id": "WRK-202",
+        "name": "Suresh Kumar",
+        "phone": "+91 98202 23456",
+        "department": "Drainage & Flooding",
+        "domain": "Drainage & Flooding",
+        "zone": "Ward 5 - Wadala East",
+        "status": "ON_DUTY",
+        "rating": 4.9
+      },
+      "status": "COMPLETED",
+      "priority": "Low",
+      "location": {
+        "latitude": 21.355634171990225,
+        "longitude": 74.88827165308751,
+        "address": "Shirpur, 425405"
+      },
+      "createdAt": "2026-10-30T19:28:21.370Z",
+      "beforeImage": "/uploads/photo-1793382520863-928872873.png",
+      "afterImage": "/uploads/afterImage-1793388527100-644476907.jpg",
+      "verificationId": "VER-1793388527118",
+      "completedAt": "2026-10-30T19:29:28.702Z"
+    },
     {
       "_id": "TSK-CMP-2026-8178",
       "taskId": "TSK-CMP-2026-8178",
